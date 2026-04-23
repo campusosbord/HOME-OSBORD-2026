@@ -1,0 +1,107 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Contacto" description="Contacta con el Instituto Online Osbord. Estamos aquí para resolver tus dudas sobre admisiones, programas académicos y certificaciones internacionales.">
+  <Header />
+  <main>
+    <section class="bg-brand-navy py-20 lg:py-24 text-white relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-navy to-brand-navy-light"></div>
+      <div class="relative max-w-7xl mx-auto px-6 text-center space-y-6">
+        <span class="section-label">Atención Directa</span>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight">
+          Estamos para <span class="text-brand-gold">ayudarte</span>
+        </h1>
+        <p class="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          ¿Tienes preguntas sobre nuestros másters o el proceso de certificación? Nuestro equipo de admisiones está disponible para asesorarte de forma personalizada.
+        </p>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="grid lg:grid-cols-2 gap-16">
+          <!-- Info -->
+          <div class="space-y-12">
+            <div class="space-y-4">
+              <span class="section-label">Canales Oficiales</span>
+              <h2 class="text-3xl font-extrabold tracking-tight text-brand-navy">Vías de comunicación</h2>
+              <div class="gold-divider"></div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-8">
+              <div class="p-6 bg-brand-neutral rounded-brand-lg border border-gray-100 space-y-4">
+                <div class="w-10 h-10 bg-brand-gold/10 rounded-brand flex items-center justify-center text-brand-gold">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/></svg>
+                </div>
+                <h3 class="font-extrabold text-brand-navy">Correo Electrónico</h3>
+                <p class="text-sm text-gray-500">Para consultas académicas generales.</p>
+                <a href="mailto:admisiones@osbord.edu" class="text-brand-gold font-bold hover:underline">admisiones@osbord.edu</a>
+              </div>
+              <div class="p-6 bg-brand-neutral rounded-brand-lg border border-gray-100 space-y-4">
+                <div class="w-10 h-10 bg-brand-gold/10 rounded-brand flex items-center justify-center text-brand-gold">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+                </div>
+                <h3 class="font-extrabold text-brand-navy">WhatsApp</h3>
+                <p class="text-sm text-gray-500">Respuesta rápida por consultores de admisión.</p>
+                <a href="https://wa.me/1234567890" class="text-brand-gold font-bold hover:underline">+1 (123) 456-7890</a>
+              </div>
+            </div>
+
+            <div class="p-8 bg-brand-navy text-white rounded-brand-xl space-y-4">
+              <h3 class="text-xl font-extrabold text-brand-gold">Presencia Internacional</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                Nuestras oficinas administrativas centrales se encuentran en Estados Unidos y Venezuela, garantizando la validez internacional de nuestros títulos.
+              </p>
+              <div class="space-y-4 pt-2">
+                <div>
+                  <p class="text-[10px] text-brand-gold uppercase tracking-widest font-bold mb-1">Sede Estados Unidos</p>
+                  <p class="font-semibold text-white text-sm">7901 4th St N STE 300, St. Petersburg, FL 33702.</p>
+                </div>
+                <div>
+                  <p class="text-[10px] text-brand-gold uppercase tracking-widest font-bold mb-1">Sede Venezuela</p>
+                  <p class="font-semibold text-white text-sm">Caracas, Venezuela.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <div class="bg-brand-neutral rounded-brand-xl p-8 md:p-12 border border-gray-100 shadow-soft space-y-8">
+            <h3 class="text-2xl font-extrabold text-brand-navy text-center">Envíanos un mensaje</h3>
+            <form class="space-y-6">
+              <div class="grid sm:grid-cols-2 gap-6">
+                <div class="space-y-2">
+                  <label class="text-xs font-bold uppercase tracking-wider text-gray-400">Nombre</label>
+                  <input type="text" placeholder="Tu nombre" class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold transition-all" />
+                </div>
+                <div class="space-y-2">
+                  <label class="text-xs font-bold uppercase tracking-wider text-gray-400">Correo</label>
+                  <input type="email" placeholder="Tu email" class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold transition-all" />
+                </div>
+              </div>
+              <div class="space-y-2">
+                <label class="text-xs font-bold uppercase tracking-wider text-gray-400">Programa de Interés</label>
+                <select class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold transition-all bg-white">
+                  <option>Seleccionar programa</option>
+                  <option>Máster en Auxiliar de Enfermería</option>
+                  <option>Máster en Interiorismo 3D</option>
+                  <option>Máster en Wedding Planner</option>
+                  <option>Otro / Consulta general</option>
+                </select>
+              </div>
+              <div class="space-y-2">
+                <label class="text-xs font-bold uppercase tracking-wider text-gray-400">Mensaje</label>
+                <textarea rows="4" placeholder="¿Cómo podemos ayudarte?" class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold transition-all"></textarea>
+              </div>
+              <button type="button" class="cta-button w-full justify-center text-base py-4">ENVIAR CONSULTA</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

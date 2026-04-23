@@ -1,0 +1,85 @@
+---
+import { Image } from 'astro:assets';
+import heroImg from '../assets/hero_professional.png';
+
+interface Props {
+  isUS?: boolean;
+}
+
+const { isUS = false } = Astro.props;
+---
+<section class="relative bg-brand-navy min-h-[85vh] flex items-center overflow-hidden">
+  <!-- Background Image -->
+  <div class="absolute inset-0">
+    <Image
+      src={heroImg}
+      alt="Profesionales en el atrio del Instituto Online Osbord"
+      class="w-full h-full object-cover opacity-30"
+      width={1920}
+      height={1080}
+      loading="eager"
+      decoding="async"
+    />
+  </div>
+
+  <!-- Gradient Overlays -->
+  <div class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/85 to-brand-navy/40"></div>
+  <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/50 to-transparent"></div>
+
+  <!-- Content -->
+  <div class="relative max-w-7xl mx-auto px-6 py-28 lg:py-32 w-full">
+    <div class="max-w-2xl space-y-8 animate-fade-in-up">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 bg-white/5 border border-white/10 rounded-full backdrop-blur-sm">
+        <span class="w-2 h-2 bg-brand-gold rounded-full animate-pulse"></span>
+        <span class="text-brand-gold text-xs font-bold uppercase tracking-[0.2em]">Sede Estados Unidos y Venezuela — Institución Global</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white leading-[1.08] tracking-tight">
+        Liderazgo Académico
+        <br />
+        <span class="text-brand-gold">de Alto Impacto</span>
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="text-lg md:text-xl text-gray-300/90 max-w-xl leading-relaxed font-light animate-fade-in-up delay-200">
+        Formación de élite diseñada para profesionales que buscan autoridad, certificación internacional y excelencia técnica en un mercado global competitivo.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-4 pt-2 animate-fade-in-up delay-300">
+        <a href={isUS ? "#contacto-usa" : "https://wa.me/1234567890"} class="cta-button cta-dynamic text-base px-10 py-4">
+          {isUS ? "ADMISSIONS" : "SOLICITAR ADMISIÓN"}
+        </a>
+        <a href="#metodologia" class="ghost-button text-base">
+          Explorar Metodología
+        </a>
+      </div>
+
+      <!-- Micro-trust -->
+      <div class="flex items-center gap-6 pt-4 animate-fade-in-up delay-400">
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.403 12.652a3 3 0 0 0 0-5.304 3 3 0 0 0-3.75-3.751 3 3 0 0 0-5.305 0 3 3 0 0 0-3.751 3.75 3 3 0 0 0 0 5.305 3 3 0 0 0 3.75 3.751 3 3 0 0 0 5.305 0 3 3 0 0 0 3.751-3.75Zm-2.546-4.46a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd"/></svg>
+          <span class="text-xs text-gray-400 font-medium">Sede Estados Unidos</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.403 12.652a3 3 0 0 0 0-5.304 3 3 0 0 0-3.75-3.751 3 3 0 0 0-5.305 0 3 3 0 0 0-3.751 3.75 3 3 0 0 0 0 5.305 3 3 0 0 0 3.75 3.751 3 3 0 0 0 5.305 0 3 3 0 0 0 3.751-3.75Zm-2.546-4.46a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd"/></svg>
+          <span class="text-xs text-gray-400 font-medium">Sede Venezuela</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.403 12.652a3 3 0 0 0 0-5.304 3 3 0 0 0-3.75-3.751 3 3 0 0 0-5.305 0 3 3 0 0 0-3.751 3.75 3 3 0 0 0 0 5.305 3 3 0 0 0 3.75 3.751 3 3 0 0 0 5.305 0 3 3 0 0 0 3.751-3.75Zm-2.546-4.46a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd"/></svg>
+          <span class="text-xs text-gray-400 font-medium">Diploma Apostillado</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <svg class="w-4 h-4 text-brand-gold" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.403 12.652a3 3 0 0 0 0-5.304 3 3 0 0 0-3.75-3.751 3 3 0 0 0-5.305 0 3 3 0 0 0-3.751 3.75 3 3 0 0 0 0 5.305 3 3 0 0 0 3.75 3.751 3 3 0 0 0 5.305 0 3 3 0 0 0 3.751-3.75Zm-2.546-4.46a.75.75 0 0 0-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 1 0-1.06 1.061l2.5 2.5a.75.75 0 0 0 1.137-.089l4-5.5Z" clip-rule="evenodd"/></svg>
+          <span class="text-xs text-gray-400 font-medium">100% Online</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Decorative Elements -->
+  <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
+  <div class="absolute top-1/4 right-0 w-96 h-96 bg-brand-gold/5 rounded-full blur-3xl pointer-events-none"></div>
+</section>

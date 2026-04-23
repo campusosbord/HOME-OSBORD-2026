@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Página No Encontrada" description="La página que buscas no existe." noIndex={true}>
+  <Header />
+  <main>
+    <section class="bg-white py-32 lg:py-40">
+      <div class="max-w-2xl mx-auto px-6 text-center space-y-8">
+        <p class="text-8xl md:text-9xl font-extrabold text-brand-gold/20" style="font-family: var(--font-montserrat);">404</p>
+        <h1 class="text-3xl md:text-4xl font-extrabold text-brand-navy -mt-4">Página no encontrada</h1>
+        <p class="text-lg text-gray-500 leading-relaxed">Lo sentimos, la página que buscas no existe o ha sido movida. Te invitamos a explorar nuestras opciones académicas.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+          <a href="/" class="cta-button">VOLVER AL INICIO</a>
+          <a href="/#oferta" class="ghost-button text-brand-navy border-brand-navy/20 hover:bg-brand-navy/5">VER PROGRAMAS</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

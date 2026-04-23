@@ -1,0 +1,45 @@
+---
+interface Props {
+  headline?: string;
+  subtext?: string;
+  buttonText?: string;
+  buttonLink?: string;
+  variant?: 'light' | 'dark';
+}
+
+const {
+  headline = "¿Listo para elevar tu perfil profesional?",
+  subtext = "El proceso de admisión está abierto para las próximas cohortes. Asegura tu lugar en una institución que valora la calidad sobre la cantidad.",
+  buttonText = "SOLICITAR CONSULTORÍA DE ADMISIÓN",
+  buttonLink = "https://wa.me/1234567890",
+  variant = 'light',
+} = Astro.props;
+
+const isDark = variant === 'dark';
+---
+
+<section class={`py-24 relative overflow-hidden ${isDark ? 'bg-brand-navy' : 'bg-brand-neutral'}`}>
+  <!-- Decorative -->
+  {isDark && (
+    <div class="absolute inset-0">
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-gold/3 rounded-full blur-3xl"></div>
+    </div>
+  )}
+
+  <div class="relative max-w-3xl mx-auto px-6 text-center space-y-8">
+    <h2 class={`text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight ${isDark ? 'text-white' : ''}`}>
+      {headline}
+    </h2>
+    <p class={`text-lg max-w-2xl mx-auto leading-relaxed ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+      {subtext}
+    </p>
+    <div id="seccion-contacto" class="flex justify-center pt-2">
+      <a href={buttonLink} class="cta-button cta-dynamic text-base md:text-lg px-10 md:px-14 py-4 md:py-5">
+        {buttonText}
+      </a>
+    </div>
+    <p class={`text-xs font-medium uppercase tracking-widest ${isDark ? 'text-gray-500' : 'text-gray-400'}`}>
+      Sin compromiso · Respuesta en 24 horas
+    </p>
+  </div>
+</section>

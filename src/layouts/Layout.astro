@@ -1,0 +1,101 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  canonicalUrl?: string;
+  ogImage?: string;
+  noIndex?: boolean;
+}
+
+const {
+  title,
+  description = "Instituto Online Osbord — Másters de Alta Dirección y Especialización con sede en USA. Formación de élite para profesionales globales.",
+  canonicalUrl,
+  ogImage = "/og-image.jpg",
+  noIndex = false,
+} = Astro.props;
+
+const siteUrl = "https://osbord.edu";
+const fullTitle = `${title} | Instituto Online Osbord`;
+
+const orgSchema = {
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "Instituto Online Osbord",
+  "alternateName": "Osbord Institute",
+  "url": siteUrl,
+  "logo": `${siteUrl}/logo.png`,
+  "description": "Institución educativa online con sede en USA, especializada en formación de élite en Ciencias de la Salud, Arquitectura y Diseño, y Gestión de Eventos.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "7901 4th St N STE 300",
+    "addressLocality": "St. Petersburg",
+    "addressRegion": "FL",
+    "postalCode": "33702",
+    "addressCountry": "US"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Admisiones",
+    "availableLanguage": ["Spanish", "English"]
+  },
+  "sameAs": [
+    "https://www.instagram.com/osbordinstituto",
+    "https://www.linkedin.com/company/osbord",
+    "https://www.facebook.com/osbordinstituto"
+  ]
+};
+---
+
+<!doctype html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO Primary -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    {noIndex && <meta name="robots" content="noindex, nofollow" />}
+    {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${siteUrl}${ogImage}`} />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:site_name" content="Instituto Online Osbord" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Google Fonts — Preconnect + Preload for CWV -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&display=swap"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Schema.org — EducationalOrganization -->
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+
+    <!-- Additional Schema slots (Course, BreadcrumbList injected per page) -->
+    <slot name="head" />
+  </head>
+  <body class="min-h-screen bg-white text-brand-navy">
+    <slot />
+  </body>
+</html>

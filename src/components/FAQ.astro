@@ -1,0 +1,52 @@
+---
+const faqs = [
+  {
+    q: "¿Los títulos tienen validez internacional?",
+    a: "Sí, todos nuestros másters incluyen un diploma emitido por nuestra sede en Florida, USA, y pueden ser apostillados bajo el Convenio de La Haya para su plena validez legal en más de 120 países."
+  },
+  {
+    q: "¿Cuál es la modalidad de estudio?",
+    a: "La modalidad es 100% online a través de nuestro campus virtual de última generación. Esto permite que el alumno gestione su tiempo, accediendo a clases grabadas, materiales exclusivos y mentorías en vivo."
+  },
+  {
+    q: "¿Existen facilidades de pago?",
+    a: "Ofrecemos planes de financiación sin intereses de hasta 12 meses. También contamos con becas parciales por mérito académico y descuentos por pago único."
+  },
+  {
+    q: "¿Qué requisitos necesito para matricularme?",
+    a: "Se requiere ser mayor de edad y contar con título de educación secundaria. Para programas de especialización técnica, se valorará positivamente la experiencia previa en el sector, aunque no es excluyente."
+  }
+];
+---
+
+<section class="py-24 bg-white">
+  <div class="max-w-3xl mx-auto px-6">
+    <div class="text-center space-y-4 mb-16">
+      <span class="section-label">Resolviendo dudas</span>
+      <h2 class="text-3xl font-extrabold tracking-tight text-brand-navy">Preguntas <span class="text-brand-gold">Frecuentes</span></h2>
+      <div class="gold-divider mx-auto"></div>
+    </div>
+
+    <div class="space-y-4">
+      {faqs.map((faq, i) => (
+        <details class="group bg-brand-neutral rounded-brand-lg border border-gray-100 overflow-hidden transition-all duration-300 open:shadow-soft">
+          <summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+            <h3 class="text-sm md:text-base font-extrabold text-brand-navy pr-4">{faq.q}</h3>
+            <span class="flex-shrink-0 transition-transform duration-300 group-open:rotate-180 text-brand-gold">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </span>
+          </summary>
+          <div class="px-6 pb-6 text-sm md:text-base text-gray-500 leading-relaxed animate-fade-in">
+            {faq.a}
+          </div>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

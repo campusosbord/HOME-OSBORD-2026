@@ -1,0 +1,89 @@
+---
+import { Image } from 'astro:assets';
+import healthImg from '../assets/school_health.png';
+import designImg from '../assets/school_design.png';
+import eventsImg from '../assets/school_events.png';
+
+const schools = [
+  {
+    title: "Escuela de Ciencias de la Salud",
+    description: "Formación técnica avanzada en asistencia sanitaria, cuidados clínicos y gestión hospitalaria con estándares internacionales.",
+    image: healthImg,
+    accent: "from-blue-500/20",
+    link: "/masters/enfermeria",
+    program: "Máster en Auxiliar de Enfermería"
+  },
+  {
+    title: "Escuela de Arquitectura y Diseño",
+    description: "Especialización en modelado 3D, interiorismo de lujo y arquitectura contemporánea con herramientas de última generación.",
+    image: designImg,
+    accent: "from-amber-500/20",
+    link: "/masters/interiorismo",
+    program: "Máster en Interiorismo 3D"
+  },
+  {
+    title: "Escuela de Gestión de Eventos",
+    description: "Protocolo, organización de eventos de alto nivel y Wedding Planning profesional para el mercado internacional.",
+    image: eventsImg,
+    accent: "from-rose-500/20",
+    link: "/masters/wedding-planner",
+    program: "Máster en Wedding Planner"
+  }
+];
+---
+
+<section id="oferta" class="py-24 bg-brand-neutral">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Section Header -->
+    <div class="text-center mb-16 space-y-5">
+      <p class="section-label">Nuestras Facultades</p>
+      <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight">
+        Excelencia por <span class="text-brand-gold">Escuelas</span>
+      </h2>
+      <p class="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
+        Nuestra oferta académica se organiza en escuelas de especialización, cada una liderada por expertos activos en su industria.
+      </p>
+      <div class="gold-divider mx-auto"></div>
+    </div>
+
+    <!-- School Cards Grid -->
+    <div class="grid md:grid-cols-3 gap-8">
+      {schools.map((school, index) => (
+        <article class={`group relative bg-white rounded-brand-lg overflow-hidden shadow-soft transition-all duration-500 hover:-translate-y-2 hover:shadow-elevated animate-fade-in-up delay-${(index + 1) * 100}`}>
+          <!-- Image -->
+          <div class="relative h-64 overflow-hidden">
+            <Image
+              src={school.image}
+              alt={school.title}
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              width={600}
+              height={400}
+            />
+            <div class={`absolute inset-0 bg-gradient-to-t ${school.accent} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+            <!-- Program Tag -->
+            <div class="absolute top-4 left-4 px-3 py-1.5 bg-brand-navy/90 backdrop-blur-sm rounded-full">
+              <span class="text-[10px] text-brand-gold font-bold uppercase tracking-widest">{school.program}</span>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <div class="p-8 space-y-4">
+            <h3 class="text-xl font-extrabold group-hover:text-brand-gold transition-colors duration-300">
+              {school.title}
+            </h3>
+            <p class="text-gray-500 text-sm leading-relaxed">{school.description}</p>
+            <a
+              href={school.link}
+              class="inline-flex items-center text-brand-navy font-bold text-xs uppercase tracking-widest group-hover:text-brand-gold transition-colors duration-300"
+            >
+              Ver Programa
+              <svg class="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,57 @@
+---
+interface Props {
+  syllabus: {
+    title: string;
+    content: string | string[];
+  }[];
+}
+
+const { syllabus } = Astro.props;
+---
+
+<div class="space-y-4" role="list">
+  {syllabus.map((item, index) => (
+    <details name="syllabus" class="group bg-brand-neutral rounded-brand-lg border border-gray-100 open:bg-white open:shadow-elevated open:border-brand-gold/20 transition-all duration-500" role="listitem">
+      <summary class="flex justify-between items-center p-6 md:p-8 cursor-pointer list-none focus:outline-none select-none">
+        <div class="flex items-center gap-5">
+          <span class="flex-shrink-0 w-12 h-12 rounded-brand bg-brand-gold/10 flex items-center justify-center text-brand-gold font-bold text-sm group-open:bg-brand-gold group-open:text-white transition-all duration-300">
+            {(index + 1).toString().padStart(2, '0')}
+          </span>
+          <span class="font-bold text-base md:text-xl text-brand-navy group-open:text-brand-gold transition-colors duration-300 uppercase tracking-wide">
+            {item.title}
+          </span>
+        </div>
+        <span class="flex-shrink-0 ml-4 text-brand-gold transition-transform duration-500 group-open:rotate-180">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </span>
+      </summary>
+      
+      <div class="px-8 md:px-12 pb-8 md:pb-10">
+        <div class="border-t border-gray-100 pt-8">
+          {Array.isArray(item.content) ? (
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-12">
+              {item.content.map((unit) => (
+                <div class="flex items-start gap-3 group/unit">
+                  <div class="mt-1 flex-shrink-0 w-5 h-5 rounded-md bg-brand-gold/5 flex items-center justify-center group-hover/unit:bg-brand-gold/20 transition-colors duration-300">
+                    <svg class="w-3.5 h-3.5 text-brand-navy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"/>
+                    </svg>
+                  </div>
+                  <span class={`text-sm md:text-base font-semibold transition-colors duration-300 ${unit.includes('Examen') ? 'text-brand-navy font-extrabold' : 'text-gray-500 group-hover/unit:text-brand-navy'}`}>
+                    {unit}
+                  </span>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p class="text-gray-500 leading-relaxed text-sm md:text-base">
+              {item.content}
+            </p>
+          )}
+        </div>
+      </div>
+    </details>
+  ))}
+</div>

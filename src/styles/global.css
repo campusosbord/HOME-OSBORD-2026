@@ -1,0 +1,199 @@
+@import "tailwindcss";
+
+/* ─── Design System: Instituto Online Osbord ─── */
+
+@theme {
+  /* Brand Colors */
+  --color-brand-navy: #1B263B;
+  --color-brand-navy-light: #243352;
+  --color-brand-gold: #C5A059;
+  --color-brand-gold-dark: #b08e4d;
+  --color-brand-gold-light: #d4b373;
+  --color-brand-neutral: #F8F9FA;
+  --color-brand-neutral-dark: #E9ECEF;
+
+  /* Typography */
+  --font-montserrat: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+  --font-inter: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Border Radius */
+  --radius-brand: 8px;
+  --radius-brand-lg: 12px;
+  --radius-brand-xl: 16px;
+
+  /* Shadows */
+  --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+  --shadow-elevated: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+  --shadow-glass: 0 8px 32px 0 rgba(27, 38, 59, 0.08);
+}
+
+/* ─── Base Layer ─── */
+
+@layer base {
+  html {
+    font-family: var(--font-inter);
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-montserrat);
+    font-weight: 700;
+    color: var(--color-brand-navy);
+    line-height: 1.15;
+  }
+
+  body {
+    @apply bg-white text-brand-navy leading-relaxed;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  ::selection {
+    background-color: var(--color-brand-gold);
+    color: white;
+  }
+}
+
+/* ─── Component Layer ─── */
+
+@layer components {
+  /* Primary CTA Button */
+  .cta-button {
+    @apply inline-flex items-center justify-center px-8 py-3.5 bg-brand-gold text-white font-bold tracking-wide rounded-brand transition-all duration-300;
+    font-family: var(--font-montserrat);
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    box-shadow: 0 4px 14px 0 rgba(197, 160, 89, 0.3);
+  }
+
+  .cta-button:hover {
+    @apply bg-brand-gold-dark;
+    box-shadow: 0 6px 20px 0 rgba(197, 160, 89, 0.45);
+    transform: translateY(-1px);
+  }
+
+  .cta-button:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  /* Ghost Button */
+  .ghost-button {
+    @apply inline-flex items-center justify-center px-8 py-3.5 border border-white/20 text-white font-semibold rounded-brand transition-all duration-300;
+    font-family: var(--font-montserrat);
+    font-size: 0.875rem;
+    letter-spacing: 0.03em;
+    backdrop-filter: blur(4px);
+  }
+
+  .ghost-button:hover {
+    @apply bg-white/10 border-white/40;
+  }
+
+  /* Section Padding */
+  .section-padding {
+    @apply py-24 px-6 max-w-7xl mx-auto;
+  }
+
+  /* Glass Card */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: var(--shadow-glass);
+  }
+
+  /* Gold Divider */
+  .gold-divider {
+    @apply w-16 h-1 bg-brand-gold rounded-full;
+  }
+
+  /* Section Label */
+  .section-label {
+    @apply text-brand-gold text-xs font-bold uppercase tracking-[0.25em];
+    font-family: var(--font-montserrat);
+  }
+  /* Location-based visibility */
+  .solo-usa {
+    display: none !important;
+  }
+
+  .solo-latam {
+    display: block !important;
+  }
+}
+
+/* ─── Animations ─── */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.7s ease-out both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out both;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.7s ease-out both;
+}
+
+/* Staggered animation delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+
+/* ─── Scrollbar Styling ─── */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-brand-neutral);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-brand-navy);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-gold);
+}

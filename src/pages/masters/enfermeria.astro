@@ -1,0 +1,307 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import CourseAccordion from '../../components/CourseAccordion.astro';
+import Testimonials from '../../components/Testimonials.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTASection from '../../components/CTASection.astro';
+import { Image } from 'astro:assets';
+import healthImg from '../../assets/school_health.png';
+
+const syllabus = [
+  { 
+    title: "Módulo 1: Fundamentos de la Enfermería Moderna", 
+    content: [
+      "Historia y Evolución de la Enfermería",
+      "Ética y Deontología Profesional",
+      "Marco Legal Sanitario Internacional",
+      "Responsabilidad Civil del Auxiliar",
+      "Modelos y Teorías de Cuidado",
+      "El Sistema Sanitario y su Estructura",
+      "Derechos y Deberes del Paciente",
+      "Examen de Evaluación: Módulo 1."
+    ]
+  },
+  { 
+    title: "Módulo 2: Anatomía y Fisiología Aplicada", 
+    content: [
+      "Sistema Osteomuscular",
+      "Aparato Cardiovascular y Respiratorio",
+      "Sistema Digestivo y Excretor",
+      "Sistema Nervioso y Endocrino",
+      "Sentidos y Sistema Tegumentario",
+      "Fisiopatología de las Enfermedades Comunes",
+      "Terminología Médica Fundamental",
+      "Examen de Evaluación: Módulo 2."
+    ]
+  },
+  { 
+    title: "Módulo 3: Cuidados Básicos y Higiene", 
+    content: [
+      "Protocolos de Higiene del Paciente",
+      "Mecánica Corporal y Movilización",
+      "Prevención de Úlceras por Presión",
+      "Técnicas de Asepsia y Antisepsia",
+      "Manejo de Residuos Sanitarios",
+      "Confort y Seguridad en el Entorno Hospitalario",
+      "Cuidados Post-Mortem",
+      "Examen de Evaluación: Módulo 3."
+    ]
+  },
+  { 
+    title: "Módulo 4: Farmacología Clínica", 
+    content: [
+      "Introducción a la Farmacodinámica",
+      "Vías de Administración de Medicamentos",
+      "Cálculo de Dosis y Diluciones",
+      "Gestión de Carro de Parada",
+      "Seguridad en la Administración",
+      "Farmacovigilancia y Efectos Adversos",
+      "Almacenamiento y Conservación de Fármacos",
+      "Examen de Evaluación: Módulo 4."
+    ]
+  },
+  { 
+    title: "Módulo 5: Primeros Auxilios y Emergencias", 
+    content: [
+      "Soporte Vital Básico (SVB)",
+      "Uso del Desfibrilador Externo (DEA)",
+      "Actuación ante Obstrucción de Vía Aérea",
+      "Manejo de Hemorragias y Quemaduras",
+      "Protocolo de Triage en Emergencias",
+      "Inmovilización y Traslado de Heridos",
+      "Primeros Auxilios Psicológicos",
+      "Examen de Evaluación: Módulo 5."
+    ]
+  },
+  { 
+    title: "Módulo 6: Psicología y Comunicación", 
+    content: [
+      "Psicología Evolutiva del Paciente",
+      "Técnicas de Comunicación Asertiva",
+      "Manejo del Paciente Difícil",
+      "Apoyo Psicológico al Paciente Crónico",
+      "Duelo y Acompañamiento",
+      "Relación con la Familia y el Entorno",
+      "Trabajo en Equipo Multidisciplinar",
+      "Examen de Evaluación: Módulo 6."
+    ]
+  },
+  { 
+    title: "Módulo 7: Gestión de Material y Logística", 
+    content: [
+      "Inventario y Almacén Sanitario",
+      "Mantenimiento Preventivo de Equipos",
+      "Gestión de Pedidos y Suministros",
+      "Documentación Clínica y Administrativa",
+      "Informática Aplicada a la Gestión Sanitaria",
+      "Protocolos de Esterilización (Autoclave)",
+      "Examen de Evaluación: Módulo 7."
+    ]
+  },
+  { 
+    title: "Módulo 8: Nutrición y Dietética Clínica", 
+    content: [
+      "Bases de la Nutrición Humana",
+      "Dietas Terapéuticas Hospitalarias",
+      "Administración de Nutrición Enteral",
+      "Hidratación y Balance Hídrico",
+      "Higiene Alimentaria y Manipulación",
+      "Evaluación Nutricional del Paciente",
+      "Protocolos de Alimentación Asistida",
+      "Examen de Evaluación: Módulo 8."
+    ]
+  },
+  { 
+    title: "Módulo 9: Geriatría y Cuidados Especiales", 
+    content: [
+      "Fisiología del Envejecimiento",
+      "Cuidados en el Paciente con Alzheimer/Demencia",
+      "Prevención de Caídas en el Anciano",
+      "Cuidados Paliativos y Calidad de Vida",
+      "Estimulación Cognitiva y Sensorial",
+      "Recursos Socio-Sanitarios para Mayores",
+      "Examen de Evaluación: Módulo 9."
+    ]
+  },
+  { 
+    title: "Módulo 10: Proyecto Final de Maestría", 
+    content: [
+      "Planteamiento de un Caso Clínico Real",
+      "Desarrollo del Plan de Cuidados de Enfermería",
+      "Investigación Bibliográfica Sanitaria",
+      "Análisis de Resultados y Conclusiones",
+      "Dossier Técnico Final",
+      "Defensa ante el Comité Académico",
+      "Evaluación Final de Grado."
+    ]
+  }
+];
+
+const courseSchema = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Máster en Auxiliar de Enfermería",
+  "description": "Formación técnica de élite en asistencia sanitaria con certificación internacional. 10 módulos especializados con diploma apostillado.",
+  "provider": {
+    "@type": "EducationalOrganization",
+    "name": "Instituto Online Osbord",
+    "url": "https://osbord.edu"
+  },
+  "educationalLevel": "Máster",
+  "numberOfCredits": 60,
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "Online",
+    "courseWorkload": "PT600H"
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://osbord.edu" },
+    { "@type": "ListItem", "position": 2, "name": "Escuela de Ciencias de la Salud", "item": "https://osbord.edu/escuela/salud" },
+    { "@type": "ListItem", "position": 3, "name": "Máster en Auxiliar de Enfermería", "item": "https://osbord.edu/masters/enfermeria" }
+  ]
+};
+---
+
+<Layout
+  title="Máster en Auxiliar de Enfermería"
+  description="Obtén tu certificación internacional en Auxiliar de Enfermería. Formación técnica de élite con 10 módulos especializados, diploma apostillado y sede en USA."
+>
+  <!-- Per-page Schema -->
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(courseSchema)} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Header />
+  <main>
+    <!-- Course Hero -->
+    <section class="bg-brand-navy py-24 lg:py-28 text-white relative overflow-hidden">
+      <div class="absolute inset-0 opacity-15">
+        <Image src={healthImg} alt="Formación en Enfermería" class="w-full h-full object-cover" width={1920} height={1080} loading="eager" />
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/90 to-brand-navy/60"></div>
+
+      <div class="relative max-w-7xl mx-auto px-6">
+        <!-- Breadcrumb -->
+        <nav class="mb-8" aria-label="Breadcrumb">
+          <ol class="flex items-center gap-2 text-xs text-gray-400">
+            <li><a href="/" class="hover:text-brand-gold transition-colors">Inicio</a></li>
+            <li><span class="mx-1">/</span></li>
+            <li><a href="/escuela/salud" class="hover:text-brand-gold transition-colors">Ciencias de la Salud</a></li>
+            <li><span class="mx-1">/</span></li>
+            <li class="text-brand-gold font-semibold">Máster en Aux. de Enfermería</li>
+          </ol>
+        </nav>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <div class="space-y-6 animate-fade-in-up">
+            <span class="section-label">Escuela de Ciencias de la Salud</span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.08] tracking-tight">
+              Máster en Auxiliar de Enfermería
+            </h1>
+            <p class="text-lg text-gray-300 max-w-lg leading-relaxed">
+              Diferénciate con una formación técnica de alto nivel, avalada por estándares internacionales y diseñada para la empleabilidad inmediata.
+            </p>
+
+            <!-- Stats Row -->
+            <div class="flex items-center gap-8 pt-4 animate-fade-in-up delay-200">
+              <div class="text-center">
+                <p class="text-brand-gold font-extrabold text-2xl lg:text-3xl">10</p>
+                <p class="text-[10px] uppercase tracking-[0.15em] text-gray-400 font-bold mt-1">Módulos</p>
+              </div>
+              <div class="w-px h-10 bg-white/10"></div>
+              <div class="text-center">
+                <p class="text-brand-gold font-extrabold text-2xl lg:text-3xl">USA</p>
+                <p class="text-[10px] uppercase tracking-[0.15em] text-gray-400 font-bold mt-1">Certificación</p>
+              </div>
+              <div class="w-px h-10 bg-white/10"></div>
+              <div class="text-center">
+                <p class="text-brand-gold font-extrabold text-2xl lg:text-3xl">Online</p>
+                <p class="text-[10px] uppercase tracking-[0.15em] text-gray-400 font-bold mt-1">Metodología</p>
+              </div>
+              <div class="w-px h-10 bg-white/10"></div>
+              <div class="text-center">
+                <p class="text-brand-gold font-extrabold text-2xl lg:text-3xl">600h</p>
+                <p class="text-[10px] uppercase tracking-[0.15em] text-gray-400 font-bold mt-1">Duración</p>
+              </div>
+            </div>
+
+            <div class="pt-4 animate-fade-in-up delay-300">
+              <a href="https://wa.me/1234567890" class="cta-button text-base px-10 py-4">
+                DESCARGAR BROCHURE & ADMISIÓN
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Syllabus Section -->
+    <section class="section-padding bg-white">
+      <div class="grid lg:grid-cols-3 gap-16">
+        <!-- Left Column: Info -->
+        <div class="lg:col-span-1 space-y-6">
+          <p class="section-label">Plan de Estudios</p>
+          <h2 class="text-3xl font-extrabold tracking-tight">Programa Académico</h2>
+          <div class="gold-divider"></div>
+          <p class="text-gray-500 leading-relaxed">
+            Un plan de estudios exhaustivo diseñado para cubrir todas las competencias críticas que demanda el sector salud actualmente.
+          </p>
+
+          <!-- Includes Card -->
+          <div class="p-6 bg-brand-neutral rounded-brand-lg border border-gray-100 space-y-4">
+            <h4 class="font-extrabold text-sm uppercase tracking-wider">¿Qué incluye?</h4>
+            <ul class="space-y-3">
+              <li class="flex items-center gap-3 text-sm text-gray-600">
+                <span class="w-5 h-5 rounded-full bg-brand-gold/10 flex items-center justify-center flex-shrink-0">
+                  <span class="w-1.5 h-1.5 bg-brand-gold rounded-full"></span>
+                </span>
+                Acceso de por vida al campus virtual.
+              </li>
+              <li class="flex items-center gap-3 text-sm text-gray-600">
+                <span class="w-5 h-5 rounded-full bg-brand-gold/10 flex items-center justify-center flex-shrink-0">
+                  <span class="w-1.5 h-1.5 bg-brand-gold rounded-full"></span>
+                </span>
+                Tutoría personalizada 24/7.
+              </li>
+              <li class="flex items-center gap-3 text-sm text-gray-600">
+                <span class="w-5 h-5 rounded-full bg-brand-gold/10 flex items-center justify-center flex-shrink-0">
+                  <span class="w-1.5 h-1.5 bg-brand-gold rounded-full"></span>
+                </span>
+                Diploma apostillado por la Haya.
+              </li>
+              <li class="flex items-center gap-3 text-sm text-gray-600">
+                <span class="w-5 h-5 rounded-full bg-brand-gold/10 flex items-center justify-center flex-shrink-0">
+                  <span class="w-1.5 h-1.5 bg-brand-gold rounded-full"></span>
+                </span>
+                Comunidad privada de egresados.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right Column: Accordion -->
+        <div class="lg:col-span-2">
+          <CourseAccordion syllabus={syllabus} />
+        </div>
+      </div>
+    </section>
+    
+    <Testimonials />
+    <FAQ />
+
+    <!-- CTA -->
+    <CTASection
+      variant="dark"
+      headline="Inicia tu camino hacia la excelencia sanitaria"
+      subtext="Únete a la próxima cohorte del Máster en Auxiliar de Enfermería y obtén la autoridad que tu carrera merece."
+      buttonText="HABLAR CON UN ASESOR"
+    />
+  </main>
+  <Footer />
+</Layout>
