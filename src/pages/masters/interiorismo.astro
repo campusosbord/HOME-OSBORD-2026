@@ -138,8 +138,8 @@ const syllabus = [
 const courseSchema = {
   "@context": "https://schema.org",
   "@type": "Course",
-  "name": "Máster en Interiorismo 3D",
-  "description": "Especialización en diseño de interiores y modelado 3D con certificación internacional. Renderizado fotorrealista y gestión de proyectos de alta gama.",
+  "name": "Máster en Interiorismo, Diseño y Decoración de Interiores 3D",
+  "description": "Formación técnica de alto nivel en diseño de interiores, modelado 3D y visualización arquitectónica con certificación internacional. Renderizado fotorrealista y gestión de proyectos de alta gama.",
   "provider": {
     "@type": "EducationalOrganization",
     "name": "Instituto Online Osbord",
@@ -159,15 +159,15 @@ const breadcrumbSchema = {
   "@type": "BreadcrumbList",
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://osbord.edu" },
-    { "@type": "ListItem", "position": 2, "name": "Escuela de Arquitectura y Diseño", "item": "https://osbord.edu/escuela/diseno" },
-    { "@type": "ListItem", "position": 3, "name": "Máster en Interiorismo 3D", "item": "https://osbord.edu/masters/interiorismo" }
+    { "@type": "ListItem", "position": 2, "name": "Escuela de Arquitectura y Diseño", "item": "https://osbord.edu/escuela/design" },
+    { "@type": "ListItem", "position": 3, "name": "Máster en Interiorismo, Diseño y Decoración de Interiores 3D", "item": "https://osbord.edu/masters/interiorismo" }
   ]
 };
 ---
 
 <Layout
-  title="Máster en Interiorismo 3D"
-  description="Especialízate en diseño de interiores y modelado 3D. Renderizado fotorrealista con V-Ray, SketchUp y Blender. Certificación internacional con diploma apostillado."
+  title="Máster en Interiorismo, Diseño y Decoración de Interiores 3D"
+  description="Domina el diseño de interiores y la visualización 3D. Formación técnica avanzada para el mercado inmobiliario de lujo. Certificación con diploma apostillado."
 >
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(courseSchema)} />
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
@@ -186,9 +186,9 @@ const breadcrumbSchema = {
           <ol class="flex items-center gap-2 text-xs text-gray-400">
             <li><a href="/" class="hover:text-brand-gold transition-colors">Inicio</a></li>
             <li><span class="mx-1">/</span></li>
-            <li><a href="/escuela/diseno" class="hover:text-brand-gold transition-colors">Arquitectura y Diseño</a></li>
+            <li><a href="/escuela/design" class="hover:text-brand-gold transition-colors">Arquitectura y Diseño</a></li>
             <li><span class="mx-1">/</span></li>
-            <li class="text-brand-gold font-semibold">Máster en Interiorismo 3D</li>
+            <li class="text-brand-gold font-semibold uppercase text-[10px] tracking-widest">Máster en Interiorismo, Diseño y Decoración de Interiores 3D</li>
           </ol>
         </nav>
 
@@ -196,10 +196,10 @@ const breadcrumbSchema = {
           <div class="space-y-6 animate-fade-in-up">
             <span class="section-label">Escuela de Arquitectura y Diseño</span>
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.08] tracking-tight">
-              Máster en Interiorismo 3D
+              Máster en Interiorismo, Diseño <span class="text-brand-gold">y Decoración 3D</span>
             </h1>
             <p class="text-lg text-gray-300 max-w-lg leading-relaxed">
-              Domina el diseño de interiores de alta gama con herramientas de última generación. De la idea al render fotorrealista.
+              Transforma espacios con maestría técnica. Especialización en diseño de interiores de lujo y visualización arquitectónica fotorrealista.
             </p>
 
             <div class="flex items-center gap-8 pt-4 animate-fade-in-up delay-200">

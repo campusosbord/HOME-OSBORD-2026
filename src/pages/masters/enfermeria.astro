@@ -142,7 +142,7 @@ const syllabus = [
 const courseSchema = {
   "@context": "https://schema.org",
   "@type": "Course",
-  "name": "Máster en Auxiliar de Enfermería",
+  "name": "CURSO PROFESIONAL SUPERIOR: AUXILIAR DE ENFERMERÍA CLÍNICA",
   "description": "Formación técnica de élite en asistencia sanitaria con certificación internacional. 10 módulos especializados con diploma apostillado.",
   "provider": {
     "@type": "EducationalOrganization",
@@ -164,14 +164,14 @@ const breadcrumbSchema = {
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://osbord.edu" },
     { "@type": "ListItem", "position": 2, "name": "Escuela de Ciencias de la Salud", "item": "https://osbord.edu/escuela/salud" },
-    { "@type": "ListItem", "position": 3, "name": "Máster en Auxiliar de Enfermería", "item": "https://osbord.edu/masters/enfermeria" }
+    { "@type": "ListItem", "position": 3, "name": "CURSO PROFESIONAL SUPERIOR: AUXILIAR DE ENFERMERÍA CLÍNICA", "item": "https://osbord.edu/masters/enfermeria" }
   ]
 };
 ---
 
 <Layout
-  title="Máster en Auxiliar de Enfermería"
-  description="Obtén tu certificación internacional en Auxiliar de Enfermería. Formación técnica de élite con 10 módulos especializados, diploma apostillado y sede en USA."
+  title="CURSO PROFESIONAL SUPERIOR: AUXILIAR DE ENFERMERÍA CLÍNICA"
+  description="Obtén tu certificación internacional en Auxiliar de Enfermería Clínica. Formación técnica de élite con 10 módulos especializados, diploma apostillado y sede en USA."
 >
   <!-- Per-page Schema -->
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(courseSchema)} />
@@ -194,16 +194,19 @@ const breadcrumbSchema = {
             <li><span class="mx-1">/</span></li>
             <li><a href="/escuela/salud" class="hover:text-brand-gold transition-colors">Ciencias de la Salud</a></li>
             <li><span class="mx-1">/</span></li>
-            <li class="text-brand-gold font-semibold">Máster en Aux. de Enfermería</li>
+            <li class="text-brand-gold font-semibold uppercase text-[10px] tracking-widest">AUXILIAR DE ENFERMERÍA CLÍNICA</li>
           </ol>
         </nav>
 
         <div class="grid lg:grid-cols-2 gap-12 items-center">
           <div class="space-y-6 animate-fade-in-up">
             <span class="section-label">Escuela de Ciencias de la Salud</span>
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.08] tracking-tight">
-              Máster en Auxiliar de Enfermería
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.08] tracking-tight uppercase">
+              AUXILIAR DE <span class="text-brand-gold">ENFERMERÍA CLÍNICA</span>
             </h1>
+            <p class="text-lg text-gray-300 max-w-lg leading-relaxed font-bold italic">
+              CURSO PROFESIONAL SUPERIOR
+            </p>
             <p class="text-lg text-gray-300 max-w-lg leading-relaxed">
               Diferénciate con una formación técnica de alto nivel, avalada por estándares internacionales y diseñada para la empleabilidad inmediata.
             </p>

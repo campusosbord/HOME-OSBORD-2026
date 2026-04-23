@@ -161,7 +161,7 @@ const syllabus = [
 const courseSchema = {
   "@context": "https://schema.org",
   "@type": "Course",
-  "name": "Máster en Wedding Planner",
+  "name": "Máster en Organización de Eventos & Wedding Planner + IA",
   "description": "Formación profesional en organización de bodas y eventos de lujo. Protocolo, diseño, logística y marketing digital con certificación internacional.",
   "provider": {
     "@type": "EducationalOrganization",
@@ -183,14 +183,14 @@ const breadcrumbSchema = {
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://osbord.edu" },
     { "@type": "ListItem", "position": 2, "name": "Escuela de Gestión de Eventos", "item": "https://osbord.edu/escuela/eventos" },
-    { "@type": "ListItem", "position": 3, "name": "Máster en Wedding Planner", "item": "https://osbord.edu/masters/wedding-planner" }
+    { "@type": "ListItem", "position": 3, "name": "Máster en Organización de Eventos & Wedding Planner + IA", "item": "https://osbord.edu/masters/wedding-planner" }
   ]
 };
 ---
 
 <Layout
-  title="Máster en Wedding Planner"
-  description="Conviértete en Wedding Planner profesional. Protocolo nupcial, diseño de eventos de lujo y marketing digital. Certificación internacional con diploma apostillado."
+  title="Máster en Organización de Eventos & Wedding Planner + IA"
+  description="Conviértete en un experto en organización de bodas y eventos de lujo con Inteligencia Artificial. Certificación internacional con diploma apostillado."
 >
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(courseSchema)} />
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
@@ -211,7 +211,7 @@ const breadcrumbSchema = {
             <li><span class="mx-1">/</span></li>
             <li><a href="/escuela/eventos" class="hover:text-brand-gold transition-colors">Gestión de Eventos</a></li>
             <li><span class="mx-1">/</span></li>
-            <li class="text-brand-gold font-semibold">Máster en Wedding Planner</li>
+            <li class="text-brand-gold font-semibold uppercase text-[10px] tracking-widest">Máster en Organización de Eventos & Wedding Planner + IA</li>
           </ol>
         </nav>
 
@@ -219,10 +219,10 @@ const breadcrumbSchema = {
           <div class="space-y-6 animate-fade-in-up">
             <span class="section-label">Escuela de Gestión de Eventos</span>
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.08] tracking-tight">
-              Máster en Wedding Planner
+              Máster en Organización de Eventos & Wedding Planner <span class="text-brand-gold">+ IA</span>
             </h1>
             <p class="text-lg text-gray-300 max-w-lg leading-relaxed">
-              Domina el arte de crear bodas y eventos inolvidables. Protocolo, diseño y gestión empresarial para el mercado del lujo.
+              Domina el arte de crear bodas y eventos inolvidables con el apoyo de herramientas de IA. Protocolo, diseño y gestión empresarial para el mercado del lujo.
             </p>
 
             <div class="flex items-center gap-8 pt-4 animate-fade-in-up delay-200">
