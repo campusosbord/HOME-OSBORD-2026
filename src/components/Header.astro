@@ -5,7 +5,8 @@ interface Props {
   isUS?: boolean;
 }
 
-const { isUS = false } = Astro.props;
+const { isUS: propIsUS } = Astro.props;
+const isUS = propIsUS ?? Astro.locals.isUS ?? false;
 ---
 <header id="site-header" class="bg-white/95 backdrop-blur-md border-b border-gray-100/80 sticky top-0 z-50 transition-shadow duration-300">
   <div class="max-w-7xl mx-auto px-6">

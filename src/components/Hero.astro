@@ -6,7 +6,8 @@ interface Props {
   isUS?: boolean;
 }
 
-const { isUS = false } = Astro.props;
+const { isUS: propIsUS } = Astro.props;
+const isUS = propIsUS ?? Astro.locals.isUS ?? false;
 ---
 <section class="relative bg-brand-navy min-h-[85vh] flex items-center overflow-hidden">
   <!-- Background Image -->

@@ -1,24 +1,29 @@
 import { defineMiddleware } from "astro:middleware";
 
 export const onRequest = defineMiddleware(async (context, next) => {
-  const { url, request, redirect } = context;
+  const { url, request, redirect, cookies, locals } = context;
 
-  // Solo actuar si estamos en la raíz (/)
-  if (url.pathname === "/") {
-    // Vercel inyecta el código de país en este header
+  // 1. Obtener localidad (prioridad: Cookie > Header Vercel)
+  let locality = cookies.get("osbord-locality")?.value;
+  
+  if (!locality) {
     const country = request.headers.get("x-vercel-ip-country") || "OTHER";
-    
-    // Lista de códigos de país de LATAM
-    const latamCountries = ["AR", "BO", "CL", "CO", "CR", "DO", "EC", "GT", "HN", "MX", "NI", "PA", "PE", "PR", "PY", "SV", "UY", "VE"];
+    locality = country === "US" ? "us" : "latam";
+    // Guardar en cookie por 30 días
+    cookies.set("osbord-locality", locality, { path: "/", maxAge: 60 * 60 * 24 * 30 });
+  }
 
-    if (country === "US") {
+  // 2. Establecer variable global para componentes
+  locals.isUS = locality === "us";
+
+  // 3. Redirección solo en la raíz (/) para enviar al "Home" correspondiente
+  if (url.pathname === "/") {
+    if (locality === "us") {
       return redirect("/us");
-    } else if (latamCountries.includes(country) || country !== "US") {
-      // Redirigir a latam si es LATAM o cualquier otro país que no sea USA
+    } else {
       return redirect("/latam");
     }
   }
 
-  // Si no es la raíz o no coincide con los criterios, continuar normalmente
   return next();
 });
