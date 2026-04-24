@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro build && echo \"export { default } from './server/entry.mjs';\" > dist/_worker.js && find dist -name \"wrangler.json\" -delete",
     "preview": "astro preview",
     "astro": "astro",
     "generate-types": "wrangler types"
