@@ -1,46 +1,46 @@
 import { defineMiddleware } from "astro:middleware";
 
 export const onRequest = defineMiddleware(async (context, next) => {
-  const { url, redirect, cookies, locals } = context;
+  try {
+    const { url, redirect, locals } = context;
 
-  // 1. Determinar la región basada en la URL primero
-  const isUSPath = url.pathname.startsWith("/us");
-  const isLatamPath = url.pathname.startsWith("/latam");
-
-  if (isUSPath) {
-    locals.isUS = true;
-    cookies.set("osbord-locality", "us", { path: "/", maxAge: 60 * 60 * 24 * 30 });
-    return next();
-  }
-
-  if (isLatamPath) {
-    locals.isUS = false;
-    cookies.set("osbord-locality", "latam", { path: "/", maxAge: 60 * 60 * 24 * 30 });
-    return next();
-  }
-
-  // 2. Si estamos en la raíz (/) decidir y redirigir
-  if (url.pathname === "/") {
-    let locality = cookies.get("osbord-locality")?.value;
-    
-    if (!locality) {
-      // Usar Cloudflare Runtime para detectar el país
-      const country = (locals.runtime?.cf as any)?.country || "OTHER";
-      locality = country === "US" ? "us" : "latam";
+    // 1. Evitar procesar archivos estáticos o internos de Astro
+    if (url.pathname.includes('.') || url.pathname.startsWith('/_')) {
+      return next();
     }
 
-    return redirect(`/${locality}/`);
-  }
+    // 2. Determinar si ya estamos en una ruta de región
+    const isUSPath = url.pathname.startsWith("/us");
+    const isLatamPath = url.pathname.startsWith("/latam");
 
-  // 3. Para otras rutas raíz (como /contacto), redirigir a la versión con prefijo
-  if (!isUSPath && !isLatamPath && !url.pathname.startsWith("/_") && !url.pathname.includes(".")) {
-    let locality = cookies.get("osbord-locality")?.value;
-    if (!locality) {
-        const country = (locals.runtime?.cf as any)?.country || "OTHER";
-        locality = country === "US" ? "us" : "latam";
+    if (isUSPath || isLatamPath) {
+      locals.isUS = isUSPath;
+      return next();
     }
-    return redirect(`/${locality}${url.pathname}`);
-  }
 
-  return next();
+    // 3. Redirección solo en la raíz (/) para evitar bucles
+    if (url.pathname === "/") {
+      const cf = (locals.runtime as any)?.cf;
+      const country = cf?.country || "OTHER";
+      const locality = country === "US" ? "us" : "latam";
+      
+      console.log(`[Middleware] Redirigiendo raíz a /${locality}/ basado en país: ${country}`);
+      return redirect(`/${locality}/`);
+    }
+
+    // 4. Para otras rutas sin prefijo (ej: /contacto), redirigir a la versión con prefijo
+    // pero de forma segura
+    if (!isUSPath && !isLatamPath) {
+      const cf = (locals.runtime as any)?.cf;
+      const country = cf?.country || "OTHER";
+      const locality = country === "US" ? "us" : "latam";
+      
+      return redirect(`/${locality}${url.pathname}`);
+    }
+
+    return next();
+  } catch (error) {
+    console.error("[Middleware Error]:", error);
+    return next(); // En caso de error crítico, intentar cargar la página original
+  }
 });
