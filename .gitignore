@@ -24,4 +24,8 @@ pnpm-debug.log*
 .idea/
 .vercel
 .wrangler
+wrangler.json
+wrangler.jsonc
+wrangler.toml
+wrangler.deploy.json
 
