@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && node -e \"const fs=require('fs'); const p='dist/server/wrangler.json'; if(fs.existsSync(p)){ const d=JSON.parse(fs.readFileSync(p)); const clean={name:d.name,compatibility_date:d.compatibility_date,compatibility_flags:['nodejs_compat'],pages_build_output_dir:'dist',main:'dist/server/entry.mjs'}; fs.writeFileSync(p, JSON.stringify(clean)); fs.writeFileSync('wrangler.json', JSON.stringify(clean)); }\"",
+    "build": "astro build && rm -f dist/server/wrangler.json",
     "preview": "astro preview",
     "astro": "astro",
     "generate-types": "wrangler types"
