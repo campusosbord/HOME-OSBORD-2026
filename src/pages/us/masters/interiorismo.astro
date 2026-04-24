@@ -1,0 +1,328 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import CourseAccordion from '../../../components/CourseAccordion.astro';
+import Testimonials from '../../../components/Testimonials.astro';
+import FAQ from '../../../components/FAQ.astro';
+import CTASection from '../../../components/CTASection.astro';
+import TeachersSection from '../../../components/TeachersSection.astro';
+import AccreditationBadge from '../../../components/AccreditationBadge.astro';
+import { Image } from 'astro:assets';
+import designImg from '../../../assets/school_design.png';
+
+const syllabus = [
+  { 
+    title: "Módulo 1: Fundamentos del Diseño de Interiores", 
+    content: [
+      "Historia del Interiorismo Contemporáneo",
+      "Teoría de la Composición y el Espacio",
+      "Estilos Decorativos de Vanguardia",
+      "Psicología del Color y Percepción",
+      "Antropometría y Ergonomía",
+      "Briefing y Análisis de Necesidades",
+      "Moodboards y Concepto Creativo",
+      "Examen de Evaluación: Módulo 1."
+    ]
+  },
+  { 
+    title: "Módulo 2: Dibujo Técnico y Planimetría", 
+    content: [
+      "Representación Gráfica Arquitectónica",
+      "Dibujo en Planta, Alzados y Secciones",
+      "Simbología y Normas Técnicas",
+      "Introducción al CAD 2D",
+      "Escalas e Impresión Técnica",
+      "Detalles Constructivos Básicos",
+      "Examen de Evaluación: Módulo 2."
+    ]
+  },
+  { 
+    title: "Módulo 3: Modelado 3D con SketchUp", 
+    content: [
+      "Interfaz y Herramientas de Modelado",
+      "Modelado de Mobiliario a Medida",
+      "Gestión de Capas y Grupos",
+      "Importación de Planos 2D",
+      "Uso de la 3D Warehouse",
+      "Creación de Escenas y Recorridos",
+      "Modelado de Espacios Complejos",
+      "Examen de Evaluación: Módulo 3."
+    ]
+  },
+  { 
+    title: "Módulo 4: Renderizado con V-Ray y Blender", 
+    content: [
+      "Principios de Iluminación Global",
+      "Creación y Edición de Materiales PBR",
+      "Mapeado de Texturas y UV Mapping",
+      "Configuración de Cámaras y Lentes",
+      "Renderizado en Tiempo Real vs. Estático",
+      "Post-producción en Photoshop",
+      "Optimización de Tiempos de Render",
+      "Examen de Evaluación: Módulo 4."
+    ]
+  },
+  { 
+    title: "Módulo 5: Materiales y Acabados de Lujo", 
+    content: [
+      "Piedras Naturales y Revestimientos",
+      "Maderas y Carpintería de Autor",
+      "Textiles y Tapicería Premium",
+      "Metales y Vidrios Arquitectónicos",
+      "Nuevos Materiales Sostenibles",
+      "Presupuestación de Materiales",
+      "Examen de Evaluación: Módulo 5."
+    ]
+  },
+  { 
+    title: "Módulo 6: Iluminación Arquitectónica", 
+    content: [
+      "Cálculo Lumínico y Normativa",
+      "Tipos de Lámparas y Luminarias",
+      "Control de Iluminación y Domótica",
+      "Efectos de Luz y Escenarios",
+      "Fichas Técnicas de Iluminación",
+      "Eficiencia Energética en el Diseño",
+      "Examen de Evaluación: Módulo 6."
+    ]
+  },
+  { 
+    title: "Módulo 7: Espacios Comerciales y Retail", 
+    content: [
+      "Marketing Sensorial en el Punto de Venta",
+      "Diseño de Escaparates de Lujo",
+      "Customer Journey y Flujos",
+      "Visual Merchandising Avanzado",
+      "Normativas de Locales de Pública Concurrencia",
+      "Imagen de Marca Aplicada al Espacio",
+      "Examen de Evaluación: Módulo 7."
+    ]
+  },
+  { 
+    title: "Módulo 8: Diseño Residencial Premium", 
+    content: [
+      "Distribución de Viviendas de Alto Standing",
+      "Diseño de Cocinas y Baños Gourmet",
+      "Home Staging y Estilismo Final",
+      "Mobiliario de Diseño Internacional",
+      "Instalaciones en el Hogar Inteligente",
+      "Paisajismo en Terrazas y Aticos",
+      "Examen de Evaluación: Módulo 8."
+    ]
+  },
+  { 
+    title: "Módulo 9: Gestión de Proyectos y Obra", 
+    content: [
+      "Fases del Proyecto de Interiorismo",
+      "Gestión de Gremios y Proveedores",
+      "Cronogramas de Obra (Diagrama de Gantt)",
+      "Presupuestos y Control de Costes",
+      "Contratos y Seguros de Obra",
+      "Atención al Cliente y Post-Venta",
+      "Examen de Evaluación: Módulo 9."
+    ]
+  },
+  { 
+    title: "Módulo 10: Proyecto Final de Maestría", 
+    content: [
+      "Definición del Concepto y Programa",
+      "Desarrollo de Planimetría Completa",
+      "Modelado y Renders de Alta Calidad",
+      "Memoria de Calidades y Presupuesto",
+      "Dossier Final de Presentación",
+      "Defensa ante el Jurado Académico",
+      "Evaluación Final de Grado."
+    ]
+  }
+];
+
+const courseSchema = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Máster en Interiorismo, Diseño y Decoración de Interiores 3D",
+  "description": "Formación técnica de alto nivel en diseño de interiores, modelado 3D y visualización arquitectónica con certificación internacional. Renderizado fotorrealista y gestión de proyectos de alta gama.",
+  "provider": {
+    "@type": "EducationalOrganization",
+    "name": "Instituto Online Osbord",
+    "url": "https://osbord.edu"
+  },
+  "educationalLevel": "Máster",
+  "numberOfCredits": 60,
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "Online",
+    "courseWorkload": "PT600H"
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://osbord.edu" },
+    { "@type": "ListItem", "position": 2, "name": "Escuela de Arquitectura y Diseño", "item": "https://osbord.edu/escuela/design" },
+    { "@type": "ListItem", "position": 3, "name": "Máster en Interiorismo, Diseño y Decoración de Interiores 3D", "item": "https://osbord.edu/masters/interiorismo" }
+  ]
+};
+---
+
+<Layout
+  title="Máster en Interiorismo, Diseño y Decoración de Interiores 3D"
+  description="Domina el diseño de interiores y la visualización 3D. Formación técnica avanzada para el mercado inmobiliario de lujo. Certificación con diploma apostillado."
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(courseSchema)} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Header />
+  <main>
+    <!-- Course Hero -->
+    <section class="bg-brand-navy py-24 lg:py-32 text-white relative overflow-hidden">
+      <div class="absolute inset-0 opacity-40">
+        <Image src={designImg} alt="Diseño de Interiores 3D" class="w-full h-full object-cover" width={1920} height={1080} loading="eager" />
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/60 to-transparent"></div>
+
+      <div class="relative max-w-7xl mx-auto px-6">
+        <nav class="mb-12" aria-label="Breadcrumb">
+          <ol class="flex items-center gap-2 text-xs text-gray-400">
+            <li><a href="/us/" class="hover:text-brand-gold transition-colors">Inicio</a></li>
+            <li><span class="mx-1">/</span></li>
+            <li><a href="/us/escuela/design" class="hover:text-brand-gold transition-colors">Arquitectura y Diseño</a></li>
+            <li><span class="mx-1">/</span></li>
+            <li class="text-brand-gold font-semibold uppercase text-[10px] tracking-widest">INTERIORISMO Y DISEÑO 3D</li>
+          </ol>
+        </nav>
+
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="space-y-8 animate-fade-in-up">
+            <span class="section-label">Escuela de Arquitectura y Diseño</span>
+            <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-[1.05] tracking-tight uppercase">
+              MÁSTER EN <span class="text-brand-gold">INTERIORISMO 3D</span>
+            </h1>
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-1 bg-brand-gold"></div>
+              <p class="text-xl text-white font-bold tracking-widest uppercase">
+                Diseño y Decoración 3D
+              </p>
+            </div>
+            <p class="text-lg text-gray-200 max-w-lg leading-relaxed">
+              Transforma espacios con maestría técnica. Especialización avanzada en diseño de interiores de lujo y visualización arquitectónica fotorrealista.
+            </p>
+
+            <!-- Stats Row -->
+            <div class="flex flex-wrap items-center gap-8 pt-4">
+              <div class="flex flex-col">
+                <p class="text-brand-gold font-extrabold text-3xl">10</p>
+                <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold">Módulos</p>
+              </div>
+              <div class="w-px h-10 bg-white/20"></div>
+              <div class="flex flex-col">
+                <p class="text-brand-gold font-extrabold text-3xl">USA</p>
+                <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold">Certificación</p>
+              </div>
+              <div class="w-px h-10 bg-white/20"></div>
+              <div class="flex flex-col">
+                <p class="text-brand-gold font-extrabold text-3xl">Online</p>
+                <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold">Modalidad</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- WhatsApp Box Side (Home Style) -->
+          <div class="relative animate-fade-in-up delay-300">
+            <div class="absolute -top-10 -right-6 z-20">
+              <AccreditationBadge className="scale-75 md:scale-90" />
+            </div>
+            <div class="bg-brand-navy/98 p-8 lg:p-10 rounded-brand-xl border border-white/10 shadow-2xl relative group overflow-hidden">
+              <div class="absolute -top-24 -right-24 w-48 h-48 bg-brand-gold/10 rounded-full blur-3xl group-hover:bg-brand-gold/20 transition-colors duration-500"></div>
+              <div class="space-y-8 relative z-10">
+                <div class="space-y-3">
+                  <div class="w-12 h-12 bg-brand-gold/20 rounded-brand flex items-center justify-center">
+                    <svg class="w-6 h-6 text-brand-gold" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                    </svg>
+                  </div>
+                  <h2 class="text-3xl font-extrabold text-white">Atención <span class="text-brand-gold">Personalizada</span></h2>
+                  <p class="text-gray-300 leading-relaxed font-light text-sm">
+                    ¿Deseas conocer más sobre el Máster en Interiorismo 3D? Contacta ahora con un asesor académico para una consultoría gratuita.
+                  </p>
+                </div>
+
+                <div class="space-y-4">
+                  <a href="https://wa.me/1234567890" class="flex items-center justify-center gap-3 w-full bg-brand-gold text-brand-navy font-extrabold py-5 rounded-brand hover:bg-white transition-all duration-300 uppercase tracking-widest text-sm shadow-xl hover:shadow-brand-gold/20">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                    </svg>
+                    Hablar con un asesor
+                  </a>
+                  <p class="text-[10px] text-center text-gray-500 uppercase tracking-[0.2em] font-bold">Respuesta por WhatsApp</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Syllabus Section -->
+    <section class="section-padding bg-white">
+      <div class="grid lg:grid-cols-3 gap-16">
+        <div class="lg:col-span-1 space-y-6">
+          <p class="section-label">Plan de Estudios</p>
+          <h2 class="text-3xl font-extrabold tracking-tight">Programa Académico</h2>
+          <div class="gold-divider"></div>
+          <p class="text-gray-500 leading-relaxed">
+            Formación integral que combina creatividad artística con dominio técnico de las herramientas 3D más demandadas del mercado.
+          </p>
+
+          <div class="p-6 bg-brand-neutral rounded-brand-lg border border-gray-100 space-y-4">
+            <h4 class="font-extrabold text-sm uppercase tracking-wider">¿Qué incluye?</h4>
+            <ul class="space-y-3">
+              <li class="flex items-center gap-3 text-sm text-gray-600">
+                <span class="w-5 h-5 rounded-full bg-brand-gold/10 flex items-center justify-center flex-shrink-0">
+                  <span class="w-1.5 h-1.5 bg-brand-gold rounded-full"></span>
+                </span>
+                Licencias de software incluidas.
+              </li>
+              <li class="flex items-center gap-3 text-sm text-gray-600">
+                <span class="w-5 h-5 rounded-full bg-brand-gold/10 flex items-center justify-center flex-shrink-0">
+                  <span class="w-1.5 h-1.5 bg-brand-gold rounded-full"></span>
+                </span>
+                Biblioteca de assets y texturas premium.
+              </li>
+              <li class="flex items-center gap-3 text-sm text-gray-600">
+                <span class="w-5 h-5 rounded-full bg-brand-gold/10 flex items-center justify-center flex-shrink-0">
+                  <span class="w-1.5 h-1.5 bg-brand-gold rounded-full"></span>
+                </span>
+                Diploma apostillado por la Haya.
+              </li>
+              <li class="flex items-center gap-3 text-sm text-gray-600">
+                <span class="w-5 h-5 rounded-full bg-brand-gold/10 flex items-center justify-center flex-shrink-0">
+                  <span class="w-1.5 h-1.5 bg-brand-gold rounded-full"></span>
+                </span>
+                Portfolio profesional al finalizar.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="lg:col-span-2">
+          <CourseAccordion syllabus={syllabus} />
+        </div>
+      </div>
+    </section>
+
+    <TeachersSection limitTo={["Prof. Alejandro Vivas"]} />
+    <Testimonials />
+    <FAQ />
+
+    <CTASection
+      variant="dark"
+      headline="Transforma espacios, transforma tu carrera"
+      subtext="Únete a la próxima cohorte del Máster en Interiorismo 3D y conviértete en un diseñador de interiores con certificación internacional."
+      buttonText="HABLAR CON UN ASESOR"
+    />
+  </main>
+  <Footer />
+</Layout>

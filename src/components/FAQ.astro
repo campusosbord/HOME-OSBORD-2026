@@ -9,12 +9,20 @@ const faqs = [
     a: "La modalidad es 100% online a través de nuestro campus virtual de última generación. Esto permite que el alumno gestione su tiempo, accediendo a clases grabadas, materiales exclusivos y mentorías en vivo."
   },
   {
-    q: "¿Existen facilidades de pago?",
-    a: "Ofrecemos planes de financiación sin intereses de hasta 12 meses. También contamos con becas parciales por mérito académico y descuentos por pago único."
+    q: "¿Se otorga una certificación al concluir el programa?",
+    a: "Absolutamente. Una vez superados satisfactoriamente todos los módulos que integran la formación, el alumno recibirá su certificación institucional, avalada por los estándares de excelencia académica de nuestro instituto."
   },
   {
-    q: "¿Qué requisitos necesito para matricularme?",
-    a: "Se requiere ser mayor de edad y contar con título de educación secundaria. Para programas de especialización técnica, se valorará positivamente la experiencia previa en el sector, aunque no es excluyente."
+    q: "¿En qué fecha se inician los periodos lectivos?",
+    a: "En el Instituto Osbord priorizamos su flexibilidad. Una vez formalizado su ingreso, tendrá la libertad de seleccionar, de entre nuestro calendario de aperturas disponibles, la fecha de inicio que mejor se armonice con su agenda profesional y personal."
+  },
+  {
+    q: "¿Cuál es el perfil del cuerpo docente y tutores?",
+    a: "Nuestro claustro está conformado por profesionales en activo de alto prestigio, dedicados a transferir no solo conocimiento académico, sino su vasta experiencia en el sector. Su vocación por la enseñanza y rigor técnico garantizan una mentoría sólida y personalizada para su éxito profesional futuro."
+  },
+  {
+    q: "¿Qué valor competitivo aporta la certificación en mi carrera?",
+    a: "Obtener nuestra certificación es un sello de distinción que ratifica su dominio técnico y habilidades prácticas. Es un aval de peso ante empleadores internacionales que garantiza que usted posee el rigor y la competencia necesaria para liderar en su área de especialización."
   }
 ];
 ---
@@ -44,6 +52,22 @@ const faqs = [
     </div>
   </div>
 </section>
+
+<script>
+  const details = document.querySelectorAll('details');
+
+  details.forEach((targetDetail) => {
+    targetDetail.addEventListener('toggle', (e) => {
+      if (targetDetail.open) {
+        details.forEach((detail) => {
+          if (detail !== targetDetail) {
+            detail.open = false;
+          }
+        });
+      }
+    });
+  });
+</script>
 
 <style>
   summary::-webkit-details-marker {

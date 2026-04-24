@@ -7,6 +7,9 @@ interface Props {
 
 const { isUS: propIsUS } = Astro.props;
 const isUS = propIsUS ?? Astro.locals.isUS ?? false;
+
+const pathname = Astro.url.pathname;
+const prefix = pathname.startsWith('/us') ? '/us' : '/latam';
 ---
 
 <footer class="bg-brand-navy text-white pt-20 pb-8">
@@ -15,7 +18,7 @@ const isUS = propIsUS ?? Astro.locals.isUS ?? false;
 
       <!-- Logo & Description -->
       <div class="space-y-6 lg:col-span-1">
-        <a href="/" class="flex flex-col group">
+        <a href={`${prefix}/`} class="flex flex-col group">
           <Logo class="h-30 w-auto" light />
         </a>
         <p class="text-sm text-gray-400 leading-relaxed">
@@ -45,12 +48,12 @@ const isUS = propIsUS ?? Astro.locals.isUS ?? false;
       <div>
         <h4 class="text-sm font-extrabold mb-6 text-brand-gold uppercase tracking-[0.2em]">Institución</h4>
         <ul class="space-y-4">
-          <li><a href="/quienes-somos" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Quiénes somos</a></li>
-          <li><a href="/sede-usa" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Sede Estados Unidos</a></li>
-          <li><a href="/metodologia" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Metodología</a></li>
-          <li><a href="/admisiones" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Admisiones</a></li>
-          <li><a href="/verificacion" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Verificación de Títulos</a></li>
-          <li><a href="/contacto" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Contacto</a></li>
+          <li><a href={`${prefix}/quienes-somos`} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Quiénes somos</a></li>
+          <li><a href={`${prefix}/sede-usa`} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Sede Estados Unidos</a></li>
+          <li><a href={`${prefix}/metodologia`} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Metodología</a></li>
+          <li><a href={`${prefix}/admisiones`} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Admisiones</a></li>
+          <li><a href={`${prefix}/verificacion`} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Verificación de Títulos</a></li>
+          <li><a href={`${prefix}/contacto`} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Contacto</a></li>
         </ul>
       </div>
 
@@ -58,16 +61,16 @@ const isUS = propIsUS ?? Astro.locals.isUS ?? false;
       <div>
         <h4 class="text-sm font-extrabold mb-6 text-brand-gold uppercase tracking-[0.2em]">Escuelas</h4>
         <ul class="space-y-4">
-          <li><a href="/masters/enfermeria" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Escuela de Ciencias de la Salud</a></li>
-          <li><a href="/masters/interiorismo" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Escuela de Arquitectura y Diseño</a></li>
-          <li><a href="/masters/wedding-planner" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Escuela de Gestión de Eventos</a></li>
+          <li><a href={`${prefix}/masters/enfermeria`} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Escuela de Ciencias de la Salud</a></li>
+          <li><a href={`${prefix}/masters/interiorismo`} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Escuela de Arquitectura y Diseño</a></li>
+          <li><a href={`${prefix}/masters/wedding-planner`} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Escuela de Gestión de Eventos</a></li>
         </ul>
 
         <h4 class="text-sm font-extrabold mb-4 mt-8 text-brand-gold uppercase tracking-[0.2em]">Programas</h4>
         <ul class="space-y-4">
-          <li><a href="/masters/enfermeria" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">CURSO PROFESIONAL SUPERIOR: AUXILIAR DE ENFERMERÍA CLÍNICA</a></li>
-          <li><a href="/masters/interiorismo" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Máster en Interiorismo, Diseño y Decoración de Interiores 3D</a></li>
-          <li><a href="/masters/wedding-planner" class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Máster en Organización de Eventos & Wedding Planner + IA</a></li>
+          <li><a href={`${prefix}/masters/enfermeria`} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">CURSO PROFESIONAL SUPERIOR: AUXILIAR DE ENFERMERÍA CLÍNICA</a></li>
+          <li><a href={`${prefix}/masters/interiorismo`} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Máster en Interiorismo, Diseño y Decoración de Interiores 3D</a></li>
+          <li><a href={`${prefix}/masters/wedding-planner`} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Máster en Organización de Eventos & Wedding Planner + IA</a></li>
         </ul>
       </div>
 
@@ -121,9 +124,9 @@ const isUS = propIsUS ?? Astro.locals.isUS ?? false;
           © {new Date().getFullYear()} Instituto Online Osbord LLC. Todos los derechos reservados.
         </p>
         <div class="flex items-center gap-6">
-          <a href="/legal" class="text-[10px] text-gray-500 uppercase tracking-[0.15em] font-bold hover:text-white transition-colors">Aviso Legal</a>
-          <a href="/privacidad" class="text-[10px] text-gray-500 uppercase tracking-[0.15em] font-bold hover:text-white transition-colors">Privacidad</a>
-          <a href="/cookies" class="text-[10px] text-gray-500 uppercase tracking-[0.15em] font-bold hover:text-white transition-colors">Cookies</a>
+          <a href={`${prefix}/legal`} class="text-[10px] text-gray-500 uppercase tracking-[0.15em] font-bold hover:text-white transition-colors">Aviso Legal</a>
+          <a href={`${prefix}/privacidad`} class="text-[10px] text-gray-500 uppercase tracking-[0.15em] font-bold hover:text-white transition-colors">Privacidad</a>
+          <a href={`${prefix}/cookies`} class="text-[10px] text-gray-500 uppercase tracking-[0.15em] font-bold hover:text-white transition-colors">Cookies</a>
         </div>
       </div>
     </div>

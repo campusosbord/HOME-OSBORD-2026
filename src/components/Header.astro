@@ -1,5 +1,6 @@
 ---
 import Logo from './Logo.astro';
+import AdmissionModal from './AdmissionModal.astro';
 
 interface Props {
   isUS?: boolean;
@@ -7,6 +8,9 @@ interface Props {
 
 const { isUS: propIsUS } = Astro.props;
 const isUS = propIsUS ?? Astro.locals.isUS ?? false;
+
+const pathname = Astro.url.pathname;
+const prefix = pathname.startsWith('/us') ? '/us' : '/latam';
 ---
 <header id="site-header" class="bg-white/95 backdrop-blur-md border-b border-gray-100/80 sticky top-0 z-50 transition-shadow duration-300">
   <div class="max-w-7xl mx-auto px-6">
@@ -28,15 +32,15 @@ const isUS = propIsUS ?? Astro.locals.isUS ?? false;
           </button>
           <div class="absolute left-0 top-full pt-1 w-56 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-1 group-hover:translate-y-0">
             <div class="bg-white border border-gray-100 shadow-elevated rounded-brand-lg py-2 overflow-hidden">
-              <a href="/quienes-somos" class="flex items-center px-5 py-3 text-sm text-brand-navy hover:bg-brand-neutral hover:text-brand-gold transition-colors">
+              <a href={`${prefix}/quienes-somos`} class="flex items-center px-5 py-3 text-sm text-brand-navy hover:bg-brand-neutral hover:text-brand-gold transition-colors">
                 <span class="w-1.5 h-1.5 bg-brand-gold rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                 Quiénes somos
               </a>
-              <a href="/sede-usa" class="flex items-center px-5 py-3 text-sm text-brand-navy hover:bg-brand-neutral hover:text-brand-gold transition-colors">
+              <a href={`${prefix}/sede-usa`} class="flex items-center px-5 py-3 text-sm text-brand-navy hover:bg-brand-neutral hover:text-brand-gold transition-colors">
                 <span class="w-1.5 h-1.5 bg-brand-gold rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                 Sede Estados Unidos
               </a>
-              <a href="/metodologia" class="flex items-center px-5 py-3 text-sm text-brand-navy hover:bg-brand-neutral hover:text-brand-gold transition-colors">
+              <a href={`${prefix}/metodologia`} class="flex items-center px-5 py-3 text-sm text-brand-navy hover:bg-brand-neutral hover:text-brand-gold transition-colors">
                 <span class="w-1.5 h-1.5 bg-brand-gold rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                 Metodología
               </a>
@@ -71,9 +75,9 @@ const isUS = propIsUS ?? Astro.locals.isUS ?? false;
                 </div>
                 <ul class="space-y-3 pl-[52px]">
                   <li>
-                    <a href="/masters/enfermeria" class="text-brand-navy hover:text-brand-gold font-medium text-sm transition-colors flex items-center group/link">
+                    <a href={`${prefix}/masters/enfermeria`} class="text-brand-navy hover:text-brand-gold font-medium text-sm transition-colors flex items-center group/link">
                       <span class="w-0 group-hover/link:w-3 h-px bg-brand-gold mr-0 group-hover/link:mr-2 transition-all duration-200"></span>
-                      CURSO PROFESIONAL SUPERIOR: AUXILIAR DE ENFERMERÍA CLÍNICA
+                      Máster en Auxiliar de Enfermería Clínica
                     </a>
                   </li>
                 </ul>
@@ -91,7 +95,7 @@ const isUS = propIsUS ?? Astro.locals.isUS ?? false;
                 </div>
                 <ul class="space-y-3 pl-[52px]">
                   <li>
-                    <a href="/masters/interiorismo" class="text-brand-navy hover:text-brand-gold font-medium text-sm transition-colors flex items-center group/link">
+                    <a href={`${prefix}/masters/interiorismo`} class="text-brand-navy hover:text-brand-gold font-medium text-sm transition-colors flex items-center group/link">
                       <span class="w-0 group-hover/link:w-3 h-px bg-brand-gold mr-0 group-hover/link:mr-2 transition-all duration-200"></span>
                       Máster en Interiorismo, Diseño y Decoración de Interiores 3D
                     </a>
@@ -111,7 +115,7 @@ const isUS = propIsUS ?? Astro.locals.isUS ?? false;
                 </div>
                 <ul class="space-y-3 pl-[52px]">
                   <li>
-                    <a href="/masters/wedding-planner" class="text-brand-navy hover:text-brand-gold font-medium text-sm transition-colors flex items-center group/link">
+                    <a href={`${prefix}/masters/wedding-planner`} class="text-brand-navy hover:text-brand-gold font-medium text-sm transition-colors flex items-center group/link">
                       <span class="w-0 group-hover/link:w-3 h-px bg-brand-gold mr-0 group-hover/link:mr-2 transition-all duration-200"></span>
                       Máster en Organización de Eventos & Wedding Planner + IA
                     </a>
@@ -144,7 +148,7 @@ const isUS = propIsUS ?? Astro.locals.isUS ?? false;
 
       <!-- Centered Logo -->
       <div class="flex-shrink-0 px-20 flex justify-center">
-        <a href="/" class="flex flex-col items-center group" aria-label="Inicio - Instituto Online Osbord">
+        <a href={`${prefix}/`} class="flex flex-col items-center group" aria-label="Inicio - Instituto Online Osbord">
           <Logo class="h-24 lg:h-[104px] w-auto group-hover:scale-105 transition-transform duration-300" />
         </a>
       </div>
@@ -152,16 +156,16 @@ const isUS = propIsUS ?? Astro.locals.isUS ?? false;
       <!-- Nav Right -->
       <div class="flex items-center gap-8 flex-1">
         <div class="flex items-center gap-8">
-          <a href="/verificacion" class="hidden xl:block text-sm text-brand-navy font-semibold hover:text-brand-gold transition-colors">
+          <a href={`${prefix}/verificacion`} class="hidden xl:block text-sm text-brand-navy font-semibold hover:text-brand-gold transition-colors">
             Verificación
           </a>
-          <a href="/contacto" class="hidden md:block text-sm text-brand-navy font-semibold hover:text-brand-gold transition-colors">
+          <a href={`${prefix}/contacto`} class="hidden md:block text-sm text-brand-navy font-semibold hover:text-brand-gold transition-colors">
             Contacto
           </a>
         </div>
-        <a href={isUS ? "#contacto-usa" : "https://wa.me/1234567890"} class="cta-button cta-dynamic text-xs lg:text-sm px-5 lg:px-8 ml-auto">
-          {isUS ? "ADMISSIONS" : "ADMISIONES"}
-        </a>
+        <button class="trigger-admission-modal cta-button cta-dynamic text-xs lg:text-sm px-5 lg:px-8 ml-auto">
+          ADMISIONES
+        </button>
       </div>
 
 
@@ -191,9 +195,9 @@ const isUS = propIsUS ?? Astro.locals.isUS ?? false;
         <div class="space-y-4">
           <p class="section-label">Institución</p>
           <ul class="space-y-3">
-            <li><a href="/quienes-somos" class="block text-white/80 hover:text-brand-gold text-lg font-medium transition-colors">Quiénes somos</a></li>
-            <li><a href="/sede-usa" class="block text-white/80 hover:text-brand-gold text-lg font-medium transition-colors">Sede Estados Unidos</a></li>
-            <li><a href="/metodologia" class="block text-white/80 hover:text-brand-gold text-lg font-medium transition-colors">Metodología</a></li>
+            <li><a href={`${prefix}/quienes-somos`} class="block text-white/80 hover:text-brand-gold text-lg font-medium transition-colors">Quiénes somos</a></li>
+            <li><a href={`${prefix}/sede-usa`} class="block text-white/80 hover:text-brand-gold text-lg font-medium transition-colors">Sede Estados Unidos</a></li>
+            <li><a href={`${prefix}/metodologia`} class="block text-white/80 hover:text-brand-gold text-lg font-medium transition-colors">Metodología</a></li>
           </ul>
         </div>
 
@@ -203,35 +207,35 @@ const isUS = propIsUS ?? Astro.locals.isUS ?? false;
           <ul class="space-y-3">
             <li>
               <span class="block text-white/40 text-xs uppercase tracking-widest font-bold mb-2">Escuela de Ciencias de la Salud</span>
-              <a href="/masters/enfermeria" class="block text-white/80 hover:text-brand-gold text-lg font-medium transition-colors pl-4 border-l-2 border-white/10 hover:border-brand-gold">Máster en Aux. de Enfermería</a>
+              <a href={`${prefix}/masters/enfermeria`} class="block text-white/80 hover:text-brand-gold text-lg font-medium transition-colors pl-4 border-l-2 border-white/10 hover:border-brand-gold">Máster en Aux. de Enfermería</a>
             </li>
             <li>
               <span class="block text-white/40 text-xs uppercase tracking-widest font-bold mb-2 mt-4">Escuela de Arquitectura y Diseño</span>
-              <a href="/masters/interiorismo" class="block text-white/80 hover:text-brand-gold text-lg font-medium transition-colors pl-4 border-l-2 border-white/10 hover:border-brand-gold">Máster en Interiorismo, Diseño y Decoración de Interiores 3D</a>
+              <a href={`${prefix}/masters/interiorismo`} class="block text-white/80 hover:text-brand-gold text-lg font-medium transition-colors pl-4 border-l-2 border-white/10 hover:border-brand-gold">Máster en Interiorismo, Diseño y Decoración de Interiores 3D</a>
             </li>
             <li>
               <span class="block text-white/40 text-xs uppercase tracking-widest font-bold mb-2 mt-4">Escuela de Gestión de Eventos</span>
-              <li><a href="/masters/wedding-planner" class="block text-white/80 hover:text-brand-gold text-lg font-medium transition-colors pl-4 border-l-2 border-white/10 hover:border-brand-gold">Máster en Organización de Eventos & Wedding Planner + IA</a></li>
+              <li><a href={`${prefix}/masters/wedding-planner`} class="block text-white/80 hover:text-brand-gold text-lg font-medium transition-colors pl-4 border-l-2 border-white/10 hover:border-brand-gold">Máster en Organización de Eventos & Wedding Planner + IA</a></li>
             </li>
           </ul>
         </div>
 
         <div class="pt-4 border-t border-white/10 space-y-4">
-          <a href="/verificacion" class="block text-white/80 hover:text-brand-gold font-medium text-lg transition-colors">Verificación de Títulos</a>
-          <a href="/contacto" class="block text-white/80 hover:text-brand-gold font-medium text-lg transition-colors">Contacto</a>
+          <a href={`${prefix}/verificacion`} class="block text-white/80 hover:text-brand-gold font-medium text-lg transition-colors">Verificación de Títulos</a>
+          <a href={`${prefix}/contacto`} class="block text-white/80 hover:text-brand-gold font-medium text-lg transition-colors">Contacto</a>
         </div>
       </nav>
 
-      {!isUS && (
-        <div class="p-6 border-t border-white/10">
-          <a href="https://wa.me/1234567890" class="cta-button w-full justify-center text-center">
-            CONTACTAR ASESOR
-          </a>
-        </div>
-      )}
+      <div class="p-6 border-t border-white/10 mt-auto">
+        <button class="trigger-admission-modal cta-button w-full justify-center text-center py-4">
+          ADMISIONES
+        </button>
+      </div>
     </div>
   </div>
 </header>
+
+<AdmissionModal isUS={isUS} />
 
 <script>
   const openBtn = document.getElementById('mobile-menu-open');

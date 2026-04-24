@@ -4,13 +4,16 @@ import healthImg from '../assets/school_health.png';
 import designImg from '../assets/school_design.png';
 import eventsImg from '../assets/school_events.png';
 
+const pathname = Astro.url.pathname;
+const prefix = pathname.startsWith('/us') ? '/us' : '/latam';
+
 const schools = [
   {
     title: "Ciencias de la Salud",
     description: "Formación técnica avanzada en asistencia sanitaria, cuidados clínicos y gestión hospitalaria con estándares internacionales.",
     image: healthImg,
     accent: "from-blue-500/20",
-    link: "/masters/enfermeria",
+    link: `${prefix}/masters/enfermeria`,
     program: "CURSO PROFESIONAL SUPERIOR: AUXILIAR DE ENFERMERÍA CLÍNICA"
   },
   {
@@ -18,7 +21,7 @@ const schools = [
     description: "Especialización en modelado 3D, interiorismo de lujo y arquitectura contemporánea con herramientas de última generación.",
     image: designImg,
     accent: "from-amber-500/20",
-    link: "/masters/interiorismo",
+    link: `${prefix}/masters/interiorismo`,
     program: "Máster en Interiorismo, Diseño y Decoración de Interiores 3D"
   },
   {
@@ -26,7 +29,7 @@ const schools = [
     description: "Protocolo, organización de eventos de alto nivel y Wedding Planning profesional para el mercado internacional.",
     image: eventsImg,
     accent: "from-rose-500/20",
-    link: "/masters/wedding-planner",
+    link: `${prefix}/masters/wedding-planner`,
     program: "Máster en Organización de Eventos & Wedding Planner + IA"
   }
 ];

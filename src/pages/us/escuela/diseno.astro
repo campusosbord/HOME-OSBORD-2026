@@ -1,0 +1,59 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import CTASection from '../../../components/CTASection.astro';
+import { Image } from 'astro:assets';
+import designImg from '../../../assets/school_design.png';
+---
+
+<Layout title="Escuela de Arquitectura y Diseño" description="Especialización en modelado 3D, interiorismo de lujo y arquitectura contemporánea con herramientas de última generación.">
+  <Header />
+  <main>
+    <section class="bg-brand-navy py-20 lg:py-24 text-white relative overflow-hidden">
+      <div class="absolute inset-0 opacity-15"><Image src={designImg} alt="Arquitectura y Diseño" class="w-full h-full object-cover" width={1920} height={1080} loading="eager" /></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/90 to-brand-navy/60"></div>
+      <div class="relative max-w-7xl mx-auto px-6">
+        <nav class="mb-8" aria-label="Breadcrumb">
+          <ol class="flex items-center gap-2 text-xs text-gray-400">
+            <li><a href="/us/" class="hover:text-brand-gold transition-colors">Inicio</a></li><li>/</li>
+            <li class="text-brand-gold font-semibold">Escuela de Arquitectura y Diseño</li>
+          </ol>
+        </nav>
+        <div class="max-w-3xl space-y-6 animate-fade-in-up">
+          <span class="section-label">Facultad</span>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.08] tracking-tight">Escuela de Arquitectura <span class="text-brand-gold">y Diseño</span></h1>
+          <p class="text-lg text-gray-300 max-w-xl leading-relaxed">Especialización en modelado 3D, interiorismo de lujo y arquitectura contemporánea con herramientas de última generación.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="text-center space-y-4 mb-16">
+          <span class="section-label">Programas Disponibles</span>
+          <h2 class="text-3xl font-extrabold tracking-tight">Oferta Académica</h2>
+          <div class="gold-divider mx-auto"></div>
+        </div>
+        <div class="max-w-2xl mx-auto">
+          <a href="/us/masters/interiorismo" class="group block bg-brand-neutral rounded-brand-xl p-8 border border-gray-100 hover:shadow-elevated hover:-translate-y-1 transition-all duration-300">
+            <div class="flex items-start gap-6">
+              <div class="w-20 h-20 rounded-brand-lg overflow-hidden flex-shrink-0">
+                <Image src={designImg} alt="Interiorismo 3D" class="w-full h-full object-cover" width={160} height={160} />
+              </div>
+              <div class="space-y-2">
+                <h3 class="text-xl font-extrabold group-hover:text-brand-gold transition-colors">Máster en Interiorismo 3D</h3>
+                <p class="text-sm text-gray-500 leading-relaxed">10 módulos · 600 horas · Certificación USA · Online</p>
+                <p class="text-sm text-gray-500 leading-relaxed">Domina el diseño de interiores de alta gama con SketchUp, Blender y V-Ray.</p>
+                <span class="inline-flex items-center text-brand-gold font-bold text-xs uppercase tracking-widest">Ver programa completo <svg class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <CTASection headline="¿Interesado en Arquitectura y Diseño?" subtext="Habla con un asesor y descubre cómo el Máster en Interiorismo 3D puede transformar tu carrera creativa." buttonText="SOLICITAR INFORMACIÓN" />
+  </main>
+  <Footer />
+</Layout>

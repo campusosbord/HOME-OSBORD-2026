@@ -1,0 +1,36 @@
+---
+interface Props {
+  variant?: 'gold' | 'white';
+  className?: string;
+}
+
+const { variant = 'gold', className = "" } = Astro.props;
+---
+
+<div class={`relative w-24 h-24 md:w-32 md:h-32 flex items-center justify-center ${className}`}>
+  <!-- Premium Glowing Ring -->
+  <div class={`absolute inset-0 rounded-full border border-brand-gold/20 animate-pulse`}></div>
+  <div class={`absolute inset-2 rounded-full border-2 border-brand-gold/10`}></div>
+  
+  <!-- Outer Rotating Wreath-like Border (CSS SVG) -->
+  <svg class="absolute inset-0 w-full h-full animate-[spin_20s_linear_infinite]" viewBox="0 0 100 100">
+    <path id="curve" fill="none" d="M 50, 50 m -45, 0 a 45,45 0 1,1 90,0 a 45,45 0 1,1 -90,0" />
+    <text class={`text-[6px] font-black uppercase tracking-[0.25em] ${variant === 'gold' ? 'fill-brand-gold' : 'fill-white'}`}>
+      <textPath href="#curve" startOffset="0%"> • Acreditación Internacional • Calidad Académica Elite • </textPath>
+    </text>
+  </svg>
+
+  <!-- Central Emblem -->
+  <div class={`relative w-[65%] h-[65%] rounded-full flex flex-col items-center justify-center text-center shadow-[0_10px_30px_rgba(197,160,89,0.3)] border-2 ${variant === 'gold' ? 'bg-gradient-to-br from-brand-gold via-[#e6c98a] to-[#a67c37] border-brand-gold/50' : 'bg-white border-gray-100'}`}>
+    <div class={`absolute inset-0 rounded-full bg-white/20 backdrop-blur-[2px]`}></div>
+    <div class="relative z-10 flex flex-col items-center">
+        <svg class={`w-5 h-5 md:w-7 md:h-7 mb-1 ${variant === 'gold' ? 'text-brand-navy' : 'text-brand-gold'}`} fill="currentColor" viewBox="0 0 24 24">
+          <path d="M12 1L9 9l-8 3 8 3 3 8 3-8 8-3-8-3-3-8z"/>
+        </svg>
+        <span class={`text-[6px] md:text-[8px] font-black uppercase leading-[1.1] tracking-[0.1em] ${variant === 'gold' ? 'text-brand-navy' : 'text-brand-navy'}`}>
+          Verified<br/>Academy
+        </span>
+    </div>
+  </div>
+</div>
+

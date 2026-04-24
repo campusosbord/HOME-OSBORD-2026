@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import heroImg from '../assets/hero_professional.png';
+import AccreditationBadge from './AccreditationBadge.astro';
 
 interface Props {
   isUS?: boolean;
@@ -12,7 +13,7 @@ const isUS = propIsUS ?? Astro.locals.isUS ?? false;
 const programs = [
   "Máster en Interiorismo, Diseño y Decoración de Interiores 3D",
   "Máster en Organización de Eventos & Wedding Planner + IA",
-  "CURSO PROFESIONAL SUPERIOR: AUXILIAR DE ENFERMERÍA CLÍNICA"
+  "Máster en Auxiliar de Enfermería Clínica"
 ];
 ---
 <section class="relative bg-brand-navy min-h-[90vh] lg:min-h-screen flex items-center overflow-hidden">
@@ -72,6 +73,7 @@ const programs = [
           /* FORMULARIO USA (EN ESPAÑOL) */
           <div id="contacto-usa" class="bg-white p-8 lg:p-10 rounded-brand-xl shadow-elevated border border-white/10 relative overflow-hidden group">
              <div class="absolute top-0 left-0 w-full h-1 bg-brand-gold"></div>
+             <AccreditationBadge className="absolute -top-4 -right-4 z-20 scale-75 md:scale-100" />
              <div class="space-y-6">
                 <div class="space-y-2">
                   <span class="text-[10px] text-brand-gold font-bold uppercase tracking-widest">Admisiones Institucionales</span>
@@ -80,26 +82,39 @@ const programs = [
                 <form class="space-y-4">
                   <div class="space-y-1.5">
                     <label class="text-[10px] font-bold uppercase text-gray-400 tracking-wider">Nombre Completo</label>
-                    <input type="text" placeholder="Escribe tu nombre" class="w-full px-4 py-3 bg-brand-neutral border border-gray-100 rounded-brand focus:ring-2 focus:ring-brand-gold/30 outline-none transition-all text-sm" />
+                    <input type="text" placeholder="Escribe tu nombre" class="w-full px-4 py-3 bg-brand-neutral border border-gray-100 rounded-brand focus:ring-2 focus:ring-brand-gold/30 outline-none transition-all text-sm" required />
                   </div>
                   <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div class="space-y-1.5">
                       <label class="text-[10px] font-bold uppercase text-gray-400 tracking-wider">Teléfono</label>
-                      <input type="tel" placeholder="+1..." class="w-full px-4 py-3 bg-brand-neutral border border-gray-100 rounded-brand focus:ring-2 focus:ring-brand-gold/30 outline-none transition-all text-sm" />
+                      <input type="tel" placeholder="+1..." class="w-full px-4 py-3 bg-brand-neutral border border-gray-100 rounded-brand focus:ring-2 focus:ring-brand-gold/30 outline-none transition-all text-sm" required />
+                      <div class="space-y-2 mt-2">
+                        <p class="text-[9px] font-bold text-gray-400 uppercase tracking-wider">¿Este Número Tiene WhatsApp?</p>
+                        <div class="flex items-center gap-4">
+                          <label class="flex items-center gap-2 cursor-pointer group">
+                            <input type="radio" name="hero-whatsapp" value="si" class="w-3.5 h-3.5 border-gray-300 text-brand-gold focus:ring-brand-gold" required />
+                            <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider group-hover:text-brand-gold transition-colors">Sí</span>
+                          </label>
+                          <label class="flex items-center gap-2 cursor-pointer group">
+                            <input type="radio" name="hero-whatsapp" value="no" class="w-3.5 h-3.5 border-gray-300 text-brand-gold focus:ring-brand-gold" required />
+                            <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider group-hover:text-brand-gold transition-colors">No</span>
+                          </label>
+                        </div>
+                      </div>
                     </div>
                     <div class="space-y-1.5">
                       <label class="text-[10px] font-bold uppercase text-gray-400 tracking-wider">Correo Electrónico</label>
-                      <input type="email" placeholder="email@ejemplo.com" class="w-full px-4 py-3 bg-brand-neutral border border-gray-100 rounded-brand focus:ring-2 focus:ring-brand-gold/30 outline-none transition-all text-sm" />
+                      <input type="email" placeholder="email@ejemplo.com" class="w-full px-4 py-3 bg-brand-neutral border border-gray-100 rounded-brand focus:ring-2 focus:ring-brand-gold/30 outline-none transition-all text-sm" required />
                     </div>
                   </div>
                   <div class="space-y-1.5">
-                    <label class="text-[10px] font-bold uppercase text-gray-400 tracking-wider">Formación de Interés</label>
-                    <select class="w-full px-4 py-3 bg-brand-neutral border border-gray-100 rounded-brand focus:ring-2 focus:ring-brand-gold/30 outline-none transition-all text-sm appearance-none cursor-pointer">
+                    <label class="text-[10px] font-bold uppercase text-gray-400 tracking-wider">Programa de Interés</label>
+                    <select class="w-full px-4 py-3 bg-brand-neutral border border-gray-100 rounded-brand focus:ring-2 focus:ring-brand-gold/30 outline-none transition-all text-sm appearance-none cursor-pointer" required>
                       <option value="">Selecciona un programa</option>
                       {programs.map(p => <option value={p}>{p}</option>)}
                     </select>
                   </div>
-                  <button type="button" class="cta-button w-full justify-center py-4 text-sm mt-2">
+                  <button type="submit" class="cta-button w-full justify-center py-4 text-sm mt-2">
                     INICIAR PROCESO DE ADMISIÓN
                   </button>
                   <p class="text-[9px] text-center text-gray-400 uppercase tracking-widest pt-2">Se requiere verificación institucional</p>

@@ -1,0 +1,149 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<Layout
+  title="Verificación de Títulos"
+  description="Portal público de verificación y validación de títulos emitidos por el Instituto Online Osbord. Comprueba la autenticidad de tu diploma."
+>
+  <Header />
+  <main>
+    <!-- Hero -->
+    <section class="bg-brand-navy py-20 lg:py-24 text-white relative overflow-hidden">
+      <div class="absolute inset-0 bg-gradient-to-br from-brand-navy to-brand-navy-light"></div>
+      <div class="relative max-w-7xl mx-auto px-6 text-center space-y-6">
+        <span class="section-label">Portal de Validación</span>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight">
+          Verificación de <span class="text-brand-gold">Títulos</span>
+        </h1>
+        <p class="text-lg text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          Comprueba la autenticidad de los diplomas y certificaciones emitidos por el Instituto Online Osbord. Ingresa el código de verificación que aparece en tu título.
+        </p>
+      </div>
+    </section>
+
+    <!-- Verification Form -->
+    <section class="py-24 bg-white">
+      <div class="max-w-2xl mx-auto px-6">
+        <div class="bg-brand-neutral rounded-brand-xl p-8 md:p-12 border border-gray-100 shadow-soft space-y-8">
+          <div class="text-center space-y-3">
+            <div class="w-16 h-16 mx-auto bg-brand-gold/10 rounded-full flex items-center justify-center mb-4">
+              <svg class="w-8 h-8 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/>
+              </svg>
+            </div>
+            <h2 class="text-2xl font-extrabold">Verificar Título</h2>
+            <p class="text-sm text-gray-500">Ingresa el código único que aparece en el anverso de tu diploma.</p>
+          </div>
+
+          <form id="verification-form" class="space-y-6">
+            <div class="space-y-2">
+              <label for="verification-code" class="block text-sm font-bold text-brand-navy uppercase tracking-wider">
+                Código de Verificación
+              </label>
+              <input
+                type="text"
+                id="verification-code"
+                name="code"
+                placeholder="Ej: OSB-2024-XXXX-XXXX"
+                class="w-full px-5 py-4 rounded-brand-lg border border-gray-200 bg-white text-brand-navy font-medium text-lg tracking-wider placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold transition-all"
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="space-y-2">
+              <label for="student-name" class="block text-sm font-bold text-brand-navy uppercase tracking-wider">
+                Nombre del Titulado (Opcional)
+              </label>
+              <input
+                type="text"
+                id="student-name"
+                name="name"
+                placeholder="Nombre completo del alumno"
+                class="w-full px-5 py-4 rounded-brand-lg border border-gray-200 bg-white text-brand-navy font-medium placeholder:text-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold transition-all"
+              />
+            </div>
+
+            <button type="submit" class="cta-button w-full justify-center text-base py-4">
+              VERIFICAR TÍTULO
+            </button>
+          </form>
+
+          <!-- Result Area -->
+          <div id="verification-result" class="hidden">
+            <div class="p-6 rounded-brand-lg border text-center space-y-3">
+              <p class="font-bold text-lg" id="result-message"></p>
+              <p class="text-sm text-gray-500" id="result-detail"></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Info Cards -->
+        <div class="grid md:grid-cols-2 gap-6 mt-12">
+          <div class="p-6 bg-brand-neutral rounded-brand-lg border border-gray-100 space-y-3">
+            <h3 class="font-extrabold text-sm uppercase tracking-wider text-brand-navy">¿Dónde encuentro mi código?</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">El código de verificación se encuentra impreso en la parte inferior derecha del anverso de tu diploma, debajo del sello institucional.</p>
+          </div>
+          <div class="p-6 bg-brand-neutral rounded-brand-lg border border-gray-100 space-y-3">
+            <h3 class="font-extrabold text-sm uppercase tracking-wider text-brand-navy">¿Problemas para verificar?</h3>
+            <p class="text-sm text-gray-500 leading-relaxed">Si tienes dificultades, contacta a nuestro equipo de soporte en <a href="mailto:admisiones@osbord.edu" class="text-brand-gold font-semibold hover:underline">admisiones@osbord.edu</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  const form = document.getElementById('verification-form');
+  const resultArea = document.getElementById('verification-result');
+  const resultMessage = document.getElementById('result-message');
+  const resultDetail = document.getElementById('result-detail');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const code = (document.getElementById('verification-code') as HTMLInputElement)?.value;
+
+    if (!code.trim()) return;
+
+    resultArea?.classList.remove('hidden');
+    const container = resultArea?.querySelector('div');
+    
+    if (resultMessage) resultMessage.textContent = '🔍 Buscando en los registros oficiales...';
+    if (resultDetail) resultDetail.textContent = 'Por favor, espere un momento.';
+    if (container) container.className = 'p-6 rounded-brand-lg border border-gray-100 bg-gray-50 text-center space-y-3';
+
+    // Simulate API call
+    setTimeout(() => {
+      if (code.toUpperCase() === 'OSB-2024-DEMO') {
+        if (resultMessage) {
+          resultMessage.textContent = '✅ Título Verificado';
+          resultMessage.className = 'font-bold text-lg text-green-600';
+        }
+        if (resultDetail) {
+          resultDetail.innerHTML = `
+            <div class="text-left space-y-2 mt-4 pt-4 border-t border-green-100">
+              <p><strong>Alumno:</strong> Alumno de Demostración</p>
+              <p><strong>Programa:</strong> Máster en Alta Dirección</p>
+              <p><strong>Fecha:</strong> 22 de Abril, 2024</p>
+              <p><strong>Estado:</strong> Certificado Emitido & Apostillado</p>
+            </div>
+          `;
+        }
+        if (container) container.className = 'p-6 rounded-brand-xl border border-green-200 bg-green-50 text-center space-y-3 shadow-sm';
+      } else {
+        if (resultMessage) {
+          resultMessage.textContent = '⏳ Sistema en mantenimiento';
+          resultMessage.className = 'font-bold text-lg text-brand-navy';
+        }
+        if (resultDetail) {
+          resultDetail.textContent = 'Por favor, contacta a admisiones@osbord.edu para verificar tu título manualmente mientras implementamos el sistema automatizado.';
+        }
+        if (container) container.className = 'p-6 rounded-brand-xl border border-brand-gold/30 bg-brand-gold/5 text-center space-y-3';
+      }
+    }, 1500);
+  });
+</script>

@@ -1,4 +1,5 @@
 ---
+import AccreditationBadge from './AccreditationBadge.astro';
 interface Props {
   headline?: string;
   subtext?: string;
@@ -27,6 +28,9 @@ const isDark = variant === 'dark';
   )}
 
   <div class="relative max-w-3xl mx-auto px-6 text-center space-y-8">
+    <div class="absolute -top-12 -left-12 opacity-40 hidden md:block">
+      <AccreditationBadge variant={isDark ? "white" : "gold"} className="scale-75" />
+    </div>
     <h2 class={`text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight ${isDark ? 'text-white' : ''}`}>
       {headline}
     </h2>
