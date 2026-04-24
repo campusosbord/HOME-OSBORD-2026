@@ -3,41 +3,48 @@ import { defineMiddleware } from "astro:middleware";
 export const onRequest = defineMiddleware(async (context, next) => {
   try {
     const { url, redirect, locals } = context;
+    const pathname = url.pathname;
 
-    // 1. Evitar procesar archivos estáticos o internos de Astro
-    if (url.pathname.includes('.') || url.pathname.startsWith('/_')) {
+    // 1. Filtro estricto para archivos estáticos y rutas internas
+    // Si la ruta tiene una extensión o empieza por /_, no la procesamos.
+    if (pathname.includes('.') || pathname.startsWith('/_')) {
       return next();
     }
 
-    // 2. Determinar si ya estamos en una ruta de región
-    const isUSPath = url.pathname.startsWith("/us");
-    const isLatamPath = url.pathname.startsWith("/latam");
+    // 2. Verificar si ya estamos en una ruta regionalizada
+    // Comprobamos /us, /us/, /latam, /latam/ y sus subrutas
+    const isUS = pathname === "/us" || pathname.startsWith("/us/");
+    const isLatam = pathname === "/latam" || pathname.startsWith("/latam/");
 
-    if (isUSPath || isLatamPath) {
-      locals.isUS = isUSPath;
+    if (isUS || isLatam) {
+      locals.isUS = isUS;
       return next();
     }
 
-    // 3. Redirección solo en la raíz (/) para evitar bucles
-    if (url.pathname === "/") {
-      const cf = (locals.runtime as any)?.cf;
-      const country = cf?.country || "OTHER";
-      const locality = country === "US" ? "us" : "latam";
-      
-      console.log(`[Middleware] Redirigiendo raíz a /${locality}/ basado en país: ${country}`);
-      return redirect(`/${locality}/`);
+    // 3. Obtener ubicación desde Cloudflare (cf)
+    // Fallback a "latam" si no hay datos de CF (ej: desarrollo local sin proxy)
+    const cf = (locals.runtime as any)?.cf;
+    const country = cf?.country || "UNKNOWN";
+    const locality = country === "US" ? "us" : "latam";
+
+    // 4. Construcción de la ruta de destino sin barras dobles
+    const region = locality;
+    let pathWithoutInitialSlash = pathname.startsWith('/') ? pathname.slice(1) : pathname;
+    
+    // Si la ruta no termina en / y no es un archivo, añadimos la barra para consistencia
+    if (pathWithoutInitialSlash && !pathWithoutInitialSlash.endsWith('/')) {
+      pathWithoutInitialSlash += '/';
     }
 
-    // 4. Para otras rutas sin prefijo (ej: /contacto), redirigir a la versión con prefijo
-    if (!isUSPath && !isLatamPath) {
-      const cf = (locals.runtime as any)?.cf;
-      const country = cf?.country || "OTHER";
-      const locality = country === "US" ? "us" : "latam";
-      
-      return redirect(`/${locality}${url.pathname}`);
-    }
+    // Si es la raíz, el pathWithoutInitialSlash estará vacío, el resultado será /region/
+    const destination = `/${region}/${pathWithoutInitialSlash}`;
+    
+    // Limpiamos posibles barras dobles resultantes
+    const cleanDestination = destination.replace(/\/+/g, '/');
 
-    return next();
+    console.log(`[Middleware] Redirigiendo: ${pathname} -> ${cleanDestination} (Región: ${region}, País: ${country})`);
+    
+    return redirect(cleanDestination, 302);
   } catch (error) {
     console.error("[Middleware Error]:", error);
     return next();

@@ -8,6 +8,7 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
   site: 'https://osbord.com',
   output: 'server',
+  trailingSlash: 'always',
   adapter: cloudflare({
     mode: 'directory',
     platformProxy: {
