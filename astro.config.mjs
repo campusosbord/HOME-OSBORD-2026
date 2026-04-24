@@ -15,6 +15,7 @@ export default defineConfig({
 
   integrations: [sitemap()],
   adapter: cloudflare({
+    mode: 'directory',
     platformProxy: {
       enabled: true,
     },
