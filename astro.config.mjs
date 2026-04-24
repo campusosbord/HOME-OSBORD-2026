@@ -6,7 +6,7 @@ import cloudflare from '@astrojs/cloudflare';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://osbord.com',
+  site: 'https://home-osbord-2026.pages.dev',
   output: 'server',
 
   vite: {
@@ -15,9 +15,8 @@ export default defineConfig({
 
   integrations: [sitemap()],
   adapter: cloudflare({
-    mode: 'directory',
     platformProxy: {
       enabled: true,
     },
-  }), // <--- Aquí faltaba cerrar las llaves y el paréntesis correctamente
+  }),
 });
