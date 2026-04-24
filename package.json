@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build && echo \"export { default } from './server/entry.mjs';\" > dist/_worker.js && find dist -name \"wrangler.json\" -delete",
+    "build": "astro build && node -e \"const fs=require('fs'); const p='dist/server/wrangler.json'; if(fs.existsSync(p)){ const d=JSON.parse(fs.readFileSync(p)); delete d.assets; delete d.kv_namespaces; delete d.images; delete d.previews; d.pages_build_output_dir='dist'; d.main='dist/server/entry.mjs'; fs.writeFileSync(p, JSON.stringify(d)); fs.writeFileSync('wrangler.json', JSON.stringify(d)); }\"",
     "preview": "astro preview",
     "astro": "astro",
     "generate-types": "wrangler types"

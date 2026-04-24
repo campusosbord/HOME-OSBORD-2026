@@ -10,7 +10,7 @@ export default defineConfig({
   output: 'server',
   trailingSlash: 'always',
   adapter: cloudflare({
-    mode: 'advanced', // Modo avanzado para generar _worker.js
+    mode: 'directory',
   }),
   vite: {
     plugins: [tailwindcss()]
