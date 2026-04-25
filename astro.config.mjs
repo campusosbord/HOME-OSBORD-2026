@@ -9,9 +9,7 @@ export default defineConfig({
   site: 'https://osbord.com',
   output: 'server',
   trailingSlash: 'always',
-  adapter: cloudflare({
-    mode: 'directory', // Esto creará la carpeta /functions que Cloudflare Pages sí entiende
-  }),
+  adapter: cloudflare(),
   vite: {
     plugins: [tailwindcss()]
   },
