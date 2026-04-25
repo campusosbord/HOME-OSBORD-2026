@@ -24,8 +24,11 @@ pnpm-debug.log*
 .idea/
 .vercel
 .wrangler
+# wrangler config files (permitir en dist/ para despliegue)
 wrangler.json
 wrangler.jsonc
 wrangler.toml
 wrangler.deploy.json
+!/dist/**/wrangler.json
+!/dist/**/wrangler.toml
 

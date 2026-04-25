@@ -10,7 +10,7 @@ export default defineConfig({
   output: 'server',
   trailingSlash: 'always',
   adapter: cloudflare({
-    mode: 'directory',
+    mode: 'directory', // Esto creará la carpeta /functions que Cloudflare Pages sí entiende
   }),
   vite: {
     plugins: [tailwindcss()]
