@@ -26,4 +26,26 @@ export { w as default };
 
 writeFileSync('dist/_worker.js', workerCode);
 console.log('✅ Created dist/_worker.js');
+
+// Fix _routes.json version if it exists
+if (existsSync('dist/_routes.json')) {
+  try {
+    const routes = JSON.parse(readFileSync('dist/_routes.json', 'utf8'));
+    if (!routes.version || typeof routes.version !== 'number') {
+      routes.version = 1;
+      writeFileSync('dist/_routes.json', JSON.stringify(routes, null, 2));
+      console.log('✅ Fixed _routes.json version');
+    }
+  } catch (e) {
+    // If parsing fails, create a valid one
+    const validRoutes = {
+      version: 1,
+      include: ["/*"],
+      exclude: []
+    };
+    writeFileSync('dist/_routes.json', JSON.stringify(validRoutes, null, 2));
+    console.log('✅ Created valid _routes.json');
+  }
+}
+
 console.log('✅ Build ready for Cloudflare Pages!');
