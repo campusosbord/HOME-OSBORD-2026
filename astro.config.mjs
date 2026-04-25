@@ -9,7 +9,9 @@ export default defineConfig({
   site: 'https://osbord.com',
   output: 'server',
   trailingSlash: 'always',
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    mode: 'directory'
+  }),
   vite: {
     plugins: [tailwindcss()]
   },
