@@ -1,9 +1,19 @@
+# Cloudflare Workers Configuration
 name = "home-osbord-2026"
-pages_build_output_dir = "./dist"
+main = "dist/server/entry.mjs"
 compatibility_date = "2026-04-15"
 compatibility_flags = ["nodejs_compat"]
+
+# Assets configuration - serves static files from dist/client
+[assets]
+directory = "dist/client"
+binding = "ASSETS"
 
 # KV Namespace for sessions
 [[kv_namespaces]]
 binding = "SESSION"
 id = "home-osbord-2026-sessions"
+
+# Images binding
+[images]
+binding = "IMAGES"
