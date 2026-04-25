@@ -16,17 +16,7 @@ if (existsSync('.wrangler/deploy/config.json')) {
   console.log('✅ Removed .wrangler/deploy/config.json');
 }
 
-// Move client assets to dist/ root
-if (existsSync('dist/client')) {
-  const files = readdirSync('dist/client');
-  for (const file of files) {
-    cpSync(join('dist/client', file), join('dist', file), { recursive: true });
-  }
-  rmSync('dist/client', { recursive: true });
-  console.log('✅ Moved client assets to dist/');
-}
-
-// Create _worker.js at dist/ root
+// Create _worker.js at dist/ root as fallback
 const workerCode = `globalThis.process ??= {};
 globalThis.process.env ??= {};
 import "cloudflare:workers";
