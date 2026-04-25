@@ -11,6 +11,8 @@ import FAQ from '../../components/FAQ.astro';
 import Footer from '../../components/Footer.astro';
 import TeachersSection from '../../components/TeachersSection.astro';
 import AccreditationBadge from '../../components/AccreditationBadge.astro';
+
+const city = Astro.request.headers.get('x-nf-city') || "Unknown City";
 ---
 
 <Layout
@@ -36,7 +38,8 @@ import AccreditationBadge from '../../components/AccreditationBadge.astro';
             <h2 class="text-3xl font-extrabold tracking-tight">Solicitud de Información</h2>
             <p class="text-gray-500">Complete el siguiente formulario para recibir nuestro brochure institucional y los requisitos de admisión.</p>
           </div>
-          <form class="space-y-6">
+          <form class="space-y-6" id="index-contact-form">
+            <input type="hidden" name="city" value={city} />
             <div class="grid md:grid-cols-2 gap-6">
               <div class="space-y-2">
                 <label class="text-xs font-bold uppercase tracking-wider text-gray-400">Nombre Completo</label>
@@ -93,3 +96,42 @@ import AccreditationBadge from '../../components/AccreditationBadge.astro';
   </main>
   <Footer isUS={true} />
 </Layout>
+
+<script>
+  const indexForm = document.getElementById('index-contact-form') as HTMLFormElement;
+  
+  indexForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitBtn = indexForm.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const originalText = submitBtn.textContent;
+    
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'ENVIANDO...';
+    
+    const formData = new FormData(indexForm);
+    const data = Object.fromEntries(formData.entries());
+    
+    try {
+      // Reemplaza con la URL real de tu Google Apps Script
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz_XXXXXXXXX/exec';
+      
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+      
+      alert('¡Gracias! Tu solicitud de admisión ha sido enviada correctamente.');
+      indexForm.reset();
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Hubo un error al enviar el formulario. Por favor, intenta de nuevo.');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  });
+</script>

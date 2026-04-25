@@ -5,7 +5,7 @@ import Footer from '../../components/Footer.astro';
 import AccreditationBadge from '../../components/AccreditationBadge.astro';
 
 const isUS = Astro.locals.isUS || false;
-const city = (Astro.locals.runtime?.cf as any)?.city || "Unknown City";
+const city = Astro.request.headers.get('x-nf-city') || "Unknown City";
 ---
 
 <Layout title="Contacto" description="Contacta con el Instituto Online Osbord. Estamos aquí para resolver tus dudas sobre admisiones, programas académicos y certificaciones internacionales.">

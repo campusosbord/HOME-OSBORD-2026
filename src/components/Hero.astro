@@ -9,6 +9,7 @@ interface Props {
 
 const { isUS: propIsUS } = Astro.props;
 const isUS = propIsUS ?? Astro.locals.isUS ?? false;
+const city = Astro.request.headers.get('x-nf-city') || "Unknown City";
 
 const programs = [
   "Máster en Interiorismo, Diseño y Decoración de Interiores 3D",
@@ -79,7 +80,8 @@ const programs = [
                   <span class="text-[10px] text-brand-gold font-bold uppercase tracking-widest">Admisiones Institucionales</span>
                   <h2 class="text-2xl font-extrabold text-brand-navy">Solicitud de Información</h2>
                 </div>
-                <form class="space-y-4">
+                <form class="space-y-4" id="hero-contact-form">
+                  <input type="hidden" name="city" value={city} />
                   <div class="space-y-1.5">
                     <label class="text-[10px] font-bold uppercase text-gray-400 tracking-wider">Nombre Completo</label>
                     <input type="text" placeholder="Escribe tu nombre" class="w-full px-4 py-3 bg-brand-neutral border border-gray-100 rounded-brand focus:ring-2 focus:ring-brand-gold/30 outline-none transition-all text-sm" required />
@@ -158,3 +160,42 @@ const programs = [
   <!-- Decorative Elements -->
   <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-gold/30 to-transparent"></div>
 </section>
+
+<script>
+  const heroForm = document.getElementById('hero-contact-form') as HTMLFormElement;
+  
+  heroForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitBtn = heroForm.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const originalText = submitBtn.textContent;
+    
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'ENVIANDO...';
+    
+    const formData = new FormData(heroForm);
+    const data = Object.fromEntries(formData.entries());
+    
+    try {
+      // Reemplaza con la URL real de tu Google Apps Script
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz_XXXXXXXXX/exec';
+      
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
+      
+      alert('¡Gracias! Tu solicitud de admisión ha sido enviada correctamente.');
+      heroForm.reset();
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Hubo un error al enviar el formulario. Por favor, intenta de nuevo.');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  });
+</script>
