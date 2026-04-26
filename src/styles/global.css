@@ -60,9 +60,9 @@
 @layer components {
   /* Primary CTA Button */
   .cta-button {
-    @apply inline-flex items-center justify-center px-8 py-3.5 bg-brand-gold text-white font-bold tracking-wide rounded-brand transition-all duration-300;
+    @apply inline-flex items-center justify-center px-5 py-2.5 bg-brand-gold text-white font-bold tracking-wide rounded-brand transition-all duration-300;
     font-family: var(--font-montserrat);
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     box-shadow: 0 4px 14px 0 rgba(197, 160, 89, 0.3);
@@ -112,7 +112,7 @@
 
   /* Section Label */
   .section-label {
-    @apply text-brand-gold text-xs font-bold uppercase tracking-[0.25em];
+    @apply text-brand-gold text-base font-bold uppercase tracking-[0.25em];
     font-family: var(--font-montserrat);
   }
   /* Location-based visibility */

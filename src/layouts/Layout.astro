@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import Toast from '../components/Toast.astro';
 
 interface Props {
   title: string;
@@ -97,5 +98,6 @@ const orgSchema = {
   </head>
   <body class="min-h-screen bg-white text-brand-navy">
     <slot />
+    <Toast />
   </body>
 </html>

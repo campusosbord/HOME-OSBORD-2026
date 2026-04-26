@@ -1,0 +1,69 @@
+---
+---
+
+<div id="toast-container" class="fixed bottom-8 right-8 z-[200] flex flex-col gap-4 pointer-events-none">
+  <!-- Toasts will be injected here -->
+</div>
+
+<template id="toast-template">
+  <div class="toast-item pointer-events-auto bg-brand-navy/95 backdrop-blur-md border-l-4 border-brand-gold py-4 px-6 rounded-brand shadow-2xl shadow-brand-navy/20 flex items-center gap-4 animate-toast-in">
+    <div class="flex-shrink-0 w-8 h-8 bg-brand-gold/10 rounded-full flex items-center justify-center">
+      <svg class="w-5 h-5 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+      </svg>
+    </div>
+    <div class="flex-grow pr-4">
+      <p class="text-white text-sm font-bold tracking-tight">¡Gracias!</p>
+      <p class="text-gray-300 text-[11px] uppercase tracking-widest font-medium mt-0.5">Tu solicitud ha sido recibida con éxito.</p>
+    </div>
+    <button class="toast-close text-gray-400 hover:text-white transition-colors">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+</template>
+
+<style is:global>
+  @keyframes toast-in {
+    from { opacity: 0; transform: translateX(100%) scale(0.9); }
+    to { opacity: 1; transform: translateX(0) scale(1); }
+  }
+  @keyframes toast-out {
+    from { opacity: 1; transform: translateX(0) scale(1); }
+    to { opacity: 0; transform: translateX(100%) scale(0.9); }
+  }
+  .animate-toast-in {
+    animation: toast-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  .animate-toast-out {
+    animation: toast-out 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+</style>
+
+<script>
+  window.osbordToast = function() {
+    const container = document.getElementById('toast-container');
+    const template = document.getElementById('toast-template') as HTMLTemplateElement;
+    
+    if (!container || !template) return;
+
+    const toast = template.content.cloneNode(true).querySelector('.toast-item') as HTMLElement;
+    const closeBtn = toast.querySelector('.toast-close');
+    
+    container.appendChild(toast);
+
+    const removeToast = () => {
+      toast.classList.remove('animate-toast-in');
+      toast.classList.add('animate-toast-out');
+      setTimeout(() => {
+        toast.remove();
+      }, 500);
+    };
+
+    closeBtn?.addEventListener('click', removeToast);
+
+    // Auto remove after 5s
+    setTimeout(removeToast, 5000);
+  }
+</script>

@@ -32,3 +32,6 @@ wrangler.deploy.json
 !/dist/**/wrangler.json
 !/dist/**/wrangler.toml
 
+
+# Local Netlify folder
+.netlify

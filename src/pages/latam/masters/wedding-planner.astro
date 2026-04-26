@@ -7,9 +7,56 @@ import Testimonials from '../../../components/Testimonials.astro';
 import FAQ from '../../../components/FAQ.astro';
 import CTASection from '../../../components/CTASection.astro';
 import TeachersSection from '../../../components/TeachersSection.astro';
+import AccreditationBadge from '../../../components/AccreditationBadge.astro';
 import { Image } from 'astro:assets';
 import eventsImg from '../../../assets/school_events.png';
-import AccreditationBadge from '../../../components/AccreditationBadge.astro';
+import LeadForm from '../../../components/LeadForm.astro';
+import WhatsAppBox from '../../../components/WhatsAppBox.astro';
+import BenefitsSection from '../../../components/BenefitsSection.astro';
+import DiplomaSection from '../../../components/DiplomaSection.astro';
+
+const isUS = false;
+const programName = "Wedding Planner & IA";
+const formationFullName = "Máster en Organización de Eventos & Wedding Planner + IA";
+
+const benefits = [
+  {
+    title: "Eventos de Autor",
+    description: "Aprende a diseñar bodas y eventos con un sello distintivo de exclusividad, dominando el protocolo y las últimas tendencias de lujo.",
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"/></svg>',
+    tag: "Exclusividad"
+  },
+  {
+    title: "IA Aplicada",
+    description: "Optimiza tu tiempo y creatividad utilizando Inteligencia Artificial para el diseño de conceptos, moodboards y gestión logística eficiente.",
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 3.104v1.244c0 .462.223.9.605 1.17l.999.713a1.123 1.123 0 001.292 0l.999-.713a1.5 1.5 0 01.605-1.17V3.104a3.75 3.75 0 00-4.5 0zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 3h6m-6-6h6"/></svg>',
+    tag: "Tecnología"
+  },
+  {
+    title: "Certificación USA",
+    description: "Obtén un título con respaldo internacional de nuestra sede en USA, garantizando los estándares más altos de la industria global.",
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84a51.39 51.39 0 00-2.658.814m-15.482 0l12.93 3.317a.5.5 0 00.254 0l12.93-3.317m-12.93 3.317V16.5"/></svg>',
+    tag: "Internacional"
+  },
+  {
+    title: "Negocio Propio",
+    description: "Te entregamos las herramientas empresariales necesarias para lanzar y gestionar tu propia agencia de eventos con alta rentabilidad.",
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 21h19.5m-18-18v18m10.5-18v18m6-13.5V21M6.75 6.75h.75m-.75 3h.75m-.75 3h.75m3-6h.75m-.75 3h.75m-.75 3h.75M6.75 21v-3.375c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21M3 3h12m-.75 4.5H21m-3.75 3.75h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008zm0 3h.008v.008h-.008v-.008z"/></svg>',
+    tag: "Emprendimiento"
+  },
+  {
+    title: "Prestigio Global",
+    description: "Forma parte de una élite de organizadores certificados, capacitados para trabajar en cualquier parte del mundo con estándares premium.",
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21l-8.25-1.875V7.03L12 3l8.25 4.03v12.095L12 21z"/></svg>',
+    tag: "Estatus"
+  },
+  {
+    title: "Networking de Lujo",
+    description: "Accede a una red exclusiva de proveedores, venues y profesionales del sector nupcial internacional para potenciar tus eventos.",
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>',
+    tag: "Contactos"
+  }
+];
 
 const syllabus = [
   { 
@@ -252,41 +299,21 @@ const breadcrumbSchema = {
             </div>
           </div>
 
-          <!-- WhatsApp Box Side (Home Style) -->
+          <!-- Form Side (US) or WhatsApp (Latam) -->
           <div class="relative animate-fade-in-up delay-300">
             <div class="absolute -top-10 -right-6 z-20">
               <AccreditationBadge className="scale-75 md:scale-90" />
             </div>
-            <div class="bg-brand-navy/98 p-8 lg:p-10 rounded-brand-xl border border-white/10 shadow-2xl relative group overflow-hidden">
-              <div class="absolute -top-24 -right-24 w-48 h-48 bg-brand-gold/10 rounded-full blur-3xl group-hover:bg-brand-gold/20 transition-colors duration-500"></div>
-              <div class="space-y-8 relative z-10">
-                <div class="space-y-3">
-                  <div class="w-12 h-12 bg-brand-gold/20 rounded-brand flex items-center justify-center">
-                    <svg class="w-6 h-6 text-brand-gold" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-                    </svg>
-                  </div>
-                  <h2 class="text-3xl font-extrabold text-white">Boda <span class="text-brand-gold">Inolvidable</span></h2>
-                  <p class="text-gray-300 leading-relaxed font-light text-sm">
-                    ¿Deseas iniciar tu formación como Wedding Planner? Contacta ahora con un asesor académico para una consultoría gratuita sobre tu carrera.
-                  </p>
-                </div>
-
-                <div class="space-y-4">
-                  <a href="https://wa.me/1234567890" class="flex items-center justify-center gap-3 w-full bg-brand-gold text-brand-navy font-extrabold py-5 rounded-brand hover:bg-white transition-all duration-300 uppercase tracking-widest text-sm shadow-xl hover:shadow-brand-gold/20">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-                    </svg>
-                    Hablar con un asesor
-                  </a>
-                  <p class="text-[10px] text-center text-gray-500 uppercase tracking-[0.2em] font-bold">Respuesta por WhatsApp</p>
-                </div>
-              </div>
-            </div>
+            {isUS ? (
+              <LeadForm programName={formationFullName} />
+            ) : (
+              <WhatsAppBox programName={programName} />
+            )}
           </div>
         </div>
       </div>
     </section>
+
 
     <!-- Syllabus Section -->
     <section class="section-padding bg-white">
@@ -336,7 +363,10 @@ const breadcrumbSchema = {
       </div>
     </section>
 
+    <BenefitsSection formationName={programName} benefits={benefits} />
+
     <TeachersSection limitTo={["Raul Ramirez"]} />
+    <DiplomaSection />
     <Testimonials />
     <FAQ />
 
@@ -344,7 +374,7 @@ const breadcrumbSchema = {
       variant="dark"
       headline="Crea eventos que dejen huella"
       subtext="Únete a la próxima cohorte del Máster en Wedding Planner y posiciónate como referente en la industria nupcial internacional."
-      buttonText="HABLAR CON UN ASESOR"
+      buttonText="SOLICITAR ADMISIÓN"
     />
   </main>
   <Footer />

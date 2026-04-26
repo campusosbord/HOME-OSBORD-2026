@@ -6,20 +6,22 @@ import TrustBar from '../../components/TrustBar.astro';
 import SchoolSection from '../../components/SchoolSection.astro';
 import StatsSection from '../../components/StatsSection.astro';
 import ExclusivitySection from '../../components/ExclusivitySection.astro';
+import TeachersSection from '../../components/TeachersSection.astro';
 import Testimonials from '../../components/Testimonials.astro';
+import CTASection from '../../components/CTASection.astro';
 import FAQ from '../../components/FAQ.astro';
 import Footer from '../../components/Footer.astro';
-import TeachersSection from '../../components/TeachersSection.astro';
-import AccreditationBadge from '../../components/AccreditationBadge.astro';
+import AdmissionModal from '../../components/AdmissionModal.astro';
 
-const city = Astro.request.headers.get('x-nf-city') || "Unknown City";
+const city = Astro.request.headers.get('x-nf-city') || "USA (Ciudad no detectada)";
+const origin = Astro.url.href;
 ---
 
-<Layout
-  title="Osbord USA — Admisión Institucional"
-  description="Instituto Online Osbord USA. Másters de alto nivel con certificación internacional y enfoque institucional."
+<Layout 
+  title="Admisiones Institucionales | Instituto Online Osbord"
+  description="Inicie su proceso de admisión en el Instituto Online Osbord. Programas de máster con certificación internacional y excelencia académica."
 >
-  <Header isUS={true} />
+  <Header />
   <main>
     <Hero isUS={true} />
     <TrustBar />
@@ -27,44 +29,44 @@ const city = Astro.request.headers.get('x-nf-city') || "Unknown City";
     <StatsSection />
     <ExclusivitySection />
     <TeachersSection />
-    
+
     <!-- Seccion de Formulario para USA -->
     <section id="contacto-usa" class="py-24 bg-brand-neutral">
       <div class="max-w-4xl mx-auto px-6 relative">
-        <AccreditationBadge className="absolute -top-12 right-0 z-10" />
-        <div class="bg-white p-12 rounded-brand-xl shadow-elevated border border-gray-100">
-          <div class="text-center mb-10 space-y-4">
-            <span class="section-label">Admisión Institucional</span>
-            <h2 class="text-3xl font-extrabold tracking-tight">Solicitud de Información</h2>
-            <p class="text-gray-500">Complete el siguiente formulario para recibir nuestro brochure institucional y los requisitos de admisión.</p>
+        <div class="bg-white p-8 sm:p-10 rounded-brand-xl shadow-elevated border border-gray-100">
+          <div class="text-center mb-10 space-y-3">
+            <span class="block text-[12px] text-brand-gold font-bold uppercase tracking-[0.2em] text-center">Admisión Institucional</span>
+            <h2 class="text-3xl md:text-4xl font-extrabold tracking-tight text-center">Solicitud de Información</h2>
+            <p class="text-gray-500 text-[16px] leading-relaxed text-center">Complete el siguiente formulario para recibir nuestro brochure institucional y los requisitos de admisión.</p>
           </div>
           <form class="space-y-6" id="index-contact-form">
-            <input type="hidden" name="city" value={city} />
+            <input type="hidden" name="ciudad" value={city} />
+            <input type="hidden" name="origen" value={origin} />
             <div class="grid md:grid-cols-2 gap-6">
               <div class="space-y-2">
                 <label class="text-xs font-bold uppercase tracking-wider text-gray-400">Nombre Completo</label>
-                <input type="text" placeholder="Escribe tu nombre" class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:ring-2 focus:ring-brand-gold/30 outline-none transition-all" required />
+                <input type="text" name="nombre" placeholder="Ej. Juan Pérez" class="w-full px-5 py-2.5 rounded-brand border border-gray-200 focus:ring-2 focus:ring-brand-gold/30 outline-none transition-all text-sm" required />
               </div>
               <div class="space-y-2">
                 <label class="text-xs font-bold uppercase tracking-wider text-gray-400">Correo Electrónico</label>
-                <input type="email" placeholder="email@ejemplo.com" class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:ring-2 focus:ring-brand-gold/30 outline-none transition-all" required />
+                <input type="email" name="correo" placeholder="email@ejemplo.com" class="w-full px-5 py-2.5 rounded-brand border border-gray-200 focus:ring-2 focus:ring-brand-gold/30 outline-none transition-all text-sm" required />
               </div>
             </div>
 
             <div class="grid md:grid-cols-2 gap-6">
               <div class="space-y-2">
                 <label class="text-xs font-bold uppercase tracking-wider text-gray-400">Teléfono</label>
-                <input type="tel" placeholder="+1..." class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:ring-2 focus:ring-brand-gold/30 outline-none transition-all" required />
+                <input type="tel" name="telefono" placeholder="+1..." class="w-full px-5 py-2.5 rounded-brand border border-gray-200 focus:ring-2 focus:ring-brand-gold/30 outline-none transition-all text-sm" required />
                 
                 <div class="space-y-2 mt-4">
                   <p class="text-[10px] font-bold text-gray-400 uppercase tracking-wider">¿Este Número Tiene WhatsApp?</p>
                   <div class="flex items-center gap-6">
                     <label class="flex items-center gap-2 cursor-pointer group">
-                      <input type="radio" name="index-whatsapp" value="si" class="w-4 h-4 border-gray-300 text-brand-gold focus:ring-brand-gold" required />
+                      <input type="radio" name="whatsapp" value="si" class="w-4 h-4 border-gray-300 text-brand-gold focus:ring-brand-gold" required />
                       <span class="text-xs font-bold text-brand-navy uppercase tracking-wider group-hover:text-brand-gold transition-colors">Sí</span>
                     </label>
                     <label class="flex items-center gap-2 cursor-pointer group">
-                      <input type="radio" name="index-whatsapp" value="no" class="w-4 h-4 border-gray-300 text-brand-gold focus:ring-brand-gold" required />
+                      <input type="radio" name="whatsapp" value="no" class="w-4 h-4 border-gray-300 text-brand-gold focus:ring-brand-gold" required />
                       <span class="text-xs font-bold text-brand-navy uppercase tracking-wider group-hover:text-brand-gold transition-colors">No</span>
                     </label>
                   </div>
@@ -73,7 +75,7 @@ const city = Astro.request.headers.get('x-nf-city') || "Unknown City";
               
               <div class="space-y-2">
                 <label class="text-xs font-bold uppercase tracking-wider text-gray-400">Programa de Interés</label>
-                <select class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:ring-2 focus:ring-brand-gold/30 outline-none transition-all bg-white" required>
+                <select name="formacion" class="w-full px-5 py-2.5 rounded-brand border border-gray-200 focus:ring-2 focus:ring-brand-gold/30 outline-none transition-all bg-white text-sm" required>
                   <option value="" disabled selected>Selecciona un programa</option>
                   <option>Máster en Interiorismo, Diseño y Decoración de Interiores 3D</option>
                   <option>Máster en Organización de Eventos & Wedding Planner + IA</option>
@@ -82,38 +84,53 @@ const city = Astro.request.headers.get('x-nf-city') || "Unknown City";
               </div>
             </div>
 
-            <div class="pt-6">
-              <button type="submit" class="cta-button w-full justify-center py-5 text-lg">ENVIAR SOLICITUD DE ADMISIÓN</button>
-              <p class="text-[10px] text-center text-gray-400 mt-4 uppercase tracking-[0.2em] font-medium">Procesamiento de solicitud prioritario</p>
+            <div class="pt-6 flex justify-center">
+              <button type="submit" class="cta-button px-12 py-3 text-xs">ENVIAR SOLICITUD DE ADMISIÓN</button>
             </div>
+            <p class="text-[9px] text-center text-gray-400 mt-4 uppercase tracking-[0.2em] font-medium">Procesamiento de solicitud prioritario</p>
           </form>
         </div>
       </div>
     </section>
 
+    <CTASection 
+      headline="Comience su Transformación Hoy"
+      subtext="Hable con un asesor de admisiones para conocer nuestras becas parciales disponibles para este ciclo."
+      variant="dark"
+    />
+
     <Testimonials />
-    <FAQ />
+
+    <section class="py-20 bg-brand-neutral/50">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-extrabold tracking-tight">Preguntas Frecuentes</h2>
+        </div>
+        <FAQ />
+      </div>
+    </section>
+
+    <AdmissionModal isUS={true} />
   </main>
-  <Footer isUS={true} />
+  <Footer />
 </Layout>
 
 <script>
-  const indexForm = document.getElementById('index-contact-form') as HTMLFormElement;
+  const contactForm = document.getElementById('index-contact-form') as HTMLFormElement;
   
-  indexForm?.addEventListener('submit', async (e) => {
+  contactForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const submitBtn = indexForm.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const submitBtn = contactForm.querySelector('button[type="submit"]') as HTMLButtonElement;
     const originalText = submitBtn.textContent;
     
     submitBtn.disabled = true;
     submitBtn.textContent = 'ENVIANDO...';
     
-    const formData = new FormData(indexForm);
+    const formData = new FormData(contactForm);
     const data = Object.fromEntries(formData.entries());
     
     try {
-      // Reemplaza con la URL real de tu Google Apps Script
-      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz_XXXXXXXXX/exec';
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwQ34SrlVoEWz_WnjoLXjmM16ubiEBKZQfjgBHWHeppjd2Elh7WA9r2UTq18lp3bbcW/exec';
       
       await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
@@ -124,11 +141,10 @@ const city = Astro.request.headers.get('x-nf-city') || "Unknown City";
         body: JSON.stringify(data)
       });
       
-      alert('¡Gracias! Tu solicitud de admisión ha sido enviada correctamente.');
-      indexForm.reset();
+      window.osbordToast?.();
+      contactForm.reset();
     } catch (error) {
       console.error('Error:', error);
-      alert('Hubo un error al enviar el formulario. Por favor, intenta de nuevo.');
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = originalText;

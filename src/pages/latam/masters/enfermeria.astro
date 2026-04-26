@@ -10,6 +10,54 @@ import CTASection from '../../../components/CTASection.astro';
 import { Image } from 'astro:assets';
 import healthImg from '../../../assets/school_health.png';
 import AccreditationBadge from '../../../components/AccreditationBadge.astro';
+import LeadForm from '../../../components/LeadForm.astro';
+import WhatsAppBox from '../../../components/WhatsAppBox.astro';
+import BenefitsSection from '../../../components/BenefitsSection.astro';
+import DiplomaSection from '../../../components/DiplomaSection.astro';
+import TeachersSection from '../../../components/TeachersSection.astro';
+
+const isUS = false; // Hardcoded for this file
+const programName = "Auxiliar de Enfermería Clínica";
+const formationFullName = "Curso Profesional Superior: Auxiliar de Enfermería Clínica";
+
+const benefits = [
+  {
+    title: "Certificación Internacional",
+    description: "Consigue tu título de finalización. Al culminar tus estudios, se te otorgará un diploma digital y físico en español o inglés con validez institucional.",
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"/></svg>',
+    tag: "Apostillado"
+  },
+  {
+    title: "Incremento de Salario",
+    description: "La certificación técnica de alto nivel aumenta tus oportunidades de conseguir un mejor empleo y mejora significativamente tu base salarial.",
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 0 1 3 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 0 0-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 0 1-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 0 0 3 15h-.75M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm3 0h.008v.008H18V10.5Zm-12 0h.008v.008H6V10.5Z"/></svg>',
+    tag: "Impacto Real"
+  },
+  {
+    title: "Mejor Empleabilidad",
+    description: "Los empleadores en el sector salud prefieren contratar personal certificado debido a su nivel de formación, ética y habilidades técnicas demostradas.",
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.25 14.15v4.25c0 .414-.336.75-.75.75H4.5a.75.75 0 0 1-.75-.75V14.15M3.75 14.15c1.236-1.46 4.195-2.6 8.25-2.6 4.055 0 7.014 1.14 8.25 2.6M3.75 14.15V5.5c0-.414.336-.75.75-.75h15c.414 0 .75.336.75.75v8.65m-16.5 0h16.5M12 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>',
+    tag: "Alta Demanda"
+  },
+  {
+    title: "Superación Profesional",
+    description: "Obtener una certificación reconocida por la industria te brinda una sensación de logro personal y autoridad en tu entorno laboral.",
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.048 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 18a3.75 3.75 0 0 0 .495-7.467 5.99 5.99 0 0 0-1.925 3.546 5.974 5.974 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z"/></svg>',
+    tag: "Liderazgo"
+  },
+  {
+    title: "Impacto Social Positivo",
+    description: "Tu formación técnica te permite contribuir directamente al bienestar de otros, generando un cambio real en la salud de tu comunidad.",
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z"/></svg>',
+    tag: "Vocación"
+  },
+  {
+    title: "Metodología Flex-Online",
+    description: "Estudia a tu propio ritmo con nuestra plataforma de última generación, diseñada para profesionales activos que necesitan flexibilidad total.",
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18c-2.305 0-4.408.867-6 2.292m0-14.25v14.25"/></svg>',
+    tag: "100% Online"
+  }
+];
 
 const syllabus = [
   { 
@@ -235,41 +283,22 @@ const breadcrumbSchema = {
             </div>
           </div>
 
-          <!-- WhatsApp Box Side (Home Style) -->
+          <!-- Form Side (US) or WhatsApp (Latam) -->
           <div class="relative animate-fade-in-up delay-300">
             <div class="absolute -top-10 -right-6 z-20">
               <AccreditationBadge className="scale-75 md:scale-90" />
             </div>
-            <div class="bg-brand-navy/98 p-8 lg:p-10 rounded-brand-xl border border-white/10 shadow-2xl relative group overflow-hidden">
-              <div class="absolute -top-24 -right-24 w-48 h-48 bg-brand-gold/10 rounded-full blur-3xl group-hover:bg-brand-gold/20 transition-colors duration-500"></div>
-              <div class="space-y-8 relative z-10">
-                <div class="space-y-3">
-                  <div class="w-12 h-12 bg-brand-gold/20 rounded-brand flex items-center justify-center">
-                    <svg class="w-6 h-6 text-brand-gold" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-                    </svg>
-                  </div>
-                  <h2 class="text-3xl font-extrabold text-white">Admisión <span class="text-brand-gold">Inmediata</span></h2>
-                  <p class="text-gray-300 leading-relaxed font-light text-sm">
-                    ¿Deseas iniciar tu formación como Auxiliar de Enfermería? Contacta ahora con un asesor académico para resolver tus dudas sobre becas y pagos.
-                  </p>
-                </div>
-
-                <div class="space-y-4">
-                  <a href="https://wa.me/1234567890" class="flex items-center justify-center gap-3 w-full bg-brand-gold text-brand-navy font-extrabold py-5 rounded-brand hover:bg-white transition-all duration-300 uppercase tracking-widest text-sm shadow-xl hover:shadow-brand-gold/20">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-                    </svg>
-                    Hablar con un asesor
-                  </a>
-                  <p class="text-[10px] text-center text-gray-500 uppercase tracking-[0.2em] font-bold">Respuesta por WhatsApp</p>
-                </div>
-              </div>
-            </div>
+            {isUS ? (
+              <LeadForm programName={formationFullName} />
+            ) : (
+              <WhatsAppBox programName={programName} />
+            )}
           </div>
         </div>
       </div>
     </section>
+
+
 
     <!-- Syllabus Section -->
     <section class="section-padding bg-white">
@@ -321,8 +350,11 @@ const breadcrumbSchema = {
         </div>
       </div>
     </section>
+
+    <BenefitsSection formationName={programName} benefits={benefits} />
     
     <TeachersSection limitTo={["Dra. Carmen Luzardo"]} />
+    <DiplomaSection />
     <Testimonials />
     <FAQ />
 
@@ -331,7 +363,7 @@ const breadcrumbSchema = {
       variant="dark"
       headline="Inicia tu camino hacia la excelencia sanitaria"
       subtext="Únete a la próxima cohorte del Curso Profesional Superior en Auxiliar de Enfermería y obtén la autoridad que tu carrera merece."
-      buttonText="HABLAR CON UN ASESOR"
+      buttonText="SOLICITAR ADMISIÓN"
     />
   </main>
   <Footer />

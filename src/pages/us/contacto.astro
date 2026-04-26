@@ -2,10 +2,9 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import AccreditationBadge from '../../components/AccreditationBadge.astro';
 
-const isUS = Astro.locals.isUS || false;
-const city = Astro.request.headers.get('x-nf-city') || "Unknown City";
+const city = Astro.request.headers.get('x-nf-city') || "USA (Ciudad no detectada)";
+const origin = Astro.url.href;
 ---
 
 <Layout title="Contacto" description="Contacta con el Instituto Online Osbord. Estamos aquí para resolver tus dudas sobre admisiones, programas académicos y certificaciones internacionales.">
@@ -44,16 +43,6 @@ const city = Astro.request.headers.get('x-nf-city') || "Unknown City";
                 <p class="text-sm text-gray-500">Para consultas académicas generales.</p>
                 <a href="mailto:admisiones@osbord.edu" class="text-brand-gold font-bold hover:underline">admisiones@osbord.edu</a>
               </div>
-              {!isUS && (
-                <div class="p-6 bg-brand-neutral rounded-brand-lg border border-gray-100 space-y-4">
-                  <div class="w-10 h-10 bg-brand-gold/10 rounded-brand flex items-center justify-center text-brand-gold">
-                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
-                  </div>
-                  <h3 class="font-extrabold text-brand-navy">WhatsApp</h3>
-                  <p class="text-sm text-gray-500">Respuesta rápida por consultores de admisión.</p>
-                  <a href="https://wa.me/1234567890" class="text-brand-gold font-bold hover:underline">+1 (123) 456-7890</a>
-                </div>
-              )}
             </div>
 
             <div class="p-8 bg-brand-navy text-white rounded-brand-xl space-y-4">
@@ -76,33 +65,33 @@ const city = Astro.request.headers.get('x-nf-city') || "Unknown City";
 
           <!-- Form -->
           <div class="bg-brand-neutral rounded-brand-xl p-8 md:p-12 border border-gray-100 shadow-soft space-y-8 relative">
-            <AccreditationBadge className="absolute -top-10 -right-10 z-10 scale-75 md:scale-100" />
             <h3 class="text-2xl font-extrabold text-brand-navy text-center">Envíanos un mensaje</h3>
             <form id="contact-form" class="space-y-6">
-              <input type="hidden" name="city" value={city} />
+              <input type="hidden" name="ciudad" value={city} />
+              <input type="hidden" name="origen" value={origin} />
               <div class="grid sm:grid-cols-2 gap-6">
                 <div class="space-y-2">
                   <label class="text-xs font-bold uppercase tracking-wider text-gray-400">Nombre Completo</label>
-                  <input type="text" placeholder="Escribe tu nombre" class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold transition-all" required />
+                  <input type="text" name="nombre" placeholder="Escribe tu nombre" class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold transition-all" required />
                 </div>
                 <div class="space-y-2">
                   <label class="text-xs font-bold uppercase tracking-wider text-gray-400">Correo Electrónico</label>
-                  <input type="email" placeholder="email@ejemplo.com" class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold transition-all" required />
+                  <input type="email" name="correo" placeholder="email@ejemplo.com" class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold transition-all" required />
                 </div>
               </div>
               <div class="grid sm:grid-cols-2 gap-6">
                 <div class="space-y-2">
                   <label class="text-xs font-bold uppercase tracking-wider text-gray-400">Teléfono</label>
-                  <input type="tel" placeholder="+1..." class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold transition-all" required />
+                  <input type="tel" name="telefono" placeholder="+1..." class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold transition-all" required />
                   <div class="space-y-2 mt-2">
                     <p class="text-[9px] font-bold text-gray-400 uppercase tracking-wider">¿Este Número Tiene WhatsApp?</p>
                     <div class="flex items-center gap-4">
                       <label class="flex items-center gap-2 cursor-pointer group">
-                        <input type="radio" name="contact-whatsapp" value="si" class="w-3.5 h-3.5 border-gray-300 text-brand-gold focus:ring-brand-gold" required />
+                        <input type="radio" name="whatsapp" value="si" class="w-3.5 h-3.5 border-gray-300 text-brand-gold focus:ring-brand-gold" required />
                         <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider group-hover:text-brand-gold transition-colors text-brand-navy">Sí</span>
                       </label>
                       <label class="flex items-center gap-2 cursor-pointer group">
-                        <input type="radio" name="contact-whatsapp" value="no" class="w-3.5 h-3.5 border-gray-300 text-brand-gold focus:ring-brand-gold" required />
+                        <input type="radio" name="whatsapp" value="no" class="w-3.5 h-3.5 border-gray-300 text-brand-gold focus:ring-brand-gold" required />
                         <span class="text-[10px] font-bold text-gray-500 uppercase tracking-wider group-hover:text-brand-gold transition-colors text-brand-navy">No</span>
                       </label>
                     </div>
@@ -110,7 +99,7 @@ const city = Astro.request.headers.get('x-nf-city') || "Unknown City";
                 </div>
                 <div class="space-y-2">
                   <label class="text-xs font-bold uppercase tracking-wider text-gray-400">Programa de Interés</label>
-                  <select class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold transition-all bg-white" required>
+                  <select name="formacion" class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold transition-all bg-white" required>
                     <option value="">Selecciona un programa</option>
                     <option>Máster en Interiorismo, Diseño y Decoración de Interiores 3D</option>
                     <option>Máster en Organización de Eventos & Wedding Planner + IA</option>
@@ -121,7 +110,7 @@ const city = Astro.request.headers.get('x-nf-city') || "Unknown City";
               </div>
               <div class="space-y-2">
                 <label class="text-xs font-bold uppercase tracking-wider text-gray-400">Mensaje</label>
-                <textarea rows="4" placeholder="¿Cómo podemos ayudarte?" class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold transition-all" required></textarea>
+                <textarea name="mensaje" rows="4" placeholder="¿Cómo podemos ayudarte?" class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold transition-all" required></textarea>
               </div>
               <button type="submit" class="cta-button w-full justify-center text-base py-4">ENVIAR CONSULTA</button>
             </form>
@@ -148,8 +137,7 @@ const city = Astro.request.headers.get('x-nf-city') || "Unknown City";
     const data = Object.fromEntries(formData.entries());
     
     try {
-      // Reemplaza con la URL real de tu Google Apps Script
-      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz_XXXXXXXXX/exec';
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwQ34SrlVoEWz_WnjoLXjmM16ubiEBKZQfjgBHWHeppjd2Elh7WA9r2UTq18lp3bbcW/exec';
       
       await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
@@ -160,11 +148,10 @@ const city = Astro.request.headers.get('x-nf-city') || "Unknown City";
         body: JSON.stringify(data)
       });
       
-      alert('¡Gracias! Tu mensaje ha sido enviado correctamente.');
+      window.osbordToast?.();
       contactForm.reset();
     } catch (error) {
       console.error('Error:', error);
-      alert('Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.');
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = originalText;

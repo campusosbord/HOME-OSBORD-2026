@@ -33,10 +33,6 @@ export const onRequest = defineMiddleware(async (context, next) => {
     
     let pathWithoutInitialSlash = pathname.startsWith('/') ? pathname.slice(1) : pathname;
 
-    if (pathWithoutInitialSlash && !pathWithoutInitialSlash.endsWith('/')) {
-      pathWithoutInitialSlash += '/';
-    }
-
     const destination = `/${region}/${pathWithoutInitialSlash}`;
     const cleanDestination = destination.replace(/\/+/g, '/');
 

@@ -7,86 +7,118 @@ import eventsImg from '../assets/school_events.png';
 const pathname = Astro.url.pathname;
 const prefix = pathname.startsWith('/us') ? '/us' : '/latam';
 
-const schools = [
+const offerings = [
   {
-    title: "Ciencias de la Salud",
+    school: "Escuela de Ciencias de la Salud",
+    program: "CURSO PROFESIONAL SUPERIOR: AUXILIAR DE ENFERMERÍA CLÍNICA",
     description: "Formación técnica avanzada en asistencia sanitaria, cuidados clínicos y gestión hospitalaria con estándares internacionales.",
     image: healthImg,
     accent: "from-blue-500/20",
-    link: `${prefix}/masters/enfermeria`,
-    program: "CURSO PROFESIONAL SUPERIOR: AUXILIAR DE ENFERMERÍA CLÍNICA"
+    link: `${prefix}/masters/enfermeria`
   },
   {
-    title: "Arquitectura y Diseño",
+    school: "Escuela de Arquitectura y Diseño",
+    program: "Máster en Interiorismo, Diseño y Decoración de Interiores 3D",
     description: "Especialización en modelado 3D, interiorismo de lujo y arquitectura contemporánea con herramientas de última generación.",
     image: designImg,
     accent: "from-amber-500/20",
-    link: `${prefix}/masters/interiorismo`,
-    program: "Máster en Interiorismo, Diseño y Decoración de Interiores 3D"
+    link: `${prefix}/masters/interiorismo`
   },
   {
-    title: "Gestión de Eventos",
-    description: "Protocolo, organización de eventos de alto nivel y Wedding Planning profesional para el mercado internacional.",
+    school: "Escuela de Negocios y Protocolo",
+    program: "Máster en Organización de Eventos & Wedding Planner + IA",
+    description: "Protocolo, organización de eventos de alto nivel y Wedding Planning profesional potenciado con Inteligencia Artificial.",
     image: eventsImg,
     accent: "from-rose-500/20",
-    link: `${prefix}/masters/wedding-planner`,
-    program: "Máster en Organización de Eventos & Wedding Planner + IA"
+    link: `${prefix}/masters/wedding-planner`
   }
 ];
 ---
 
-<section id="oferta" class="py-24 bg-brand-neutral">
+<section id="oferta" class="py-16 bg-brand-neutral/50">
   <div class="max-w-7xl mx-auto px-6">
     <!-- Section Header -->
-    <div class="text-center mb-16 space-y-5">
-      <p class="section-label">Nuestras Facultades</p>
-      <h2 class="text-4xl md:text-5xl font-extrabold tracking-tight">
-        Excelencia por <span class="text-brand-gold">Escuelas</span>
+    <div class="text-center mb-16 space-y-4">
+      <p class="section-label">Formaciones de Élite</p>
+      <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight text-brand-navy">
+        Nuestra Oferta <span class="text-brand-gold italic">Académica</span>
       </h2>
-      <p class="text-gray-500 max-w-2xl mx-auto text-lg leading-relaxed">
-        Nuestra oferta académica se organiza en escuelas de especialización, cada una liderada por expertos activos en su industria.
-      </p>
       <div class="gold-divider mx-auto"></div>
     </div>
 
-    <!-- School Cards Grid -->
+    <!-- Cards Grid -->
     <div class="grid md:grid-cols-3 gap-8">
-      {schools.map((school, index) => (
-        <article class={`group relative bg-white rounded-brand-lg overflow-hidden shadow-soft transition-all duration-500 hover:-translate-y-2 hover:shadow-elevated animate-fade-in-up delay-${(index + 1) * 100}`}>
+      {offerings.map((item, index) => (
+        <a 
+          href={item.link}
+          class={`group bg-white rounded-brand-xl overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-500 border border-gray-100 flex flex-col animate-fade-in-up delay-${(index + 1) * 100} cursor-pointer`}
+        >
           <!-- Image -->
           <div class="relative h-64 overflow-hidden">
             <Image
-              src={school.image}
-              alt={school.title}
-              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              src={item.image}
+              alt={item.program}
+              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
               width={600}
               height={400}
             />
-            <div class={`absolute inset-0 bg-gradient-to-t ${school.accent} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-            <!-- Program Tag -->
-            <div class="absolute top-4 left-4 px-3 py-1.5 bg-brand-navy/90 backdrop-blur-sm rounded-full">
-              <span class="text-[10px] text-brand-gold font-bold uppercase tracking-widest">{school.program}</span>
+            <div class={`absolute inset-0 bg-gradient-to-t ${item.accent} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+            
+            <!-- School Tag -->
+            <div class="absolute top-4 left-4">
+              <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-brand-navy/95 backdrop-blur-md rounded-full border border-white/10 text-[9px] text-white font-bold uppercase tracking-widest shadow-xl">
+                <span class="w-1 h-1 rounded-full bg-brand-gold"></span>
+                {item.school}
+              </span>
             </div>
           </div>
 
-          <!-- Content -->
-          <div class="p-8 space-y-4">
-            <h3 class="text-xl font-extrabold group-hover:text-brand-gold transition-colors duration-300">
-              {school.title}
-            </h3>
-            <p class="text-gray-500 text-sm leading-relaxed">{school.description}</p>
-            <a
-              href={school.link}
-              class="inline-flex items-center text-brand-navy font-bold text-xs uppercase tracking-widest group-hover:text-brand-gold transition-colors duration-300"
-            >
-              Ver Programa
-              <svg class="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-              </svg>
-            </a>
+          <!-- Content Area -->
+          <div class="p-8 flex flex-col flex-grow">
+            <div class="space-y-4 mb-8">
+              <h3 class="text-xl font-extrabold text-brand-navy group-hover:text-brand-gold transition-colors duration-300 leading-[1.2]">
+                {item.program}
+              </h3>
+              <p class="text-gray-500 text-sm leading-relaxed line-clamp-3">
+                {item.description}
+              </p>
+            </div>
+
+            <!-- CTA - RIGHT and Underscored -->
+            <div class="mt-auto flex justify-end">
+              <div class="inline-flex items-center gap-3 group/link">
+                <span class="relative text-brand-navy font-black text-xs uppercase tracking-[0.2em] group-hover:text-brand-gold transition-colors">
+                  Ver Programa
+                  <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-brand-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+                </span>
+                <div class="w-10 h-10 rounded-full bg-brand-gold/10 flex items-center justify-center group-hover:bg-brand-gold transition-all duration-500">
+                  <svg class="w-5 h-5 text-brand-gold group-hover:text-brand-navy transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
           </div>
-        </article>
+        </a>
       ))}
+    </div>
+
+    <!-- Central CTA -->
+    <div class="mt-20 text-center animate-fade-in delay-500">
+      <div class="flex justify-center">
+        {prefix === '/us' ? (
+          <button class="trigger-admission-modal cta-button px-10 py-5 text-sm tracking-[0.1em] shadow-xl hover:scale-105 transition-all">
+            SOLICITAR ADMISIÓN
+          </button>
+        ) : (
+          <a href="https://wa.me/1234567890" class="cta-button flex items-center justify-center gap-3 font-extrabold px-10 py-5 rounded-brand shadow-xl shadow-brand-gold/20 transition-all duration-300 hover:scale-105">
+            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.414 0 0 5.415 0 12.05c0 2.12.554 4.189 1.605 6.01L0 24l6.135-1.61a11.902 11.902 0 0 0 5.915 1.56h.005c6.637 0 12.05-5.415 12.05-12.05a11.815 11.815 0 0 0-3.542-8.513"/>
+            </svg>
+            SOLICITAR ADMISIÓN
+          </a>
+        )}
+      </div>
     </div>
   </div>
 </section>
