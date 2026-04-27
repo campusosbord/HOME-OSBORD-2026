@@ -65,9 +65,12 @@ const isLatam = pathname.startsWith('/latam') || pathname.includes('/latam/');
           </p>
         </div>
       ) : (
-        <p class={`text-xs font-medium uppercase tracking-widest ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
-          Respuesta en menos de 24 horas
-        </p>
+        <div class="flex items-center justify-center gap-2 pt-2">
+          <div class="w-2 h-2 bg-emerald-500 rounded-full shadow-[0_0_8px_rgba(16,185,129,0.6)] animate-pulse"></div>
+          <p class={`text-[10px] text-gray-400 uppercase tracking-widest font-bold ${isDark ? 'text-gray-400' : 'text-gray-500'}`}>
+            Respuesta en menos de 24 horas
+          </p>
+        </div>
       )}
     </div>
   </div>

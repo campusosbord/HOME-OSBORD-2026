@@ -72,35 +72,41 @@ const isUS = Astro.locals.isUS || false;
             </div>
           </div>
 
-          <!-- Form -->
-          <div class="bg-brand-neutral rounded-brand-xl p-8 md:p-12 border border-gray-100 shadow-soft space-y-8">
-            <h3 class="text-2xl font-extrabold text-brand-navy text-center">Envíanos un mensaje</h3>
-            <form class="space-y-6">
-              <div class="grid sm:grid-cols-2 gap-6">
-                <div class="space-y-2">
-                  <label class="text-xs font-bold uppercase tracking-wider text-gray-400">Nombre</label>
-                  <input type="text" placeholder="Tu nombre" class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold transition-all" />
-                </div>
-                <div class="space-y-2">
-                  <label class="text-xs font-bold uppercase tracking-wider text-gray-400">Correo</label>
-                  <input type="email" placeholder="Tu email" class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold transition-all" />
-                </div>
+          <!-- WhatsApp Box Latam -->
+          <div class="bg-brand-navy rounded-brand-xl p-10 md:p-12 shadow-2xl text-center space-y-8 relative overflow-hidden group">
+            <div class="absolute -top-24 -right-24 w-48 h-48 bg-brand-gold/10 rounded-full blur-3xl group-hover:bg-brand-gold/20 transition-colors duration-500"></div>
+            
+            <div class="relative z-10 space-y-6">
+              <div class="w-16 h-16 bg-brand-gold/10 rounded-full flex items-center justify-center mx-auto">
+                <svg class="w-8 h-8 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 0 1-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                </svg>
               </div>
+              
               <div class="space-y-2">
-                <label class="text-xs font-bold uppercase tracking-wider text-gray-400">Programa de Interés</label>
-                <select class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold transition-all bg-white">
-                  <option>Máster en Interiorismo, Diseño y Decoración de Interiores 3D</option>
-                  <option>Máster en Organización de Eventos & Wedding Planner + IA</option>
-                  <option>CURSO PROFESIONAL SUPERIOR: AUXILIAR DE ENFERMERÍA CLÍNICA</option>
-                  <option>Otro / Consulta general</option>
-                </select>
+                <h3 class="text-3xl font-extrabold text-white tracking-tight">Atención <span class="text-brand-gold">Inmediata</span></h3>
+                <p class="text-gray-400 text-sm leading-relaxed max-w-xs mx-auto">
+                  ¿Deseas una respuesta rápida? Nuestros asesores académicos están disponibles ahora mismo por WhatsApp.
+                </p>
               </div>
-              <div class="space-y-2">
-                <label class="text-xs font-bold uppercase tracking-wider text-gray-400">Mensaje</label>
-                <textarea rows="4" placeholder="¿Cómo podemos ayudarte?" class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold transition-all"></textarea>
+
+              <div class="space-y-4 pt-2">
+                <a href="https://wa.me/1234567890" class="flex items-center justify-center gap-3 w-full bg-[#25D366] hover:bg-white hover:text-brand-navy text-white font-extrabold py-5 rounded-brand transition-all duration-300 uppercase tracking-widest text-sm shadow-xl shadow-green-500/10">
+                  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.414 0 0 5.415 0 12.05c0 2.12.554 4.189 1.605 6.01L0 24l6.135-1.61a11.902 11.902 0 0 0 5.915 1.56h.005c6.637 0 12.05-5.415 12.05-12.05a11.815 11.815 0 0 0-3.542-8.513"/>
+                  </svg>
+                  Iniciar Chat por WhatsApp
+                </a>
+                
+                <div class="flex items-center justify-center gap-2.5">
+                  <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  </span>
+                  <p class="text-[10px] text-gray-400 uppercase tracking-[0.2em] font-bold">En línea ahora para ti</p>
+                </div>
               </div>
-              <button type="button" class="cta-button w-full justify-center text-base py-4">ENVIAR CONSULTA</button>
-            </form>
+            </div>
           </div>
         </div>
       </div>
