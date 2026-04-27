@@ -29,7 +29,7 @@ const allHeaders = Array.from(Astro.request.headers.entries());
 
         <div class="bg-white/5 p-6 rounded-brand border border-brand-gold/30">
           <p class="text-xs uppercase tracking-widest text-brand-gold mb-2 font-bold">Ubicación Procesada (Middleware)</p>
-          <p class="text-2xl font-extrabold text-white">{Astro.locals.city}</p>
+          <p id="processed-city" class="text-2xl font-extrabold text-white">{Astro.locals.city}</p>
           <p class="text-[10px] text-gray-400 mt-2 italic">Este es el valor exacto que se envía a Google Sheets.</p>
         </div>
 
@@ -74,6 +74,9 @@ const allHeaders = Array.from(Astro.request.headers.entries());
   async function checkFallback() {
     const box = document.getElementById('fallback-box');
     const text = document.getElementById('fallback-city');
+    
+    // Simular la misma lógica que los formularios
+    const currentCity = document.getElementById('processed-city')?.textContent || "";
     
     try {
       const res = await fetch('https://ipapi.co/json/');

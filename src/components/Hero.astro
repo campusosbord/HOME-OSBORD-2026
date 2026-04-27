@@ -160,7 +160,8 @@ const programs = [
   // Client-side City Fallback (Plan B)
   async function resolveCity() {
     const cityInput = heroForm.querySelector('input[name="ciudad"]') as HTMLInputElement;
-    if (cityInput && (cityInput.value.includes('no detectada') || !cityInput.value)) {
+    // Si la ciudad no se detectó, o solo se detectó el código de país (ej. "US")
+    if (cityInput && (cityInput.value.includes('no detectada') || cityInput.value.length <= 3 || !cityInput.value)) {
       try {
         const res = await fetch('https://ipapi.co/json/');
         const geo = await res.json();
