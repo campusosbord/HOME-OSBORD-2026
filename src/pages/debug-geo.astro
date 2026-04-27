@@ -43,6 +43,12 @@ const allHeaders = Array.from(Astro.request.headers.entries());
             <p class="text-lg font-bold text-xs truncate">{ip}</p>
           </div>
         </div>
+
+        <div id="fallback-box" class="bg-brand-gold/10 p-6 rounded-brand border border-brand-gold/30 hidden">
+          <p class="text-xs uppercase tracking-widest text-brand-gold mb-2 font-bold">Resolución de Respaldo (Client-Side)</p>
+          <p id="fallback-city" class="text-2xl font-extrabold text-white">Buscando...</p>
+          <p class="text-[10px] text-gray-400 mt-2 italic">Esto es lo que verá el sistema si Netlify no envía la ciudad.</p>
+        </div>
       </div>
 
       <div class="space-y-4">
@@ -63,3 +69,22 @@ const allHeaders = Array.from(Astro.request.headers.entries());
     </div>
   </div>
 </Layout>
+
+<script>
+  async function checkFallback() {
+    const box = document.getElementById('fallback-box');
+    const text = document.getElementById('fallback-city');
+    
+    try {
+      const res = await fetch('https://ipapi.co/json/');
+      const geo = await res.json();
+      if (geo.city) {
+        box?.classList.remove('hidden');
+        if (text) text.textContent = `${geo.city}, ${geo.region} (${geo.country_name})`;
+      }
+    } catch (e) {
+      console.error('Fallback check failed');
+    }
+  }
+  checkFallback();
+</script>
