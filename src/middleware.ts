@@ -43,11 +43,11 @@ export const onRequest = defineMiddleware(async (context, next) => {
     // 4. Lógica de redirección basada en país
     // Aceptamos US y PR (Puerto Rico) como versión USA
     const locality = (country === "US" || country === "PR") ? "us" : "latam";
-    const region = locality;
+    const targetRegion = locality;
     
     let pathWithoutInitialSlash = pathname.startsWith('/') ? pathname.slice(1) : pathname;
 
-    const destination = `/${region}/${pathWithoutInitialSlash}`;
+    const destination = `/${targetRegion}/${pathWithoutInitialSlash}`;
     const cleanDestination = destination.replace(/\/+/g, '/');
 
     console.log(`[Netlify Middleware] Redirigiendo: ${pathname} -> ${cleanDestination} (País: ${country}, Ciudad: ${city})`);
