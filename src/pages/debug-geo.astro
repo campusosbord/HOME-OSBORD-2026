@@ -1,0 +1,59 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const country = Astro.request.headers.get('x-nf-country') || 
+                Astro.request.headers.get('x-country') || 
+                Astro.request.headers.get('cf-ipcountry') || 
+                "No detectado";
+
+const city = Astro.request.headers.get('x-nf-city') || "No detectada";
+const ip = Astro.request.headers.get('x-nf-client-connection-ip') || "No detectada";
+
+const allHeaders = Array.from(Astro.request.headers.entries());
+---
+
+<Layout title="Diagnóstico Geográfico" noIndex={true}>
+  <div class="min-h-screen bg-brand-navy text-white p-8 font-mono">
+    <div class="max-w-2xl mx-auto space-y-8">
+      <div class="border-b border-brand-gold/30 pb-4">
+        <h1 class="text-2xl font-extrabold text-brand-gold">Osbord Geo-Diagnostic</h1>
+        <p class="text-gray-400 text-sm mt-1">Herramienta técnica para verificar redirecciones</p>
+      </div>
+
+      <div class="grid gap-4">
+        <div class="bg-white/5 p-6 rounded-brand border border-white/10">
+          <p class="text-xs uppercase tracking-widest text-brand-gold mb-2 font-bold">País Detectado (Netlify)</p>
+          <p class="text-4xl font-extrabold">{country}</p>
+          <p class="text-[10px] text-gray-500 mt-2 italic">Si aquí no dice "US", el sistema te mandará a LATAM por seguridad.</p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-white/5 p-4 rounded-brand border border-white/10">
+            <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Ciudad</p>
+            <p class="text-lg font-bold">{city}</p>
+          </div>
+          <div class="bg-white/5 p-4 rounded-brand border border-white/10">
+            <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">IP Detectada</p>
+            <p class="text-lg font-bold text-xs truncate">{ip}</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <h2 class="text-sm font-bold uppercase tracking-widest text-brand-gold">Todos los Encabezados (Raw)</h2>
+        <div class="bg-black/30 p-4 rounded-brand text-[10px] space-y-1 overflow-x-auto">
+          {allHeaders.map(([key, value]) => (
+            <div class="flex gap-4">
+              <span class="text-brand-gold/50 w-40 shrink-0">{key}:</span>
+              <span class="text-gray-300">{value}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="pt-8 text-center">
+        <a href="/" class="text-xs text-brand-gold hover:underline">Volver al Inicio</a>
+      </div>
+    </div>
+  </div>
+</Layout>

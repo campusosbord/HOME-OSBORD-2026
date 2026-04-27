@@ -5,13 +5,19 @@ export const onRequest = defineMiddleware(async (context, next) => {
     const { url, redirect, locals, request } = context;
     const pathname = url.pathname;
 
-    // 1. Filtro estricto para archivos estáticos y rutas internas
-    if (pathname.includes('.') || pathname.startsWith('/_')) {
+    // 1. Filtro estricto para archivos estáticos y rutas internas/debug
+    if (pathname.includes('.') || pathname.startsWith('/_') || pathname === '/debug-geo') {
       return next();
     }
 
-    // 2. Extraer información geográfica de Netlify
-    const country = request.headers.get('x-nf-country') || "UNKNOWN";
+    // 2. Extraer información geográfica de múltiples posibles fuentes
+    const country = (
+      request.headers.get('x-nf-country') || 
+      request.headers.get('x-country') || 
+      request.headers.get('cf-ipcountry') || 
+      "UNKNOWN"
+    ).toUpperCase();
+
     const city = request.headers.get('x-nf-city') || "Unknown City";
     
     // Guardar en locals para uso en componentes y páginas
@@ -28,7 +34,8 @@ export const onRequest = defineMiddleware(async (context, next) => {
     }
 
     // 4. Lógica de redirección basada en país
-    const locality = country === "US" ? "us" : "latam";
+    // Aceptamos US y PR (Puerto Rico) como versión USA
+    const locality = (country === "US" || country === "PR") ? "us" : "latam";
     const region = locality;
     
     let pathWithoutInitialSlash = pathname.startsWith('/') ? pathname.slice(1) : pathname;
