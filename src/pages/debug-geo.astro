@@ -27,6 +27,12 @@ const allHeaders = Array.from(Astro.request.headers.entries());
           <p class="text-[10px] text-gray-500 mt-2 italic">Si aquí no dice "US", el sistema te mandará a LATAM por seguridad.</p>
         </div>
 
+        <div class="bg-white/5 p-6 rounded-brand border border-brand-gold/30">
+          <p class="text-xs uppercase tracking-widest text-brand-gold mb-2 font-bold">Ubicación Procesada (Middleware)</p>
+          <p class="text-2xl font-extrabold text-white">{Astro.locals.city}</p>
+          <p class="text-[10px] text-gray-400 mt-2 italic">Este es el valor exacto que se envía a Google Sheets.</p>
+        </div>
+
         <div class="grid grid-cols-2 gap-4">
           <div class="bg-white/5 p-4 rounded-brand border border-white/10">
             <p class="text-[10px] uppercase tracking-widest text-gray-400 mb-1">Ciudad</p>

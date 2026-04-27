@@ -5,7 +5,7 @@ interface Props {
 }
 
 const { isUS, programName } = Astro.props;
-const city = Astro.request.headers.get('x-nf-city') || "USA (Ciudad no detectada)";
+const city = Astro.locals.city || "USA (Ciudad no detectada)";
 const origin = Astro.url.href;
 
 const programs = [

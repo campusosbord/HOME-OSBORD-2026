@@ -2,10 +2,7 @@
 declare namespace App {
   interface Locals {
     isUS: boolean;
-    runtime: import('@astrojs/cloudflare').Runtime<Env>;
+    country: string;
+    city: string;
   }
-}
-
-interface Env {
-  // Define here your KV, Durable Objects, etc. bindings
 }

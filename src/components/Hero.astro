@@ -9,7 +9,7 @@ interface Props {
 const { isUS: propIsUS } = Astro.props;
 const pathname = Astro.url.pathname;
 const isUS = propIsUS ?? pathname.startsWith('/us') ?? Astro.locals.isUS ?? false;
-const city = Astro.request.headers.get('x-nf-city') || "USA (Ciudad no detectada)";
+const city = Astro.locals.city || "USA (Ciudad no detectada)";
 const origin = Astro.url.href;
 
 const programs = [

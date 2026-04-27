@@ -18,11 +18,18 @@ export const onRequest = defineMiddleware(async (context, next) => {
       "UNKNOWN"
     ).toUpperCase();
 
-    const city = request.headers.get('x-nf-city') || "Unknown City";
+    const city = request.headers.get('x-nf-city');
+    const region = request.headers.get('x-nf-region');
+    
+    // Construir una ubicación más completa
+    let geoDisplay = country;
+    if (city && region) geoDisplay = `${city}, ${region} (${country})`;
+    else if (region) geoDisplay = `${region} (${country})`;
+    else if (city) geoDisplay = `${city} (${country})`;
     
     // Guardar en locals para uso en componentes y páginas
     locals.country = country;
-    locals.city = city;
+    locals.city = geoDisplay || "USA (Ciudad no detectada)";
 
     // 3. Verificar si ya estamos en una ruta regionalizada
     const isUS = pathname === "/us" || pathname.startsWith("/us/");
