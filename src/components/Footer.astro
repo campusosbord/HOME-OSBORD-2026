@@ -128,7 +128,7 @@ const prefix = pathname.startsWith('/us') ? '/us' : '/latam';
         <p class="text-[10px] text-gray-500 uppercase tracking-[0.15em] font-bold">
           © {new Date().getFullYear()} Instituto Online Osbord LLC. Todos los derechos reservados.
         </p>
-        <div class="flex items-center gap-6">
+        <div class="flex flex-wrap justify-center items-center gap-4 md:gap-6">
           <a href={`${prefix}/legal`} class="text-[10px] text-gray-500 uppercase tracking-[0.15em] font-bold hover:text-white transition-colors">Aviso Legal</a>
           <a href={`${prefix}/privacidad`} class="text-[10px] text-gray-500 uppercase tracking-[0.15em] font-bold hover:text-white transition-colors">Privacidad</a>
           <a href={`${prefix}/cookies`} class="text-[10px] text-gray-500 uppercase tracking-[0.15em] font-bold hover:text-white transition-colors">Cookies</a>
