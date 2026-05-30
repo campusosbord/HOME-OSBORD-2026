@@ -29,6 +29,9 @@ const prefix = pathname.startsWith('/us') ? '/us' : '/latam';
 
       <!-- DESKTOP ONLY: Nav Left -->
       <nav class="hidden lg:flex items-center justify-end space-x-8 flex-1" aria-label="Navegación principal">
+        <a href={`${prefix}/`} class="text-sm text-brand-navy font-semibold hover:text-brand-gold transition-colors">
+          Inicio
+        </a>
         <!-- Institución Dropdown -->
         <div class="relative group">
           <button
@@ -171,6 +174,9 @@ const prefix = pathname.startsWith('/us') ? '/us' : '/latam';
           <a href={`${prefix}/contacto`} class="lg:block text-sm text-brand-navy font-semibold hover:text-brand-gold transition-colors">
             Contacto
           </a>
+          <a href="https://campus.osbord.com" target="_blank" rel="noopener noreferrer" class="lg:block text-sm text-brand-navy font-semibold hover:text-brand-gold transition-colors">
+            Campus Online
+          </a>
         </div>
         <button class="trigger-admission-modal cta-button cta-dynamic text-xs lg:text-sm px-5 lg:px-8 flex items-center gap-2">
           {isUS && (
@@ -218,6 +224,11 @@ const prefix = pathname.startsWith('/us') ? '/us' : '/latam';
     </div>
 
     <nav class="flex-1 p-6 space-y-8 overflow-y-auto text-right">
+      <!-- Inicio -->
+      <div class="flex flex-col items-end">
+        <a href={`${prefix}/`} class="block text-white/90 hover:text-brand-gold text-lg font-bold transition-colors">Inicio</a>
+      </div>
+
       <!-- Institución -->
       <div class="space-y-4 flex flex-col items-end">
         <p class="section-label">Institución</p>
@@ -250,6 +261,7 @@ const prefix = pathname.startsWith('/us') ? '/us' : '/latam';
       <div class="pt-4 border-t border-white/10 space-y-4">
         <a href={`${prefix}/verificacion`} class="block text-white/80 hover:text-brand-gold font-medium text-base transition-colors">Verificación de Títulos</a>
         <a href={`${prefix}/contacto`} class="block text-white/80 hover:text-brand-gold font-medium text-base transition-colors">Contacto</a>
+        <a href="https://campus.osbord.com" target="_blank" rel="noopener noreferrer" class="block text-white/80 hover:text-brand-gold font-medium text-base transition-colors">Campus Online</a>
       </div>
     </nav>
 
