@@ -4,15 +4,17 @@ import logoImage from '../assets/Instituto Osbord logo.webp';
 
 interface Props {
   class?: string;
+  id?: string;
   light?: boolean;
 }
 
-const { class: className, light = false } = Astro.props;
+const { class: className, id, light = false } = Astro.props;
 ---
 
 <Image 
   src={logoImage} 
   alt="Instituto Online Osbord" 
+  id={id}
   class:list={[
     "object-contain",
     className

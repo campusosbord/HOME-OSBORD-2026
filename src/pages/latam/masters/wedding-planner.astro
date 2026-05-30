@@ -22,19 +22,19 @@ const formationFullName = "Máster en Organización de Eventos & Wedding Planner
 const benefits = [
   {
     title: "Eventos de Autor",
-    description: "Aprende a diseñar bodas y eventos con un sello distintivo de exclusividad, dominando el protocolo y las últimas tendencias de lujo.",
+    description: "Aprende a diseñar eventos corporativos, sociales y bodas con un sello distintivo de exclusividad, dominando el protocolo y las últimas tendencias de lujo.",
     icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"/></svg>',
     tag: "Exclusividad"
   },
   {
     title: "IA Aplicada",
     description: "Optimiza tu tiempo y creatividad utilizando Inteligencia Artificial para el diseño de conceptos, moodboards y gestión logística eficiente.",
-    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.75 3.104v1.244c0 .462.223.9.605 1.17l.999.713a1.123 1.123 0 001.292 0l.999-.713a1.5 1.5 0 01.605-1.17V3.104a3.75 3.75 0 00-4.5 0zM21 12a9 9 0 11-18 0 9 9 0 0118 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12h6m-6 3h6m-6-6h6"/></svg>',
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>',
     tag: "Tecnología"
   },
   {
     title: "Certificación USA",
-    description: "Obtén un título con respaldo internacional de nuestra sede en USA, garantizando los estándares más altos de la industria global.",
+    description: "Obtén un certificado con respaldo internacional de nuestra institutción, garantizando los estándares más altos de la industria global.",
     icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84a51.39 51.39 0 00-2.658.814m-15.482 0l12.93 3.317a.5.5 0 00.254 0l12.93-3.317m-12.93 3.317V16.5"/></svg>',
     tag: "Internacional"
   },
@@ -46,162 +46,173 @@ const benefits = [
   },
   {
     title: "Prestigio Global",
-    description: "Forma parte de una élite de organizadores certificados, capacitados para trabajar en cualquier parte del mundo con estándares premium.",
-    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 21l-8.25-1.875V7.03L12 3l8.25 4.03v12.095L12 21z"/></svg>',
+    description: "Forma parte de una élite de organizadores de eventos certificados, capacitados para trabajar en cualquier parte del mundo con estándares premium.",
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 22.125l-.394-1.558a1.907 1.907 0 00-1.541-1.541l-1.558-.394 1.558-.394a1.907 1.907 0 001.541-1.541l.394-1.558.394 1.558a1.907 1.907 0 001.541 1.541l1.558.394-1.558.394a1.907 1.907 0 00-1.541 1.541z"/></svg>',
     tag: "Estatus"
   },
   {
     title: "Networking de Lujo",
-    description: "Accede a una red exclusiva de proveedores, venues y profesionales del sector nupcial internacional para potenciar tus eventos.",
-    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"/></svg>',
+    description: "Accede a una red exclusiva de alumnos y profesionales en el sector con acceso de por vida",
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>',
     tag: "Contactos"
   }
 ];
 
 const syllabus = [
   { 
-    title: "Módulo 1: Organización de Eventos", 
+    title: "MÓDULO 1. ORGANIZACIÓN DE EVENTOS", 
     content: [
-      "Comunicación",
-      "Cultura Corporativa",
-      "Planificación",
-      "Marketing",
-      "Realización",
-      "Tipos de Eventos",
-      "Montaje de Tarimas",
-      "Dirección y Control",
-      "Perfil del Event Manager",
-      "Briefing y Presupuesto",
-      "Protocolo y Seguridad",
-      "Recursos Masivos",
-      "Post-Evento",
-      "Herramientas",
-      "Administración Presupuestaria",
+      "Comunicación Estratégica y Protocolo Empresarial",
+      "Perfil Profesional del Organizador y Gestión de Relaciones Estratégicas",
+      "Ingeniería Financiera: Presupuestos y Contratación",
+      "Tipologías y Protocolo de Eventos",
+      "Diseño Estratégico, Creatividad y Selección de Sedes",
+      "Operaciones Logísticas y Gestión de Proveedores",
+      "Marketing, Difusión Digital y Relaciones con la Prensa",
+      "Herramientas de Control: Checklists y Sistemas de Acceso",
+      "Producción Técnica, Montaje y Nuevas Tecnologías",
+      "Gestión de Riesgos, Seguridad y Sostenibilidad",
+      "Auditoría de Resultados y Cierre de Proyecto",
       "Examen de Evaluación: Módulo 1."
     ]
   },
   { 
-    title: "Módulo 2: Protocolo y Etiqueta Nupcial", 
+    title: "MÓDULO 2. WEDDING PLANNER", 
     content: [
-      "Normas de Protocolo Internacional",
-      "Etiqueta y Vestimenta (Dress Code)",
-      "Heráldica y Vexilología Nupcial",
-      "Precedencias y Jerarquías",
-      "Ceremonias Religiosas y Civiles",
-      "Protocolo en Banquetes",
-      "Discursos y Brindis",
-      "Regalos y Listas de Bodas",
-      "Gestión de Invitados VIP",
+      "Perfil Profesional del Wedding Planner: Competencias y Alcance",
+      "Estructura Macro de la Boda: Fases de la Planificación",
+      "La Entrevista Inicial: Definición de Estilo, Magnitud y Presupuesto",
+      "Formalidades y Protocolos: Bodas Civiles, Religiosas y Multiculturales",
+      "Conceptualización del Evento: Estilos, Horarios y Tipologías de Venues",
+      "Gestión de Invitados: Estrategia de Convocatoria y Papelería Digital",
+      "Protocolo Ceremonial y Etiqueta Social",
+      "Gestión de Espacios (Venue Selection): Logística y Emplazamientos",
+      "Selección y Dirección de Proveedores (Vendor Management)",
+      "Gastronomía de Bodas: Del Banquete a la Experiencia Culinaria",
+      "Diseño Atmosférico: Decoración, Paisajismo e Iluminación",
+      "Blindaje Legal: Contratos, Pólizas y Gestión de Riesgos",
+      "Entretenimiento y Diseño de Experiencias: Música y Animación",
+      "Asesoría de Imagen y Estilismo para los Contrayentes",
+      "Logística de Transporte, Alojamiento y «Guest Experience»",
+      "El Cronograma Maestro (Master Timeline) y Plan de Rodaje",
+      "Herramientas Tecnológicas para la Gestión Operativa",
+      "Protocolos de Crisis y Plan de Contingencia",
+      "El Cronograma de la Novia y Cortejo: Del Pre-Boda al Altar",
+      "Destination Weddings: Logística de Bodas de Destino",
+      "Cierre Administrativo y Auditoría Post-Evento",
+      "Sostenibilidad y Bodas Eco-Friendly (Green Weddings)",
+      "Psicología del Wedding Planner: Manejo de Clientes y Crisis Emocionales",
+      "Micro-Weddings y Elopements: La Tendencia de lo Íntimo",
+      "Bodas de Lujo (Luxury Weddings) y Conciergerie",
+      "Ingeniería Financiera del Wedding Planner: Presupuestos y Rentabilidad",
+      "Inclusión y Diversidad en la Industria Nupcial",
+      "El Maletín del Wedding Planner: Herramientas de Campo y Kit de Emergencia",
       "Examen de Evaluación: Módulo 2."
     ]
   },
   { 
-    title: "Módulo 3: Diseño y Decoración de Eventos", 
+    title: "MÓDULO 3. POST-WEDDINNG (DESPUÉS DE LA BODA)", 
     content: [
-      "Teoría del Color Aplicada",
-      "Diseño de Moodboards",
-      "Escenografía y Ambientación",
-      "Diseño Floral y Centros de Mesa",
-      "Iluminación Decorativa",
-      "Mobiliario y Menaje",
-      "Gráfica y Papelería Nupcial",
-      "Tendencias en Interiorismo",
-      "Styling de Espacios",
+      "Ingeniería del Cierre: Auditoría Técnica y Estrategias de Fidelización",
+      "Luna de Miel",
       "Examen de Evaluación: Módulo 3."
     ]
   },
   { 
-    title: "Módulo 4: Producción y Logística", 
+    title: "MÓDULO 4. EMPRESA DE EVENTOS Y BODAS (ORGANIZACIÓN LEGAL)", 
     content: [
-      "Cronograma del Evento (Timing)",
-      "Gestión de Proveedores (Sourcing)",
-      "Logística de Transportes",
-      "Coordinación del 'Día D'",
-      "Gestión de Contingencias",
-      "Seguridad y Riesgos",
-      "Montajes y Desmontajes",
-      "Gestión de Equipos de Trabajo",
-      "Checklist de Producción",
+      "Constitución y Estructura Legal de la Empresa de Eventos",
+      "Branding, Identidad e Imagen Corporativa (El ADN del Negocio)",
+      "Marketing Estratégico para Empresas de Eventos y Bodas",
       "Examen de Evaluación: Módulo 4."
     ]
   },
   { 
-    title: "Módulo 5: Gastronomía y Catering", 
+    title: "MÓDULO 5. CELEBRACIONES MÁGICAS: BABY SHOWER, GENDER REVEAL Y EVENTOS INFANTILES DE ÉXITO", 
     content: [
-      "Tipos de Servicio de Mesa",
-      "Elaboración de Menús de Lujo",
-      "Maridaje y Bodega",
-      "Coctelería y Welcome Drink",
-      "Candy Bar y Tartas Nupciales",
-      "Gestión de Alergias y Dietas Especiales",
-      "Food Styling",
-      "Contratación de Catering Externo",
+      "Gender Reveal: El Arte de la Revelación",
+      "Baby Shower: Bienvenida y Ternura",
+      "Bautizos y Primeras Comuniones",
+      "El Primer Año y el Evento \"Smash the Cake\"",
+      "Fiestas Infantiles Temáticas y Logística de Ocio",
+      "Logística de Cumpleaños Infantiles: Del Aula a los Externos",
       "Examen de Evaluación: Módulo 5."
     ]
   },
   { 
-    title: "Módulo 6: Marketing y Branding para WP", 
+    title: "MÓDULO 6. EL SUEÑO HECHO REALIDAD: ORGANIZACIÓN DE XV AÑOS Y SWEET 16 DE ALTO IMPACTO", 
     content: [
-      "Posicionamiento de Marca Personal",
-      "Marketing de Servicios de Lujo",
-      "Estrategia en Redes Sociales",
-      "Publicidad en Google y Facebook Ads",
-      "Relaciones Públicas",
-      "Venta y Negociación",
-      "Captación de Clientes High-Ticket",
-      "Portfolio Profesional",
+      "Psicología y Diseño del Evento Soñado",
+      "Protocolo Tradicional y Ceremonial de Gala",
+      "La Corte de Honor y Producción Coreográfica",
+      "Estilismo, Moda y Look de la Protagonista",
+      "Producción Técnica y Ambientación Escenográfica",
+      "Entretenimiento Premium y Experiencia Digital",
       "Examen de Evaluación: Módulo 6."
     ]
   },
   { 
-    title: "Módulo 7: Gestión Financiera y Legal", 
+    title: "MÓDULO 7. CELEBRACIONES DE VIDA: CUMPLEAÑOS DE ADULTOS Y ANIVERSARIOS DE IMPACTO", 
     content: [
-      "Estructura de Costes",
-      "Elaboración de Presupuestos",
-      "Contratos con Clientes",
-      "Seguros de Responsabilidad Civil",
-      "Facturación y Fiscalidad",
-      "Negociación con Proveedores",
-      "Modelos de Negocio WP",
+      "Estrategia y Psicología del Cliente Adulto",
+      "Conceptualización Creativa y Diseño de Atmósferas",
+      "Alta Gastronomía y Mixología de Autor",
+      "Aniversarios y Renovación de Votos",
+      "Entretenimiento y Curaduría Musical",
+      "Gestión Operativa y Cierre de Proyecto",
       "Examen de Evaluación: Módulo 7."
     ]
   },
   { 
-    title: "Módulo 8: Fotografía y Vídeo Nupcial", 
+    title: "MÓDULO 8. CORPORATE ELITE: INGENIERÍA DE EVENTOS EMPRESARIALES Y LANZAMIENTOS DE MARCA", 
     content: [
-      "Dirección Artística de Sesiones",
-      "Storytelling Visual",
-      "Formatos de Vídeo Modernos",
-      "Selección de Profesionales",
-      "Post-Producción Visual",
-      "Derechos de Imagen",
-      "Tendencias en Álbumes Digitales",
+      "Ingeniería de Eventos MICE y Congresos",
+      "Protocolo de Estado y Relaciones Públicas Empresariales",
+      "Lanzamiento de Producto y Marketing de Eventos",
+      "Team Building y Clima Organizacional",
+      "Catering Corporativo y Logística de Alimentos",
+      "Estrategia de Patrocinio y Sponsorship de Éxito",
       "Examen de Evaluación: Módulo 8."
     ]
   },
   { 
-    title: "Módulo 9: Destination Weddings", 
+    title: "MÓDULO 9. EL FUTURO DE LOS EVENTOS: INTELIGENCIA ARTIFICIAL, SOSTENIBILIDAD Y DISEÑO DE EXPERIENCIAS", 
     content: [
-      "Mercado de Bodas Destino",
-      "Logística de Viajes e Invitados",
-      "Trámites Legales Internacionales",
-      "Cultural Awareness (Bodas Étnicas)",
-      "Gestión de Alojamiento",
-      "Actividades Complementarias",
-      "Contratación Local vs. Global",
+      "IA Generativa: Productividad y Creatividad 4.0",
+      "IA en la Logística y Atención al Invitado",
+      "Eventos Sostenibles y Eco-Producción (Zero Waste)",
+      "Neuromarketing y Diseño Sensorial",
+      "Storytelling y Narrativa Transviva",
+      "Destination Events y Turismo de Lujo",
       "Examen de Evaluación: Módulo 9."
     ]
   },
   { 
-    title: "Módulo 10: Proyecto Final de Maestría", 
+    title: "MÓDULO 10. GESTIÓN DE AGENCIA 360º: NEGOCIACIÓN, BUSINESS DESIGN Y ESTRATEGIA DE VENTAS", 
     content: [
-      "Definición del Briefing del Cliente",
-      "Desarrollo del Concepto Creativo",
-      "Planificación Logística Integral",
-      "Presupuesto Detallado",
-      "Dossier de Presentación Profesional",
-      "Defensa ante el Tribunal Académico",
-      "Evaluación Final de Grado."
+      "Software de Gestión y Productividad",
+      "Business Design: Tarifas, Costes y Rentabilidad",
+      "Marco Legal, Contratos y Seguros Profesionales",
+      "Estrategia de Ventas y Negociación de Alto Nivel",
+      "Branding Personal y Marketing Digital para Agencias",
+      "Liderazgo, Equipos y Crecimiento de Agencia",
+      "Examen de Evaluación: Módulo 10."
+    ]
+  },
+  { 
+    title: "MÓDULO 11. DiSEÑO Y PHOTOSHOP (PLUS)", 
+    content: [
+      "Herramientas de Photoshop",
+      "Retoque",
+      "Montaje de Propuestas Visuales",
+      "Planos",
+      "Examen de Evaluación: Módulo 11."
+    ]
+  },
+  { 
+    title: "EVALUACIÓN FINAL", 
+    content: [
+      "Evaluación Final"
     ]
   }
 ];
@@ -260,7 +271,7 @@ const breadcrumbSchema = {
             <li><span class="mx-1">/</span></li>
             <li><a href="/latam/escuela/eventos" class="hover:text-brand-gold transition-colors">Gestión de Eventos</a></li>
             <li><span class="mx-1">/</span></li>
-            <li class="text-brand-gold font-semibold uppercase text-[10px] tracking-widest">WEDDING PLANNER & EVENTOS</li>
+            <li class="text-brand-gold font-semibold text-[10px] tracking-widest">Wedding Planner & IA</li>
           </ol>
         </nav>
 
@@ -283,13 +294,13 @@ const breadcrumbSchema = {
             <!-- Stats Row -->
             <div class="flex flex-wrap items-center gap-8 pt-4">
               <div class="flex flex-col">
-                <p class="text-brand-gold font-extrabold text-3xl">10</p>
+                <p class="text-brand-gold font-extrabold text-3xl">12</p>
                 <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold">Módulos</p>
               </div>
               <div class="w-px h-10 bg-white/20"></div>
               <div class="flex flex-col">
-                <p class="text-brand-gold font-extrabold text-3xl">USA</p>
-                <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold">Certificación</p>
+                <p class="text-brand-gold font-extrabold text-3xl">1 Mes</p>
+                <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold">DURACIÓN</p>
               </div>
               <div class="w-px h-10 bg-white/20"></div>
               <div class="flex flex-col">
@@ -333,25 +344,25 @@ const breadcrumbSchema = {
                 <span class="w-5 h-5 rounded-full bg-brand-gold/10 flex items-center justify-center flex-shrink-0">
                   <span class="w-1.5 h-1.5 bg-brand-gold rounded-full"></span>
                 </span>
-                Kit de herramientas de planificación.
+                Acceso al campus virtual.
               </li>
               <li class="flex items-center gap-3 text-sm text-gray-600">
                 <span class="w-5 h-5 rounded-full bg-brand-gold/10 flex items-center justify-center flex-shrink-0">
                   <span class="w-1.5 h-1.5 bg-brand-gold rounded-full"></span>
                 </span>
-                Plantillas de presupuesto profesionales.
+                Tutoría personalizada.
               </li>
               <li class="flex items-center gap-3 text-sm text-gray-600">
                 <span class="w-5 h-5 rounded-full bg-brand-gold/10 flex items-center justify-center flex-shrink-0">
                   <span class="w-1.5 h-1.5 bg-brand-gold rounded-full"></span>
                 </span>
-                Diploma apostillado por la Haya.
+                Certificación internacional.
               </li>
               <li class="flex items-center gap-3 text-sm text-gray-600">
                 <span class="w-5 h-5 rounded-full bg-brand-gold/10 flex items-center justify-center flex-shrink-0">
                   <span class="w-1.5 h-1.5 bg-brand-gold rounded-full"></span>
                 </span>
-                Red de contactos de proveedores premium.
+                Comunidad privada de alumnos.
               </li>
             </ul>
           </div>
@@ -363,7 +374,7 @@ const breadcrumbSchema = {
       </div>
     </section>
 
-    <BenefitsSection formationName={programName} benefits={benefits} />
+    <BenefitsSection formationName={formationFullName} benefits={benefits} />
 
     <TeachersSection limitTo={["Raul Ramirez"]} />
     <DiplomaSection />

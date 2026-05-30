@@ -57,6 +57,11 @@
     background-color: var(--color-brand-gold);
     color: white;
   }
+
+  /* Prevent auto-zoom on mobile (iOS/Android) */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
 }
 
 /* ─── Component Layer ─── */

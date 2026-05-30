@@ -23,9 +23,9 @@ const formationFullName = "Curso Profesional Superior: Auxiliar de Enfermería C
 const benefits = [
   {
     title: "Certificación Internacional",
-    description: "Consigue tu título de finalización. Al culminar tus estudios, se te otorgará un diploma digital y físico en español o inglés con validez institucional.",
+    description: "Consigue tu certificado de finalización. Al culminar tus estudios, se te otorgará en idioma español o inglés con validez institucional.",
     icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"/></svg>',
-    tag: "Apostillado"
+    tag: "Validez"
   },
   {
     title: "Incremento de Salario",
@@ -36,7 +36,7 @@ const benefits = [
   {
     title: "Mejor Empleabilidad",
     description: "Los empleadores en el sector salud prefieren contratar personal certificado debido a su nivel de formación, ética y habilidades técnicas demostradas.",
-    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20.25 14.15v4.25c0 .414-.336.75-.75.75H4.5a.75.75 0 0 1-.75-.75V14.15M3.75 14.15c1.236-1.46 4.195-2.6 8.25-2.6 4.055 0 7.014 1.14 8.25 2.6M3.75 14.15V5.5c0-.414.336-.75.75-.75h15c.414 0 .75.336.75.75v8.65m-16.5 0h16.5M12 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>',
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 13.255A23.931 23.931 0 0 1 12 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2m4 6h.01M5 20h14a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2z"/></svg>',
     tag: "Alta Demanda"
   },
   {
@@ -61,130 +61,139 @@ const benefits = [
 
 const syllabus = [
   { 
-    title: "Módulo 1: Fundamentos de la Enfermería Moderna", 
+    title: "MÓDULO I: FUNDAMENTOS CIENTÍFICOS Y MARCO LEGAL PROFESIONAL", 
     content: [
-      "Historia y Evolución de la Enfermería",
-      "Ética y Deontología Profesional",
-      "Marco Legal Sanitario Internacional",
-      "Responsabilidad Civil del Auxiliar",
-      "Modelos y Teorías de Cuidado",
-      "El Sistema Sanitario y su Estructura",
-      "Derechos y Deberes del Paciente",
-      "Examen de Evaluación: Módulo 1."
+      "Epistemología de la Enfermería: De Florence Nightingale a la enfermería basada en la evidencia (EBE).",
+      "Anatomía Funcional y Fisiopatología Humana: Estudio profundo de la enfermedad como alteración del equilibrio homeostático.",
+      "Antropología de los Cuidados: El paciente como ser biopsicosocial y cultural.",
+      "Derecho Sanitario y Bioética Médica: Responsabilidad civil, mala praxis, secreto profesional y el consentimiento informado avanzado.",
+      "Comunicación Terapéutica: Manejo de malas noticias y psicología del paciente crítico.",
+      "Examen de Evaluación: Módulo I."
     ]
   },
   { 
-    title: "Módulo 2: Anatomía y Fisiología Aplicada", 
+    title: "MÓDULO II: SEGURIDAD DEL PACIENTE, BIOSEGURIDAD Y CONTROL DE INFECCIONES", 
     content: [
-      "Sistema Osteomuscular",
-      "Aparato Cardiovascular y Respiratorio",
-      "Sistema Digestivo y Excretor",
-      "Sistema Nervioso y Endocrino",
-      "Sentidos y Sistema Tegumentario",
-      "Fisiopatología de las Enfermedades Comunes",
-      "Terminología Médica Fundamental",
-      "Examen de Evaluación: Módulo 2."
+      "Microbiología y Parasitología Clínica: Identificación de patógenos hospitalarios.",
+      "Gestión de IAAS (Infecciones Asociadas a la Atención de Salud): Vigilancia epidemiológica.",
+      "Protocolos de Esterilización de Vanguardia: Autoclave, plasma de peróxido de hidrógeno y gestión de centrales de esterilización.",
+      "Toxicología y Manejo de Residuos Biopeligrosos: Normativa internacional.",
+      "Examen de Evaluación: Módulo II."
     ]
   },
   { 
-    title: "Módulo 3: Cuidados Básicos y Higiene", 
+    title: "MÓDULO III: VALORACIÓN CLÍNICA Y CONSTANTES VITALES AVANZADAS", 
     content: [
-      "Protocolos de Higiene del Paciente",
-      "Mecánica Corporal y Movilización",
-      "Prevención de Úlceras por Presión",
-      "Técnicas de Asepsia y Antisepsia",
-      "Manejo de Residuos Sanitarios",
-      "Confort y Seguridad en el Entorno Hospitalario",
-      "Cuidados Post-Mortem",
-      "Examen de Evaluación: Módulo 3."
+      "Semiología de las Constantes Vitales: Interpretación de arritmias básicas en monitor y oximetría de pulso avanzada.",
+      "Exploración Física Sistémica: Técnicas de inspección, palpación, percusión y auscultación para el auxiliar.",
+      "Monitorización Invasiva y No Invasiva: Configuración de monitores multiparamétricos de alta complejidad.",
+      "Examen de Evaluación: Módulo III."
     ]
   },
   { 
-    title: "Módulo 4: Farmacología Clínica", 
+    title: "MÓDULO IV: FARMACOLOGÍA CLÍNICA Y TERAPÉUTICA", 
     content: [
-      "Introducción a la Farmacodinámica",
-      "Vías de Administración de Medicamentos",
-      "Cálculo de Dosis y Diluciones",
-      "Gestión de Carro de Parada",
-      "Seguridad en la Administración",
-      "Farmacovigilancia y Efectos Adversos",
-      "Almacenamiento y Conservación de Fármacos",
-      "Examen de Evaluación: Módulo 4."
+      "Farmacocinética y Farmacodinamia Básica: Cómo actúan los fármacos.",
+      "Cálculo de Dosis y Diluciones: Regla de tres, microgoteo y manejo de bombas de infusión continua.",
+      "Vías de Administración Complejas: Cuidados en vías centrales, nutrición parenteral y administración de hemoderivados (sangre).",
+      "Farmacovigilancia: Identificación precoz de reacciones adversas a medicamentos (RAM).",
+      "Técnicas de Inyectología y Vías de Administración Parenteral.",
+      "Examen de Evaluación: Módulo IV."
     ]
   },
   { 
-    title: "Módulo 5: Primeros Auxilios y Emergencias", 
+    title: "MÓDULO V: CUIDADOS QUIRÚRGICOS Y ASISTENCIA EN QUIRÓFANO", 
     content: [
-      "Soporte Vital Básico (SVB)",
-      "Uso del Desfibrilador Externo (DEA)",
-      "Actuación ante Obstrucción de Vía Aérea",
-      "Manejo de Hemorragias y Quemaduras",
-      "Protocolo de Triage en Emergencias",
-      "Inmovilización y Traslado de Heridos",
-      "Primeros Auxilios Psicológicos",
-      "Examen de Evaluación: Módulo 5."
+      "Anestesiología: Tipos de anestesia, fármacos anestésicos y cuidados en la unidad de recuperación post-anestésica (URPA).",
+      "Instrumentación Quirúrgica por Especialidades: Cirugía general, traumatología y laparoscopia.",
+      "Suturas y Hemostasia: Materiales de sutura avanzados y asistencia en el cierre de heridas complejas.",
+      "Manejo de la Unidad Quirúrgica de Alta Complejidad: Flujos de aire, presión positiva y áreas blancas/grises.",
+      "Examen de Evaluación: Módulo V."
     ]
   },
   { 
-    title: "Módulo 6: Psicología y Comunicación", 
+    title: "MÓDULO VI: MEDICINA DE EMERGENCIAS Y SOPORTE VITAL AVANZADO", 
     content: [
-      "Psicología Evolutiva del Paciente",
-      "Técnicas de Comunicación Asertiva",
-      "Manejo del Paciente Difícil",
-      "Apoyo Psicológico al Paciente Crónico",
-      "Duelo y Acompañamiento",
-      "Relación con la Familia y el Entorno",
-      "Trabajo en Equipo Multidisciplinar",
-      "Examen de Evaluación: Módulo 6."
+      "Soporte Vital Básico y Avanzado (BLS/ACLS): Algoritmos internacionales de la AHA (American Heart Association).",
+      "Trauma Shock: Manejo del paciente politraumatizado (ABCDE del trauma).",
+      "Triage Hospitalario y Extra-hospitalario: Escalas Manchester y START.",
+      "Urgencias Metabólicas y Cardiovasculares: Manejo de infartos (IAM), crisis hipertensivas y shock anafiláctico.",
+      "Técnicas de Inmovilización y Vendajes Clínicos.",
+      "Examen de Evaluación: Módulo VI."
     ]
   },
   { 
-    title: "Módulo 7: Gestión de Material y Logística", 
+    title: "MÓDULO VII: ENFERMERÍA MATERNO-PERINATAL Y NEONATOLOGÍA", 
     content: [
-      "Inventario y Almacén Sanitario",
-      "Mantenimiento Preventivo de Equipos",
-      "Gestión de Pedidos y Suministros",
-      "Documentación Clínica y Administrativa",
-      "Informática Aplicada a la Gestión Sanitaria",
-      "Protocolos de Esterilización (Autoclave)",
-      "Examen de Evaluación: Módulo 7."
+      "Ginecología y Obstetricia: Control prenatal, fisiología del parto y distocias (complicaciones).",
+      "Asistencia en el Parto y Alumbramiento: Rol activo del auxiliar en la sala de partos.",
+      "Cuidados Intensivos Neonatales: Manejo de incubadoras, fototerapia y asistencia en el recién nacido prematuro.",
+      "Examen de Evaluación: Módulo VII."
     ]
   },
   { 
-    title: "Módulo 8: Nutrición y Dietética Clínica", 
+    title: "MÓDULO VIII: PEDIATRÍA CLÍNICA", 
     content: [
-      "Bases de la Nutrición Humana",
-      "Dietas Terapéuticas Hospitalarias",
-      "Administración de Nutrición Enteral",
-      "Hidratación y Balance Hídrico",
-      "Higiene Alimentaria y Manipulación",
-      "Evaluación Nutricional del Paciente",
-      "Protocolos de Alimentación Asistida",
-      "Examen de Evaluación: Módulo 8."
+      "Semiología y Valoración Pediátrica: Técnicas de exploración física dirigida al niño. El Triángulo de Evaluación Pediátrica (TEP) para la identificación rápida del estado fisiológico (Apariencia, Respiración y Circulación).",
+      "Fisiopatología Infantil: Estudio de las patologías prevalentes: afecciones respiratorias agudas (Bronquiolitis, Laringitis, Neumonía), trastornos digestivos y deshidratación hidroelectrolítica (Manejo de balances hídricos).",
+      "Farmacoterapia Pediátrica de Precisión: Farmacología clínica aplicada a la infancia. Cálculo crítico de dosis según peso y superficie corporal. Protocolos de seguridad en la administración de fármacos de alta vigilancia.",
+      "Soporte Vital Pediátrico (PALS): Algoritmos de reanimación cardiopulmonar avanzada en pediatría. Manejo de la obstrucción de la vía aérea por cuerpo extraño (OVACE) y tratamiento de crisis convulsivas febriles.",
+      "Cuidados Integrales y Confort del Infante: Higiene clínica del lactante y niño pequeño (baño de inmersión y esponja), cuidados de la piel y prevención de dermatitis. Técnicas de confort, manejo del sueño y termorregulación en el paciente hospitalizado.",
+      "Nutriología y Dietoterapia Infantil: Lactancia materna y apoyo en la alimentación complementaria. Preparación técnica de fórmulas infantiles y manejo de la nutrición enteral y parenteral pediátrica.",
+      "Procedimientos Clínicos e Instrumentación: Técnicas de venopunción pediátrica, sondaje nasogástrico, recogida de muestras estériles y asistencia en procedimientos invasivos (punción lumbar, toracocentesis).",
+      "Inmunología Clínica y Vacunología: Bases inmunológicas de la vacunación infantil. Cadena de frío, calendarios de inmunización y manejo de reacciones adversas post-vacunales.",
+      "Examen de Evaluación: Módulo VIII."
     ]
   },
   { 
-    title: "Módulo 9: Geriatría y Cuidados Especiales", 
+    title: "MÓDULO IX: CUIDADOS EN EL PACIENTE CRÍTICO (UCI) Y GERIATRÍA AVANZADA", 
     content: [
-      "Fisiología del Envejecimiento",
-      "Cuidados en el Paciente con Alzheimer/Demencia",
-      "Prevención de Caídas en el Anciano",
-      "Cuidados Paliativos y Calidad de Vida",
-      "Estimulación Cognitiva y Sensorial",
-      "Recursos Socio-Sanitarios para Mayores",
-      "Examen de Evaluación: Módulo 9."
+      "Unidad de Cuidados Intensivos: Manejo del paciente ventilado y sedado.",
+      "Cuidados Paliativos y Manejo del Dolor: Escalas de dolor y uso de bombas de morfina.",
+      "Gerontología Médica: Síndromes geriátricos, demencias y atención al paciente con Alzheimer avanzado.",
+      "Examen de Evaluación: Módulo IX."
     ]
   },
   { 
-    title: "Módulo 10: Proyecto Final", 
+    title: "MÓDULO X: PROCEDIMIENTOS DE DIAGNÓSTICO Y LABORATORIO", 
     content: [
-      "Planteamiento de un Caso Clínico Real",
-      "Desarrollo del Plan de Cuidados de Enfermería",
-      "Investigación Bibliográfica Sanitaria",
-      "Análisis de Resultados y Conclusiones",
-      "Dossier Técnico Final",
-      "Defensa ante el Comité Académico",
-      "Evaluación Final de Grado."
+      "Técnicas de Venopunción Avanzada: Uso de catéteres periféricos, mariposas y sistemas de vacío (Vacutainer).",
+      "Toma de Muestras Especiales: Hemocultivos, urocultivos, toma de citologías y exudados.",
+      "Imagenología para Auxiliares: Preparación del paciente para TAC, Resonancia Magnética (RM) y Medicina Nuclear.",
+      "Electrocardiografía Clínica: Toma de EKG de 12 derivaciones e identificación de patrones de urgencia.",
+      "Examen de Evaluación: Módulo X."
+    ]
+  },
+  { 
+    title: "MÓDULO XI: SALUD MENTAL Y PSIQUIATRÍA CLÍNICA", 
+    content: [
+      "Psicopatología: Trastornos de la personalidad, psicosis y trastornos afectivos.",
+      "Intervención en Crisis y Contención: Técnicas de contención física y farmacológica segura.",
+      "Examen de Evaluación: Módulo XI."
+    ]
+  },
+  { 
+    title: "MÓDULO XII: TECNOLOGÍA SANITARIA Y SALUD DIGITAL (e-HEALTH)", 
+    content: [
+      "Gestión de Historias Clínicas Electrónicas: Software hospitalario de alta gama.",
+      "Telemedicina y Tele-enfermería: Soporte técnico y humano en consultas remotas.",
+      "Big Data en Salud: Introducción a la gestión de datos clínicos.",
+      "Examen de Evaluación: Módulo XII."
+    ]
+  },
+  { 
+    title: "MÓDULO XIII: INTEGRACIÓN PROFESIONAL Y EVIDENCIA CLÍNICA", 
+    content: [
+      "Metodología de la Investigación: Cómo realizar un estudio de caso clínico.",
+      "Simulación Clínica de Alta Fidelidad: Evaluación práctica ante casos críticos.",
+      "Ética, Deontología y Liderazgo en el Equipo de Salud.",
+      "Examen de Evaluación: Módulo XIII."
+    ]
+  },
+  { 
+    title: "EVALUACIÓN FINAL", 
+    content: [
+      "Evaluación Final"
     ]
   }
 ];
@@ -192,8 +201,8 @@ const syllabus = [
 const courseSchema = {
   "@context": "https://schema.org",
   "@type": "Course",
-  "name": "CURSO PROFESIONAL SUPERIOR: AUXILIAR DE ENFERMERÍA CLÍNICA",
-  "description": "Formación técnica de élite en asistencia sanitaria con certificación internacional. 10 módulos especializados con diploma apostillado.",
+  "name": "Curso Profesional Superior: Auxiliar de Enfermería Clínica",
+  "description": "Formación técnica de élite en asistencia sanitaria con certificación internacional. 14 módulos especializados con diploma apostillado.",
   "provider": {
     "@type": "EducationalOrganization",
     "name": "Instituto Online Osbord",
@@ -214,14 +223,14 @@ const breadcrumbSchema = {
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://osbord.edu" },
     { "@type": "ListItem", "position": 2, "name": "Escuela de Ciencias de la Salud", "item": "https://osbord.edu/escuela/salud" },
-    { "@type": "ListItem", "position": 3, "name": "CURSO PROFESIONAL SUPERIOR: AUXILIAR DE ENFERMERÍA CLÍNICA", "item": "https://osbord.edu/masters/enfermeria" }
+    { "@type": "ListItem", "position": 3, "name": "Curso Profesional Superior: Auxiliar de Enfermería Clínica", "item": "https://osbord.edu/masters/enfermeria" }
   ]
 };
 ---
 
 <Layout
-  title="CURSO PROFESIONAL SUPERIOR: AUXILIAR DE ENFERMERÍA CLÍNICA"
-  description="Obtén tu certificación internacional en Auxiliar de Enfermería Clínica. Formación técnica de élite con 10 módulos especializados, diploma apostillado y sede en USA."
+  title="Curso Profesional Superior: Auxiliar de Enfermería Clínica"
+  description="Obtén tu certificación internacional en Auxiliar de Enfermería Clínica. Formación técnica de élite con 14 módulos especializados, diploma apostillado y sede en USA."
 >
   <!-- Per-page Schema -->
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(courseSchema)} />
@@ -244,7 +253,7 @@ const breadcrumbSchema = {
             <li><span class="mx-1">/</span></li>
             <li><a href="/latam/escuela/salud" class="hover:text-brand-gold transition-colors">Ciencias de la Salud</a></li>
             <li><span class="mx-1">/</span></li>
-            <li class="text-brand-gold font-semibold uppercase text-[10px] tracking-widest">AUXILIAR DE ENFERMERÍA CLÍNICA</li>
+            <li class="text-brand-gold font-semibold text-[10px] tracking-widest">Auxiliar de Enfermería Clínica</li>
           </ol>
         </nav>
 
@@ -267,18 +276,18 @@ const breadcrumbSchema = {
             <!-- Stats Row -->
             <div class="flex flex-wrap items-center gap-8 pt-4">
               <div class="flex flex-col">
-                <p class="text-brand-gold font-extrabold text-3xl">10</p>
+                <p class="text-brand-gold font-extrabold text-3xl">14</p>
                 <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold">Módulos</p>
               </div>
               <div class="w-px h-10 bg-white/20"></div>
               <div class="flex flex-col">
-                <p class="text-brand-gold font-extrabold text-3xl">USA</p>
-                <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold">Certificación</p>
+                <p class="text-brand-gold font-extrabold text-3xl">6 Meses</p>
+                <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold">DURACIÓN</p>
               </div>
               <div class="w-px h-10 bg-white/20"></div>
               <div class="flex flex-col">
-                <p class="text-brand-gold font-extrabold text-3xl">600h</p>
-                <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold">Duración</p>
+                <p class="text-brand-gold font-extrabold text-3xl">Online</p>
+                <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold">MODALIDAD</p>
               </div>
             </div>
           </div>
@@ -320,19 +329,19 @@ const breadcrumbSchema = {
                 <span class="w-5 h-5 rounded-full bg-brand-gold/10 flex items-center justify-center flex-shrink-0">
                   <span class="w-1.5 h-1.5 bg-brand-gold rounded-full"></span>
                 </span>
-                Acceso de por vida al campus virtual.
+                Acceso al campus virtual.
               </li>
               <li class="flex items-center gap-3 text-sm text-gray-600">
                 <span class="w-5 h-5 rounded-full bg-brand-gold/10 flex items-center justify-center flex-shrink-0">
                   <span class="w-1.5 h-1.5 bg-brand-gold rounded-full"></span>
                 </span>
-                Tutoría personalizada 24/7.
+                Tutoría personalizada.
               </li>
               <li class="flex items-center gap-3 text-sm text-gray-600">
                 <span class="w-5 h-5 rounded-full bg-brand-gold/10 flex items-center justify-center flex-shrink-0">
                   <span class="w-1.5 h-1.5 bg-brand-gold rounded-full"></span>
                 </span>
-                Diploma apostillado por la Haya.
+                Certificación internacional.
               </li>
               <li class="flex items-center gap-3 text-sm text-gray-600">
                 <span class="w-5 h-5 rounded-full bg-brand-gold/10 flex items-center justify-center flex-shrink-0">

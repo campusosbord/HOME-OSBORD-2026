@@ -21,7 +21,7 @@ const prefix = pathname.startsWith('/us') ? '/us' : '/latam';
           <Logo class="h-30 w-auto" light />
         </a>
         <p class="text-sm text-gray-400 leading-relaxed">
-          Institución educativa con Sede en Estados Unidos y Venezuela, dedicada a la formación de líderes en ciencias de la salud, diseño y gestión empresarial.
+            Institución con sede en Estados Unidos dedicada a la formación técnica de alto nivel. Brindamos el respaldo de una comunidad profesional permanente y estándares de calidad internacional para todos nuestros graduados.
         </p>
         <!-- Social Icons -->
         <div class="flex items-center gap-3">
@@ -67,7 +67,7 @@ const prefix = pathname.startsWith('/us') ? '/us' : '/latam';
 
         <h4 class="text-sm font-extrabold mb-4 mt-8 text-brand-gold uppercase tracking-[0.2em]">Programas</h4>
         <ul class="space-y-4">
-          <li><a href={`${prefix}/masters/enfermeria`} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">CURSO PROFESIONAL SUPERIOR: AUXILIAR DE ENFERMERÍA CLÍNICA</a></li>
+          <li><a href={`${prefix}/masters/enfermeria`} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Curso Profesional Superior: Auxiliar de Enfermería Clínica</a></li>
           <li><a href={`${prefix}/masters/interiorismo`} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Máster en Interiorismo, Diseño y Decoración de Interiores 3D</a></li>
           <li><a href={`${prefix}/masters/wedding-planner`} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Máster en Organización de Eventos & Wedding Planner + IA</a></li>
         </ul>
@@ -84,31 +84,21 @@ const prefix = pathname.startsWith('/us') ? '/us' : '/latam';
             </svg>
             <div class="space-y-1">
               <p class="text-xs text-brand-gold font-bold uppercase tracking-wider">Sede Estados Unidos</p>
-              <p class="text-sm text-gray-400 leading-relaxed">7901 4th St N STE 300, St. Petersburg, FL 33702.</p>
-            </div>
-          </li>
-          <li class="flex items-start gap-3">
-            <svg class="w-5 h-5 text-brand-gold flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"/>
-            </svg>
-            <div class="space-y-1">
-              <p class="text-xs text-brand-gold font-bold uppercase tracking-wider">Sede Venezuela</p>
-              <p class="text-sm text-gray-400 leading-relaxed">Caracas, Venezuela.</p>
+              <p class="text-sm text-gray-400 leading-relaxed">30 N Gould St Ste N, Sheridan, WY 82801.</p>
             </div>
           </li>
           <li class="flex items-center gap-3">
             <svg class="w-5 h-5 text-brand-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75"/>
             </svg>
-            <a href="mailto:admisiones@osbord.edu" class="text-sm text-gray-400 hover:text-white transition-colors">admisiones@osbord.edu</a>
+            <a href="mailto:admisiones@osbord.com" class="text-sm text-gray-400 hover:text-white transition-colors">admisiones@osbord.com</a>
           </li>
           {!isUS && (
             <li class="flex items-center gap-3">
               <svg class="w-5 h-5 text-brand-gold flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.414 0 0 5.415 0 12.05c0 2.12.554 4.189 1.605 6.01L0 24l6.135-1.61a11.902 11.902 0 0 0 5.915 1.56h.005c6.637 0 12.05-5.415 12.05-12.05a11.815 11.815 0 0 0-3.542-8.513"/>
               </svg>
-              <a href="https://wa.me/1234567890" class="text-sm text-white font-bold hover:text-brand-gold transition-colors flex items-center gap-2">
+              <a href="https://wa.me/13072923715?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20del%20Instituto%20Osbord%20y%20estoy%20interesado%20en%20informaci%C3%B3n%20sobre%20un%20m%C3%A1ster%20o%20curso." target="_blank" rel="noopener noreferrer" class="text-sm text-white font-bold hover:text-brand-gold transition-colors flex items-center gap-2">
                 WhatsApp Directo
                 <span class="relative flex h-1.5 w-1.5">
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
