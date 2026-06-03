@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Toast from '../components/Toast.astro';
+import CookieBanner from '../components/CookieBanner.astro';
 
 interface Props {
   title: string;
@@ -100,5 +101,6 @@ const orgSchema = {
   <body class="min-h-screen bg-white text-brand-navy">
     <slot />
     <Toast />
+    <CookieBanner />
   </body>
 </html>

@@ -5,8 +5,27 @@ export const onRequest = defineMiddleware(async (context, next) => {
     const { url, redirect, locals, request } = context;
     const pathname = url.pathname;
 
-    // 1. Filtro estricto para archivos estáticos y rutas internas/debug
-    if (pathname.includes('.') || pathname.startsWith('/_') || pathname === '/debug-geo') {
+    // 1. Redirecciones de rutas legales obsoletas regionalizadas a la versión unificada
+    const cleanPath = pathname.replace(/\/$/, "");
+    if (cleanPath === "/us/legal" || cleanPath === "/latam/legal") {
+      return redirect("/legal", 301);
+    }
+    if (cleanPath === "/us/privacidad" || cleanPath === "/latam/privacidad") {
+      return redirect("/privacidad", 301);
+    }
+    if (cleanPath === "/us/cookies" || cleanPath === "/latam/cookies") {
+      return redirect("/cookies", 301);
+    }
+
+    // 2. Filtro estricto para archivos estáticos, rutas internas, debug y páginas legales unificadas
+    if (
+      pathname.includes('.') || 
+      pathname.startsWith('/_') || 
+      pathname === '/debug-geo' ||
+      cleanPath === '/legal' ||
+      cleanPath === '/privacidad' ||
+      cleanPath === '/cookies'
+    ) {
       return next();
     }
 

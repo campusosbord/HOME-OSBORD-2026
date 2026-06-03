@@ -1,0 +1,131 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout 
+  title="Política de Cookies" 
+  description="Política de cookies, almacenamiento local y tecnologías analíticas de seguimiento de Instituto Osbord LLC."
+>
+  <Header />
+  <main class="bg-brand-neutral min-h-screen">
+    <!-- Header Section -->
+    <section class="bg-brand-navy py-20 lg:py-24 text-white relative overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(212,175,55,0.15),transparent_50%)]"></div>
+      <div class="relative max-w-5xl mx-auto px-6">
+        <span class="text-xs uppercase tracking-[0.2em] text-brand-gold font-semibold mb-3 block">Uso del portal</span>
+        <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight">Política de Cookies</h1>
+        <p class="mt-4 text-gray-400 max-w-2xl text-sm md:text-base">
+          Última actualización: 2 de junio de 2026. Transparencia sobre el uso de cookies y tecnologías similares de seguimiento e identificación web.
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Content Section -->
+    <section class="py-16 lg:py-24">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="bg-white rounded-brand-xl shadow-elevated p-8 md:p-12 border border-gray-100 space-y-12 text-gray-600 leading-relaxed text-sm md:text-base">
+          
+          <!-- 1. DEFINICIÓN -->
+          <div class="space-y-4">
+            <h2 class="text-2xl font-extrabold text-brand-navy border-b border-gray-100 pb-3">1. ¿Qué son las Cookies?</h2>
+            <p>
+              Una cookie es un pequeño archivo de texto que un sitio web almacena en su ordenador, teléfono móvil o cualquier otro dispositivo inteligente con acceso a internet. Las cookies recogen información sobre su navegación con la finalidad de optimizar el rendimiento del sitio web, recordar sus preferencias de usuario y ofrecerle una experiencia más ágil y personalizada.
+            </p>
+            <p>
+              Además de las cookies, este sitio web y el Campus Virtual pueden emplear otras tecnologías de seguimiento similares como local storage (almacenamiento local de HTML5), web beacons y scripts de seguimiento para asegurar la integridad de la sesión del alumno y evitar accesos simultáneos no autorizados.
+            </p>
+          </div>
+
+          <!-- 2. TIPOS DE COOKIES -->
+          <div class="space-y-4">
+            <h2 class="text-2xl font-extrabold text-brand-navy border-b border-gray-100 pb-3">2. Tipos de Cookies que Utiliza este Portal</h2>
+            <p>
+              Nuestro sitio web clasifica las cookies instaladas en las siguientes categorías principales:
+            </p>
+            <ul class="list-disc pl-6 space-y-3">
+              <li>
+                <strong>Cookies Técnicas y Estrictamente Necesarias (Esenciales):</strong> Son aquellas indispensables para permitir la navegación por la web y la utilización de sus diferentes opciones o servicios. Incluyen el control de tráfico del servidor, la identificación de la sesión del alumno en el Campus Virtual, el almacenamiento de compras de matrículas y la seguridad del sistema para evitar abusos o fraudes de inicio de sesión compartida. <em>Estas cookies no requieren su consentimiento para ser instaladas.</em>
+              </li>
+              <li>
+                <strong>Cookies de Personalización y Funcionalidad:</strong> Permiten recordar información del usuario para que acceda al servicio con determinadas características predeterminadas (por ejemplo, el idioma de visualización, la zona horaria del campus o la configuración de su reproductor de vídeo didáctico).
+              </li>
+              <li>
+                <strong>Cookies de Análisis y Rendimiento:</strong> Son aquellas que nos permiten realizar el seguimiento y análisis estadístico del comportamiento de los usuarios en el sitio web (número de visitas, páginas más leídas, tasa de clics en programas). Esta información es agregada y anónima y nos sirve únicamente para mejorar la estructura y contenidos de la plataforma.
+              </li>
+              <li>
+                <strong>Cookies de Publicidad Comportamental y Marketing:</strong> Almacenan información del comportamiento de los usuarios obtenida a través de la observación continuada de sus hábitos de navegación. Esto permite desarrollar perfiles específicos para mostrarle publicidad personalizada y relevante en plataformas de terceros (como redes sociales u otros buscadores).
+              </li>
+            </ul>
+          </div>
+
+          <!-- 3. DETALLE DE COOKIES -->
+          <div class="space-y-4">
+            <h2 class="text-2xl font-extrabold text-brand-navy border-b border-gray-100 pb-3">3. Tabla Detallada de Cookies y Proveedores</h2>
+            <div class="overflow-x-auto">
+              <table class="w-full text-sm text-left border border-gray-200 rounded-brand-lg overflow-hidden">
+                <thead class="bg-brand-neutral text-brand-navy border-b border-gray-200">
+                  <tr>
+                    <th class="px-6 py-4 font-bold uppercase tracking-wider text-xs">Identificador / Proveedor</th>
+                    <th class="px-6 py-4 font-bold uppercase tracking-wider text-xs">Tipo de Cookie</th>
+                    <th class="px-6 py-4 font-bold uppercase tracking-wider text-xs">Finalidad Específica</th>
+                    <th class="px-6 py-4 font-bold uppercase tracking-wider text-xs">Duración</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100 text-gray-600">
+                  <tr>
+                    <td class="px-6 py-4 font-semibold text-brand-navy">__session / Campus LMS</td>
+                    <td class="px-6 py-4">Técnica (Esencial)</td>
+                    <td class="px-6 py-4">Mantiene la sesión de usuario y alumno activa e identificada de forma segura en la plataforma formativa.</td>
+                    <td class="px-6 py-4">Sesión</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 font-semibold text-brand-navy">Stripe / Stripe Inc.</td>
+                    <td class="px-6 py-4">Técnica (Esencial)</td>
+                    <td class="px-6 py-4">Prevención de fraudes en pagos electrónicos y mantenimiento del flujo de facturación seguro.</td>
+                    <td class="px-6 py-4">Hasta 1 año</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 font-semibold text-brand-navy">_ga, _gid / Google Analytics</td>
+                    <td class="px-6 py-4">Analítica (Estadística)</td>
+                    <td class="px-6 py-4">Recopila datos anónimos de comportamiento de navegación y tráfico para medir el rendimiento de los contenidos.</td>
+                    <td class="px-6 py-4">2 años</td>
+                  </tr>
+                  <tr>
+                    <td class="px-6 py-4 font-semibold text-brand-navy">_fbp / Meta Platforms Inc.</td>
+                    <td class="px-6 py-4">Marketing (Publicitaria)</td>
+                    <td class="px-6 py-4">Medición de la efectividad de las campañas publicitarias del Instituto en Facebook e Instagram y remarketing.</td>
+                    <td class="px-6 py-4">3 meses</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- 4. GESTIÓN Y DESACTIVACIÓN -->
+          <div class="space-y-4">
+            <h2 class="text-2xl font-extrabold text-brand-navy border-b border-gray-100 pb-3">4. Cómo Administrar y Desactivar las Cookies</h2>
+            <p>
+              El usuario tiene pleno derecho a permitir, bloquear o eliminar las cookies instaladas en su dispositivo mediante la configuración de las opciones del navegador de internet instalado en su equipo. A continuación, le facilitamos enlaces directos de los desarrolladores de los navegadores más utilizados para la administración de cookies:
+            </p>
+            <ul class="list-disc pl-6 space-y-2">
+              <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener noreferrer" class="text-brand-gold hover:underline">Google Chrome</a></li>
+              <li><a href="https://support.apple.com/es-es/guide/safari/sfri11471/mac" target="_blank" rel="noopener noreferrer" class="text-brand-gold hover:underline">Apple Safari</a></li>
+              <li><a href="https://support.mozilla.org/es/kb/habilitar-y-deshabilitar-cookies-sitios-web-rastrear-preferencias" target="_blank" rel="noopener noreferrer" class="text-brand-gold hover:underline">Mozilla Firefox</a></li>
+              <li><a href="https://support.microsoft.com/es-es/microsoft-edge/eliminar-y-administrar-cookies-168dab11-0753-243d-7c16-22c25649f8cd" target="_blank" rel="noopener noreferrer" class="text-brand-gold hover:underline">Microsoft Edge</a></li>
+            </ul>
+            <div class="bg-amber-50 p-6 rounded-brand-lg border border-amber-200 text-amber-900">
+              <p class="font-bold mb-1">Advertencia de Funcionalidad:</p>
+              <p>
+                Tenga en cuenta que si desactiva o bloquea las cookies técnicas necesarias para el funcionamiento del portal, <strong>no será posible autenticarse en el Campus Virtual ni acceder de forma segura a sus clases, módulos o material interactivo</strong>.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
