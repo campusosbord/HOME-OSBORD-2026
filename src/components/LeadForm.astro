@@ -109,21 +109,25 @@ const origin = Astro.url.href;
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
 
-    // 2. INYECTAR VARIABLES DE SEGUIMIENTO EN EL PAYLOAD (Sin alterar tus inputs)
+    // 2. INYECTAR VARIABLES DE SEGUIMIENTO EN EL OBJETO DE DATOS
     data.event_id = eventId;
     data.user_agent = navigator.userAgent;
     data.page_url = window.location.href;
+
+    // 3. CONVERTIR A URLSearchParams PARA SALTAR EL BLOQUEO CORS DEL NAVEGADOR (Petición Simple)
+    const params = new URLSearchParams();
+    for (const [key, value] of Object.entries(data)) {
+      params.append(key, value);
+    }
     
     try {
       const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzyWUx6b8Ys6Z6krDXOERDH7Z59iYf7--6hb6H9UHvyoSNM4mEs_ESnx1_LEwcGUuE/exec';
       
+      // Enviamos params como body directo sin cabeceras JSON complejas
       await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
+        body: params
       });
       
       window.osbordToast?.();
