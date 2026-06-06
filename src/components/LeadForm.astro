@@ -76,7 +76,6 @@ const origin = Astro.url.href;
   // Client-side City Fallback (Plan B)
   async function resolveCity() {
     const cityInput = form.querySelector('input[name="ciudad"]');
-    // Si la ciudad no se detectó, o solo se detectó el código de país (ej. "US")
     if (cityInput && (cityInput.value.includes('no detectada') || cityInput.value.length <= 3 || !cityInput.value)) {
       try {
         const res = await fetch('https://ipapi.co/json/');
@@ -90,7 +89,6 @@ const origin = Astro.url.href;
     }
   }
 
-  // Run fallback on load
   if (form) resolveCity();
 
   form?.addEventListener('submit', async (e) => {
@@ -100,12 +98,24 @@ const origin = Astro.url.href;
     
     submitBtn.disabled = true;
     submitBtn.textContent = 'ENVIANDO...';
+
+    // 1. GENERAR ID ÚNICO PARA DEDUPLICACIÓN DE META (Pixel + Conversiones API)
+    const eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).slice(2, 9);
+    
+    // Disparar píxeles locales del navegador instantáneamente
+    if (window.fbq) window.fbq('track', 'Lead', {}, { eventID: eventId });
+    if (window.gtag) window.gtag('event', 'generate_lead');
     
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
+
+    // 2. INYECTAR VARIABLES DE SEGUIMIENTO EN EL PAYLOAD (Sin alterar tus inputs)
+    data.event_id = eventId;
+    data.user_agent = navigator.userAgent;
+    data.page_url = window.location.href;
     
     try {
-      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwQ34SrlVoEWz_WnjoLXjmM16ubiEBKZQfjgBHWHeppjd2Elh7WA9r2UTq18lp3bbcW/exec';
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzyWUx6b8Ys6Z6krDXOERDH7Z59iYf7--6hb6H9UHvyoSNM4mEs_ESnx1_LEwcGUuE/exec';
       
       await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
