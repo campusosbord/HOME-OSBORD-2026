@@ -149,20 +149,33 @@ const origin = Astro.url.href;
     
     submitBtn.disabled = true;
     submitBtn.textContent = 'ENVIANDO...';
+
+    // 1. ID único para deduplicación Meta (Pixel + Conversiones API)
+    const eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).slice(2, 9);
+    if ((window as any).fbq) (window as any).fbq('track', 'Lead', {}, { eventID: eventId });
+    if ((window as any).gtag) (window as any).gtag('event', 'generate_lead');
     
     const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData.entries());
+    const data: Record<string, string> = Object.fromEntries(formData.entries()) as Record<string, string>;
+
+    // 2. Inyectar variables de seguimiento
+    data.event_id = eventId;
+    data.user_agent = navigator.userAgent;
+    data.page_url = window.location.href;
+
+    // 3. URLSearchParams para evitar bloqueo CORS
+    const params = new URLSearchParams();
+    for (const [key, value] of Object.entries(data)) {
+      params.append(key, value);
+    }
     
     try {
-      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwQ34SrlVoEWz_WnjoLXjmM16ubiEBKZQfjgBHWHeppjd2Elh7WA9r2UTq18lp3bbcW/exec';
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzyWUx6b8Ys6Z6krDXOERDH7Z59iYf7--6hb6H9UHvyoSNM4mEs_ESnx1_LEwcGUuE/exec';
       
       await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
+        body: params
       });
       
       window.osbordToast?.();
