@@ -118,7 +118,7 @@ const programs = [
                 </form>
              </div>
         ) : (
-          /* WHATSAPP BOX LATAM */
+          /* WHATSAPP BOX LATAM — con selector de programa */
           <div class="bg-white/5 backdrop-blur-xl p-10 rounded-brand-xl border border-white/10 shadow-2xl relative group overflow-hidden">
             <div class="absolute -top-24 -right-24 w-48 h-48 bg-brand-gold/10 rounded-full blur-3xl group-hover:bg-brand-gold/20 transition-colors duration-500"></div>
             <div class="space-y-8 relative z-10">
@@ -129,17 +129,42 @@ const programs = [
                   </svg>
                 </div>
                 <h2 class="text-3xl font-extrabold text-white">Atención <span class="text-brand-gold">Personalizada</span></h2>
-                <p class="text-gray-300 leading-relaxed font-light">
-                  ¿Deseas conocer más sobre nuestros programas académicos y planes de financiamiento? Contacta ahora con un asesor académico para una consultoría gratuita.
+                <p class="text-gray-300 leading-relaxed font-light text-sm">
+                  Selecciona el programa de tu interés y habla directamente con un asesor académico.
                 </p>
               </div>
 
-              <div class="space-y-4">
-                <a href="https://wa.me/13072923715?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20del%20Instituto%20Osbord%20y%20estoy%20interesado%20en%20informaci%C3%B3n%20sobre%20un%20m%C3%A1ster%20o%20curso." target="_blank" rel="noopener noreferrer" class="group/btn flex items-center justify-center gap-3 w-full bg-brand-gold text-white font-extrabold py-5 rounded-brand hover:bg-white hover:text-brand-navy transition-all duration-300 uppercase tracking-widest text-sm shadow-xl hover:shadow-brand-gold/20">
-                  <svg class="w-5 h-5 fill-white group-hover/btn:fill-brand-navy transition-all duration-300" viewBox="0 0 24 24">
+              <!-- Program Selector -->
+              <div class="space-y-2">
+                <label class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400">Programa de Interés</label>
+                <div class="relative">
+                  <select
+                    id="hero-program-select"
+                    class="w-full appearance-none bg-white/10 border border-white/20 text-white text-sm font-medium px-4 py-3 pr-10 rounded-brand focus:outline-none focus:ring-2 focus:ring-brand-gold/50 focus:border-brand-gold/50 transition-all duration-200 cursor-pointer"
+                  >
+                    <option value="" class="bg-brand-navy text-gray-300">— Selecciona un programa —</option>
+                    {programs.map(p => <option value={p} class="bg-brand-navy text-white">{p}</option>)}
+                  </select>
+                  <div class="pointer-events-none absolute inset-y-0 right-3 flex items-center">
+                    <svg class="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
+              <div class="space-y-3">
+                <!-- WhatsApp button — disabled until program selected -->
+                <a
+                  id="hero-wa-btn"
+                  href="#"
+                  aria-disabled="true"
+                  class="group/btn flex items-center justify-center gap-3 w-full font-extrabold py-5 rounded-brand uppercase tracking-widest text-sm shadow-xl transition-all duration-300 bg-white/20 text-white/40 cursor-not-allowed pointer-events-none select-none"
+                >
+                  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
                     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.414 0 0 5.415 0 12.05c0 2.12.554 4.189 1.605 6.01L0 24l6.135-1.61a11.902 11.902 0 0 0 5.915 1.56h.005c6.637 0 12.05-5.415 12.05-12.05a11.815 11.815 0 0 0-3.542-8.513"/>
                   </svg>
-                  Hablar con un asesor
+                  Selecciona un programa primero
                 </a>
                 <div class="flex items-center justify-center gap-2.5">
                   <span class="relative flex h-2 w-2">
@@ -229,4 +254,35 @@ const programs = [
       submitBtn.textContent = originalText;
     }
   });
+
+  // ---- LATAM: Program selector → WhatsApp button ----
+  const select = document.getElementById('hero-program-select') as HTMLSelectElement | null;
+  const waBtn = document.getElementById('hero-wa-btn') as HTMLAnchorElement | null;
+
+  if (select && waBtn) {
+    select.addEventListener('change', () => {
+      const program = select.value;
+      if (program) {
+        const text = `Hola, vengo de la página del Instituto Osbord y estoy interesado en información sobre el ${program}.`;
+        waBtn.href = `https://wa.me/13072923715?text=${encodeURIComponent(text)}`;
+        waBtn.setAttribute('target', '_blank');
+        waBtn.setAttribute('rel', 'noopener noreferrer');
+        waBtn.removeAttribute('aria-disabled');
+        waBtn.textContent = '';
+        // Re-add icon + text
+        waBtn.innerHTML = `<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.414 0 0 5.415 0 12.05c0 2.12.554 4.189 1.605 6.01L0 24l6.135-1.61a11.902 11.902 0 0 0 5.915 1.56h.005c6.637 0 12.05-5.415 12.05-12.05a11.815 11.815 0 0 0-3.542-8.513"/></svg> Hablar con un asesor`;
+        // Swap classes: remove disabled look, add active gold style
+        waBtn.classList.remove('bg-white/20', 'text-white/40', 'cursor-not-allowed', 'pointer-events-none', 'select-none');
+        waBtn.classList.add('bg-brand-gold', 'text-white', 'cursor-pointer', 'hover:bg-white', 'hover:text-brand-navy');
+      } else {
+        waBtn.href = '#';
+        waBtn.removeAttribute('target');
+        waBtn.removeAttribute('rel');
+        waBtn.setAttribute('aria-disabled', 'true');
+        waBtn.innerHTML = `<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.414 0 0 5.415 0 12.05c0 2.12.554 4.189 1.605 6.01L0 24l6.135-1.61a11.902 11.902 0 0 0 5.915 1.56h.005c6.637 0 12.05-5.415 12.05-12.05a11.815 11.815 0 0 0-3.542-8.513"/></svg> Selecciona un programa primero`;
+        waBtn.classList.add('bg-white/20', 'text-white/40', 'cursor-not-allowed', 'pointer-events-none', 'select-none');
+        waBtn.classList.remove('bg-brand-gold', 'text-white', 'cursor-pointer', 'hover:bg-white', 'hover:text-brand-navy');
+      }
+    });
+  }
 </script>

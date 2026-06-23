@@ -10,6 +10,15 @@ const { isUS: propIsUS } = Astro.props;
 const pathname = Astro.url.pathname;
 const isUS = propIsUS ?? pathname.startsWith('/us') ?? Astro.locals.isUS ?? false;
 const prefix = pathname.startsWith('/us') ? '/us' : '/latam';
+
+// Detect current master page to include program name in WhatsApp message
+const programMap: Record<string, string> = {
+  'enfermeria': 'Curso Profesional Superior: Auxiliar de Enfermería Clínica',
+  'interiorismo': 'Máster en Interiorismo, Diseño y Decoración de Interiores 3D',
+  'wedding-planner': 'Máster en Organización de Eventos & Wedding Planner + IA',
+};
+const masterMatch = pathname.match(/\/masters\/([^/]+)/);
+const currentProgram = masterMatch ? (programMap[masterMatch[1]] ?? undefined) : undefined;
 ---
 <header id="site-header" class="bg-white/95 backdrop-blur-md border-b border-gray-100/80 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out">
   <div class="max-w-7xl mx-auto px-6">
@@ -278,7 +287,7 @@ const prefix = pathname.startsWith('/us') ? '/us' : '/latam';
   </div>
 </div>
 
-<AdmissionModal isUS={isUS} />
+<AdmissionModal isUS={isUS} programName={currentProgram} />
 
 <script>
   const openBtn = document.getElementById('mobile-menu-open');
