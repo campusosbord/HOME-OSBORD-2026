@@ -16,8 +16,8 @@ import BenefitsSection from '../../../components/BenefitsSection.astro';
 import DiplomaSection from '../../../components/DiplomaSection.astro';
 
 const isUS = false;
-const programName = "Wedding Planner & IA";
-const formationFullName = "Máster en Organización de Eventos & Wedding Planner + IA";
+const programName = "Wedding Planner";
+const formationFullName = "Máster Ejecutivo en Organización de Eventos & Wedding Planner";
 
 const benefits = [
   {
@@ -221,7 +221,7 @@ const syllabus = [
 const courseSchema = {
   "@context": "https://schema.org",
   "@type": "Course",
-  "name": "Máster en Organización de Eventos & Wedding Planner + IA",
+  "name": "Máster Ejecutivo en Organización de Eventos & Wedding Planner",
   "description": "Formación profesional en organización de bodas y eventos de lujo. Protocolo, diseño, logística y marketing digital con certificación internacional.",
   "provider": {
     "@type": "EducationalOrganization",
@@ -243,13 +243,13 @@ const breadcrumbSchema = {
   "itemListElement": [
     { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://osbord.edu" },
     { "@type": "ListItem", "position": 2, "name": "Escuela de Gestión de Eventos", "item": "https://osbord.edu/escuela/eventos" },
-    { "@type": "ListItem", "position": 3, "name": "Máster en Organización de Eventos & Wedding Planner + IA", "item": "https://osbord.edu/masters/wedding-planner" }
+    { "@type": "ListItem", "position": 3, "name": "Máster Ejecutivo en Organización de Eventos & Wedding Planner", "item": "https://osbord.edu/masters/wedding-planner" }
   ]
 };
 ---
 
 <Layout
-  title="Máster en Organización de Eventos & Wedding Planner + IA"
+  title="Máster Ejecutivo en Organización de Eventos & Wedding Planner"
   description="Conviértete en un experto en organización de bodas y eventos de lujo con Inteligencia Artificial. Certificación internacional con diploma apostillado."
 >
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(courseSchema)} />
@@ -279,12 +279,12 @@ const breadcrumbSchema = {
           <div class="space-y-8 animate-fade-in-up">
             <span class="section-label">Escuela de Gestión de Eventos</span>
             <h1 class="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-[1.05] tracking-tight uppercase">
-              MÁSTER EN <span class="text-brand-gold">WEDDING PLANNER</span>
+              MÁSTER EJECUTIVO EN <span class="text-brand-gold">WEDDING PLANNER</span>
             </h1>
             <div class="flex items-center gap-4">
               <div class="w-12 h-1 bg-brand-gold"></div>
               <p class="text-xl text-white font-bold tracking-widest uppercase">
-                & Organización de Eventos + IA
+                & Organización de Eventos
               </p>
             </div>
             <p class="text-lg text-gray-200 max-w-lg leading-relaxed">
@@ -299,7 +299,7 @@ const breadcrumbSchema = {
               </div>
               <div class="w-px h-10 bg-white/20"></div>
               <div class="flex flex-col">
-                <p class="text-brand-gold font-extrabold text-3xl">1 Mes</p>
+                <p class="text-brand-gold font-extrabold text-3xl">3 Meses</p>
                 <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold">DURACIÓN</p>
               </div>
               <div class="w-px h-10 bg-white/20"></div>

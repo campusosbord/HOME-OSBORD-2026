@@ -5,7 +5,7 @@ const isUS = pathname.startsWith('/us');
 const faqProgramMap: Record<string, string> = {
   'enfermeria': 'Curso Profesional Superior: Auxiliar de Enfermería Clínica',
   'interiorismo': 'Máster en Interiorismo, Diseño y Decoración de Interiores 3D',
-  'wedding-planner': 'Máster en Organización de Eventos & Wedding Planner + IA',
+  'wedding-planner': 'Máster Ejecutivo en Organización de Eventos & Wedding Planner',
 };
 const faqMasterMatch = pathname.match(/\/masters\/([^/]+)/);
 const faqCurrentProgram = faqMasterMatch ? (faqProgramMap[faqMasterMatch[1]] ?? undefined) : undefined;

@@ -13,7 +13,7 @@ const prefix = pathname.startsWith('/us') ? '/us' : '/latam';
 const programMap: Record<string, string> = {
   'enfermeria': 'Curso Profesional Superior: Auxiliar de Enfermería Clínica',
   'interiorismo': 'Máster en Interiorismo, Diseño y Decoración de Interiores 3D',
-  'wedding-planner': 'Máster en Organización de Eventos & Wedding Planner + IA',
+  'wedding-planner': 'Máster Ejecutivo en Organización de Eventos & Wedding Planner',
 };
 const masterMatch = pathname.match(/\/masters\/([^/]+)/);
 const currentProgram = masterMatch ? (programMap[masterMatch[1]] ?? undefined) : undefined;
@@ -75,7 +75,7 @@ const whatsappUrl = currentProgram
         <ul class="space-y-4">
           <li><a href={`${prefix}/masters/enfermeria`} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Curso Profesional Superior: Auxiliar de Enfermería Clínica</a></li>
           <li><a href={`${prefix}/masters/interiorismo`} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Máster en Interiorismo, Diseño y Decoración de Interiores 3D</a></li>
-          <li><a href={`${prefix}/masters/wedding-planner`} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Máster en Organización de Eventos & Wedding Planner + IA</a></li>
+          <li><a href={`${prefix}/masters/wedding-planner`} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Máster Ejecutivo en Organización de Eventos & Wedding Planner</a></li>
         </ul>
       </div>
 

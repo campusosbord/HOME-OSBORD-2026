@@ -13,7 +13,7 @@ const accordionIsUS = accordionPathname.startsWith('/us');
 const accordionProgramMap: Record<string, string> = {
   'enfermeria': 'Curso Profesional Superior: Auxiliar de Enfermería Clínica',
   'interiorismo': 'Máster en Interiorismo, Diseño y Decoración de Interiores 3D',
-  'wedding-planner': 'Máster en Organización de Eventos & Wedding Planner + IA',
+  'wedding-planner': 'Máster Ejecutivo en Organización de Eventos & Wedding Planner',
 };
 const accordionMasterMatch = accordionPathname.match(/\/masters\/([^/]+)/);
 const accordionCurrentProgram = accordionMasterMatch ? (accordionProgramMap[accordionMasterMatch[1]] ?? undefined) : undefined;
