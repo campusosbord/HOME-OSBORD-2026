@@ -2,12 +2,9 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-
-const city = Astro.locals.city || "USA (Ciudad no detectada)";
-const origin = Astro.url.href;
 ---
 
-<Layout title="Contacto" description="Contacta con el Instituto Online Osbord. Estamos aquí para resolver tus dudas sobre admisiones, programas académicos y certificaciones internacionales.">
+<Layout title="Contacto | Instituto Online Osbord" description="Contacta con el Instituto Online Osbord por WhatsApp. Asesoramiento personalizado sobre admisiones, programas académicos y certificaciones internacionales para Estados Unidos.">
   <Header />
   <main>
     <section class="bg-brand-navy py-20 lg:py-24 text-white relative overflow-hidden">
@@ -43,6 +40,14 @@ const origin = Astro.url.href;
                 <p class="text-sm text-gray-500">Para consultas académicas generales.</p>
                 <a href="mailto:admisiones@osbord.com" class="text-brand-gold font-bold hover:underline">admisiones@osbord.com</a>
               </div>
+              <div class="p-6 bg-brand-neutral rounded-brand-lg border border-gray-100 space-y-4">
+                <div class="w-10 h-10 bg-brand-gold/10 rounded-brand flex items-center justify-center text-brand-gold">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+                </div>
+                <h3 class="font-extrabold text-brand-navy">WhatsApp</h3>
+                <p class="text-sm text-gray-500">Respuesta rápida por consultores de admisión.</p>
+                <a href="https://wa.me/13072923715?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20de%20Estados%20Unidos%20del%20Instituto%20Osbord%20y%20estoy%20interesado%20en%20informaci%C3%B3n%20sobre%20un%20m%C3%A1ster%20o%20curso." target="_blank" rel="noopener noreferrer" class="text-brand-gold font-bold hover:underline">+1 (307) 292 3715</a>
+              </div>
             </div>
 
             <div class="p-8 bg-brand-navy text-white rounded-brand-xl space-y-4">
@@ -59,51 +64,52 @@ const origin = Astro.url.href;
             </div>
           </div>
 
-          <!-- Form -->
-          <div class="bg-brand-neutral rounded-brand-xl p-8 md:p-12 border border-gray-100 shadow-soft space-y-8 relative">
-            <h3 class="text-2xl font-extrabold text-brand-navy text-center">Envíanos un mensaje</h3>
-            <form id="contact-form" class="space-y-6">
-              <input type="hidden" name="ciudad" value={city} />
-              <input type="hidden" name="origen" value={origin} />
-              <div class="grid sm:grid-cols-2 gap-6">
-                <div class="space-y-2">
-                  <label class="text-xs font-bold uppercase tracking-wider text-gray-400">Nombre Completo</label>
-                  <input type="text" name="nombre" placeholder="Escribe tu nombre" class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold transition-all" required />
-                </div>
-                <div class="space-y-2">
-                  <label class="text-xs font-bold uppercase tracking-wider text-gray-400">Correo Electrónico</label>
-                  <input type="email" name="correo" placeholder="email@ejemplo.com" class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold transition-all" required />
-                </div>
+          <!-- WhatsApp Box US -->
+          <div class="bg-brand-navy rounded-brand-xl p-10 md:p-12 shadow-2xl text-center space-y-8 relative overflow-hidden group">
+            <div class="absolute -top-24 -right-24 w-48 h-48 bg-brand-gold/10 rounded-full blur-3xl group-hover:bg-brand-gold/20 transition-colors duration-500"></div>
+            
+            <div class="relative z-10 space-y-6">
+              <div class="w-16 h-16 bg-brand-gold/10 rounded-full flex items-center justify-center mx-auto">
+                <svg class="w-8 h-8 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 0 1-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                </svg>
               </div>
-              <div class="grid sm:grid-cols-2 gap-6">
-                <div class="space-y-2">
-                  <label class="text-xs font-bold uppercase tracking-wider text-gray-400">Teléfono</label>
-                  <input type="tel" name="telefono" placeholder="+1..." class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold transition-all" required />
-                </div>
-                <div class="space-y-2">
-                  <label class="text-xs font-bold uppercase tracking-wider text-gray-400">Programa de Interés</label>
-                  <select name="formacion" class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold transition-all bg-white" required>
-                    <option value="">Selecciona un programa</option>
-                    <option>Máster en Interiorismo, Diseño y Decoración de Interiores 3D</option>
-                    <option>Máster Ejecutivo en Organización de Eventos & Wedding Planner</option>
-                    <option>Curso Profesional Superior: Auxiliar de Enfermería Clínica</option>
-                    <option>Otro / Consulta general</option>
-                  </select>
-                </div>
-              </div>
+              
               <div class="space-y-2">
-                <label class="text-xs font-bold uppercase tracking-wider text-gray-400">Mensaje</label>
-                <textarea name="mensaje" rows="4" placeholder="¿Cómo podemos ayudarte?" class="w-full px-5 py-4 rounded-brand border border-gray-200 focus:outline-none focus:ring-2 focus:ring-brand-gold/30 focus:border-brand-gold transition-all" required></textarea>
+                <h3 class="text-3xl font-extrabold text-white tracking-tight">Atención <span class="text-brand-gold">Inmediata</span></h3>
+                <p class="text-gray-400 text-sm leading-relaxed max-w-xs mx-auto">
+                  ¿Deseas una respuesta rápida? Elige tu programa e inicia el chat por WhatsApp.
+                </p>
               </div>
-              <div class="pt-2 flex flex-col items-center gap-3">
-                <button type="submit" class="cta-button w-full justify-center text-base py-4">ENVIAR CONSULTA</button>
+
+              <!-- Selector de Programa -->
+              <div class="text-left space-y-2">
+                <label for="contact-program-select" class="block text-xs font-extrabold uppercase tracking-widest text-brand-gold">Selecciona tu programa:</label>
+                <select id="contact-program-select" class="w-full bg-white/5 border border-white/10 rounded-brand px-4 py-3 text-white text-sm focus:border-brand-gold focus:outline-none transition-colors duration-300">
+                  <option value="general" class="text-brand-navy">Consulta General / Otro</option>
+                  <option value="enfermeria" class="text-brand-navy">Auxiliar de Enfermería Clínica</option>
+                  <option value="interiorismo" class="text-brand-navy">Máster en Interiorismo</option>
+                  <option value="wedding-planner" class="text-brand-navy">Máster Ejecutivo en Wedding Planner</option>
+                </select>
+              </div>
+ 
+              <div class="space-y-4 pt-2">
+                <a id="contact-whatsapp-btn" href="https://wa.me/13072923715?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20de%20Estados%20Unidos%20del%20Instituto%20Osbord%20y%20estoy%20interesado%20en%20informaci%C3%B3n%20sobre%20un%20m%C3%A1ster%20o%20curso." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-3 w-full bg-[#25D366] hover:bg-white hover:text-brand-navy text-white font-extrabold py-5 rounded-brand transition-all duration-300 uppercase tracking-widest text-sm shadow-xl shadow-green-500/10">
+                  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.414 0 0 5.415 0 12.05c0 2.12.554 4.189 1.605 6.01L0 24l6.135-1.61a11.902 11.902 0 0 0 5.915 1.56h.005c6.637 0 12.05-5.415 12.05-12.05a11.815 11.815 0 0 0-3.542-8.513"/>
+                  </svg>
+                  Iniciar Chat por WhatsApp
+                </a>
                 
-                <div class="flex items-center gap-2">
-                  <div class="w-2 h-2 bg-emerald-500 rounded-full shadow-[0_0_8px_rgba(16,185,129,0.6)] animate-pulse"></div>
-                  <p class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Respuesta en menos de 24 horas</p>
+                <div class="flex items-center justify-center gap-2.5">
+                  <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                  </span>
+                  <p class="text-[10px] text-gray-400 uppercase tracking-[0.2em] font-bold">En línea ahora para ti</p>
                 </div>
               </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
@@ -113,69 +119,22 @@ const origin = Astro.url.href;
 </Layout>
 
 <script>
-  const contactForm = document.getElementById('contact-form') as HTMLFormElement;
-  
-  // Client-side City Fallback (Plan B)
-  async function resolveCity() {
-    const cityInput = contactForm.querySelector('input[name="ciudad"]') as HTMLInputElement;
-    if (cityInput && (cityInput.value.includes('no detectada') || cityInput.value.length <= 3 || !cityInput.value)) {
-      try {
-        const res = await fetch('https://ipapi.co/json/');
-        const geo = await res.json();
-        if (geo.city) {
-          cityInput.value = `${geo.city}, ${geo.region} (${geo.country_name})`;
-        }
-      } catch (e) {
-        console.warn('Geo fallback failed');
-      }
-    }
+  // New script logic for WhatsApp redirection in US Page
+  const programSelect = document.getElementById('contact-program-select') as HTMLSelectElement | null;
+  const whatsappBtn = document.getElementById('contact-whatsapp-btn') as HTMLAnchorElement | null;
+
+  if (programSelect && whatsappBtn) {
+    const messages: Record<string, string> = {
+      general: 'Hola, vengo de la página de Estados Unidos del Instituto Osbord y estoy interesado en información general sobre sus programas.',
+      enfermeria: 'Hola, vengo de la página de Estados Unidos del Instituto Osbord y estoy interesado en información sobre el Curso Profesional Superior: Auxiliar de Enfermería Clínica.',
+      interiorismo: 'Hola, vengo de la página de Estados Unidos del Instituto Osbord y estoy interesado en información sobre el Máster en Interiorismo, Diseño y Decoración de Interiores 3D.',
+      'wedding-planner': 'Hola, vengo de la página de Estados Unidos del Instituto Osbord y estoy interesado en información sobre el Máster Ejecutivo en Organización de Eventos & Wedding Planner.'
+    };
+
+    programSelect.addEventListener('change', () => {
+      const val = programSelect.value;
+      const text = messages[val] || messages.general;
+      whatsappBtn.href = `https://wa.me/13072923715?text=${encodeURIComponent(text)}`;
+    });
   }
-
-  if (contactForm) resolveCity();
-
-  contactForm?.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    const submitBtn = contactForm.querySelector('button[type="submit"]') as HTMLButtonElement;
-    const originalText = submitBtn.textContent;
-    
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'ENVIANDO...';
-
-    // 1. ID único para deduplicación Meta (Pixel + Conversiones API)
-    const eventId = 'lead_' + Date.now() + '_' + Math.random().toString(36).slice(2, 9);
-    if ((window as any).fbq) (window as any).fbq('track', 'Lead', {}, { eventID: eventId });
-    if ((window as any).gtag) (window as any).gtag('event', 'generate_lead');
-    
-    const formData = new FormData(contactForm);
-    const data: Record<string, string> = Object.fromEntries(formData.entries()) as Record<string, string>;
-
-    // 2. Inyectar variables de seguimiento
-    data.event_id = eventId;
-    data.user_agent = navigator.userAgent;
-    data.page_url = window.location.href;
-
-    // 3. URLSearchParams para evitar bloqueo CORS
-    const params = new URLSearchParams();
-    for (const [key, value] of Object.entries(data)) {
-      params.append(key, value);
-    }
-    
-    try {
-      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzyWUx6b8Ys6Z6krDXOERDH7Z59iYf7--6hb6H9UHvyoSNM4mEs_ESnx1_LEwcGUuE/exec';
-      
-      await fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: params
-      });
-      
-      window.osbordToast?.();
-      contactForm.reset();
-    } catch (error) {
-      console.error('Error:', error);
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalText;
-    }
-  });
 </script>

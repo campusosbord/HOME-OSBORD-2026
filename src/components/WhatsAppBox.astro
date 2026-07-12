@@ -1,10 +1,15 @@
 ---
 interface Props {
   programName: string;
+  isUS?: boolean;
 }
 
-const { programName } = Astro.props;
-const encodedText = encodeURIComponent(`Hola, vengo de la página del Instituto Osbord y estoy interesado en información sobre el ${programName}.`);
+const { programName, isUS } = Astro.props;
+const isUSRoute = isUS || Astro.url.pathname.includes('/us/');
+const baseText = isUSRoute
+  ? `Hola, vengo de la página de Estados Unidos del Instituto Osbord y estoy interesado en información sobre el ${programName}.`
+  : `Hola, vengo de la página del Instituto Osbord y estoy interesado en información sobre el ${programName}.`;
+const encodedText = encodeURIComponent(baseText);
 const whatsappUrl = `https://wa.me/13072923715?text=${encodedText}`;
 ---
 

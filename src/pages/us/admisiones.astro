@@ -63,22 +63,36 @@ import Footer from '../../components/Footer.astro';
           </div>
 
           <!-- CTA Card -->
-          <div class="bg-brand-navy rounded-brand-xl p-10 md:p-12 text-white space-y-8 shadow-2xl sticky top-32 text-center">
-            <div class="space-y-3">
-              <h3 class="text-2xl font-extrabold">Habla con un Asesor</h3>
-              <p class="text-gray-400 text-sm leading-relaxed">Sin compromiso. Respuesta garantizada en menos de 24 horas hábiles.</p>
-            </div>
-            <div class="space-y-4">
-              <button class="trigger-admission-modal cta-button w-full justify-center text-base py-4">
-                SOLICITAR ADMISIÓN
-              </button>
-              <a href="mailto:admisiones@osbord.com" class="ghost-button w-full justify-center text-base py-4 border-white/20 text-white">
-                ENVIAR CORREO
-              </a>
-            </div>
-            <div class="pt-4 border-t border-white/10 space-y-3">
-              <p class="text-xs text-gray-400 uppercase tracking-widest font-bold">También puedes escribirnos a:</p>
-              <p class="text-white font-semibold">admisiones@osbord.com</p>
+          <div class="bg-brand-navy rounded-brand-xl p-10 md:p-12 text-white space-y-8 shadow-2xl sticky top-32 text-center relative overflow-hidden group">
+            <div class="absolute -top-20 -right-20 w-40 h-40 bg-brand-gold/10 rounded-full blur-3xl group-hover:bg-brand-gold/20 transition-colors duration-500"></div>
+            <div class="relative z-10 space-y-6">
+              <div class="w-16 h-16 bg-brand-gold/10 rounded-full flex items-center justify-center mx-auto">
+                <svg class="w-8 h-8 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 0 1-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                </svg>
+              </div>
+              <div class="space-y-3">
+                <h3 class="text-2xl font-extrabold">Habla con un Asesor</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">Sin compromiso. Respuesta inmediata por WhatsApp.</p>
+              </div>
+              <div class="space-y-4">
+                <a
+                  href="https://wa.me/13072923715?text=Hola%2C%20vengo%20de%20la%20p%C3%A1gina%20de%20Estados%20Unidos%20del%20Instituto%20Osbord%20y%20estoy%20interesado%20en%20informaci%C3%B3n%20sobre%20admisiones."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex items-center justify-center gap-3 w-full bg-[#25D366] hover:bg-white hover:text-brand-navy text-white font-extrabold py-5 rounded-brand transition-all duration-300 uppercase tracking-widest text-sm shadow-xl shadow-green-500/10"
+                >
+                  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.414 0 0 5.415 0 12.05c0 2.12.554 4.189 1.605 6.01L0 24l6.135-1.61a11.902 11.902 0 0 0 5.915 1.56h.005c6.637 0 12.05-5.415 12.05-12.05a11.815 11.815 0 0 0-3.542-8.513"/></svg>
+                  INICIAR CHAT POR WHATSAPP
+                </a>
+              </div>
+              <div class="flex items-center justify-center gap-2.5 pt-2">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+                <p class="text-[10px] text-gray-400 uppercase tracking-[0.2em] font-bold">Respuesta inmediata por WhatsApp</p>
+              </div>
             </div>
           </div>
         </div>

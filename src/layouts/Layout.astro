@@ -20,7 +20,9 @@ const {
 } = Astro.props;
 
 const siteUrl = "https://osbord.edu";
-const fullTitle = `${title} | Instituto Online Osbord`;
+const fullTitle = title.includes("Instituto Online Osbord") || title.includes("Instituto Osbord") || title.includes("Osbord")
+  ? title
+  : `${title} | Instituto Online Osbord`;
 
 const orgSchema = {
   "@context": "https://schema.org",
@@ -32,10 +34,10 @@ const orgSchema = {
   "description": "Institución educativa online con sede en USA, especializada en formación de élite en Ciencias de la Salud, Arquitectura y Diseño, y Gestión de Eventos.",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "7901 4th St N STE 300",
-    "addressLocality": "St. Petersburg",
-    "addressRegion": "FL",
-    "postalCode": "33702",
+    "streetAddress": "30 N Gould St Ste N",
+    "addressLocality": "Sheridan",
+    "addressRegion": "WY",
+    "postalCode": "82801",
     "addressCountry": "US"
   },
   "contactPoint": {
@@ -65,6 +67,9 @@ const orgSchema = {
     <meta name="description" content={description} />
     {noIndex && <meta name="robots" content="noindex, nofollow" />}
     {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+
+    <!-- Pinterest Domain Verification -->
+    <meta name="p:domain_verify" content="8b58e50bcedcd47ce7efdd3e82d0bced"/>
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
