@@ -1,0 +1,226 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+
+const allPosts = await getCollection('blog');
+const sortedPosts = allPosts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+
+// Visual categorization helpers
+const getCategoryLabel = (category: string) => category === 'wedding-planner' ? 'Wedding Planning' : 'Interiorismo';
+---
+
+<Layout 
+  title="Blog Oficial | Instituto Online Osbord" 
+  description="Artículos de formación profesional en Wedding Planning, Organización de Eventos, Interiorismo y Diseño 3D."
+>
+  <Header />
+
+  <main class="min-h-screen bg-brand-neutral pt-28">
+    <section class="max-w-7xl mx-auto px-6 py-12">
+      <!-- Encabezado del Blog -->
+      <div class="text-center space-y-4 mb-16">
+        <span class="section-label">Artículos y Recursos</span>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-brand-navy leading-tight tracking-tight">
+          Blog de <span class="text-brand-gold">Formación de Élite</span>
+        </h1>
+        <p class="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
+          Explora conocimientos clave, tendencias y guías preparadas por nuestro equipo docente en el ámbito del diseño y los eventos.
+        </p>
+      </div>
+
+      <!-- Barra de Filtros y Búsqueda -->
+      <div class="bg-white rounded-brand-xl p-6 shadow-soft border border-gray-100 mb-12 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <!-- Filtros por categoría -->
+        <div class="flex flex-wrap gap-2" id="category-filters">
+          <button 
+            data-filter="all" 
+            class="px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300 bg-brand-navy text-white shadow-md active-filter"
+          >
+            Todos
+          </button>
+          <button 
+            data-filter="wedding-planner" 
+            class="px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300 bg-brand-neutral text-brand-navy hover:bg-rose-500/10 hover:text-rose-600"
+          >
+            Wedding Planning
+          </button>
+          <button 
+            data-filter="interiorismo" 
+            class="px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300 bg-brand-neutral text-brand-navy hover:bg-amber-500/10 hover:text-amber-600"
+          >
+            Interiorismo
+          </button>
+        </div>
+
+        <!-- Buscador -->
+        <div class="relative w-full md:w-80">
+          <input 
+            type="text" 
+            id="blog-search" 
+            placeholder="Buscar artículos..." 
+            class="w-full bg-brand-neutral border border-gray-200 rounded-brand px-4 py-2.5 pl-10 text-brand-navy text-sm focus:border-brand-gold focus:outline-none focus:bg-white transition-all duration-300"
+          />
+          <svg class="absolute left-3.5 top-3 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Listado de Artículos -->
+      <div id="blog-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        {sortedPosts.map((post) => {
+          const categoryClass = post.data.category === 'wedding-planner' ? 'bg-rose-500/10 text-rose-600 border border-rose-400/20' : 'bg-amber-500/10 text-amber-600 border border-amber-400/20';
+          return (
+            <article 
+              data-category={post.data.category} 
+              data-title={post.data.title.toLowerCase()}
+              data-excerpt={post.data.excerpt.toLowerCase()}
+              class="bg-white rounded-brand-xl overflow-hidden border border-gray-100 shadow-soft hover:shadow-elevated transition-all duration-300 flex flex-col group blog-card"
+            >
+              <!-- Enlace de imagen -->
+              <a href={`/blog/${post.data.category}/${post.id}`} class="block relative aspect-video overflow-hidden bg-brand-neutral">
+                <Image 
+                  src={post.data.image} 
+                  alt={post.data.title}
+                  width={600}
+                  height={340}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+              </a>
+
+              <!-- Contenido -->
+              <div class="p-6 md:p-8 flex-1 flex flex-col justify-between space-y-6">
+                <div class="space-y-4">
+                  <div class="flex items-center gap-3">
+                    <span class={`text-[9px] font-extrabold uppercase tracking-widest px-2.5 py-1 rounded-full ${categoryClass}`}>
+                      {getCategoryLabel(post.data.category)}
+                    </span>
+                    <span class="text-xs text-gray-400 flex items-center gap-1">
+                      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/>
+                      </svg>
+                      {post.data.readingTime} min
+                    </span>
+                  </div>
+                  <h3 class="text-xl font-extrabold leading-snug tracking-tight text-brand-navy group-hover:text-brand-gold transition-colors duration-300">
+                    <a href={`/blog/${post.data.category}/${post.id}`}>{post.data.title}</a>
+                  </h3>
+                  <p class="text-gray-500 text-sm leading-relaxed line-clamp-3">
+                    {post.data.excerpt}
+                  </p>
+                </div>
+
+                <!-- Footer de tarjeta -->
+                <div class="pt-4 border-t border-gray-50 flex items-center justify-between text-xs">
+                  <span class="text-gray-400 font-medium">Por {post.data.author}</span>
+                  <a href={`/blog/${post.data.category}/${post.id}`} class="text-brand-navy font-bold hover:text-brand-gold transition-colors inline-flex items-center gap-1 group-hover:translate-x-1 transition-transform">
+                    Leer más →
+                  </a>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+
+      <!-- Estado Vacío -->
+      <div id="no-results" class="hidden text-center py-20 space-y-4">
+        <div class="text-gray-300 w-16 h-16 mx-auto">
+          <svg class="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+          </svg>
+        </div>
+        <p class="text-gray-500 font-semibold">No se encontraron artículos que coincidan con la búsqueda.</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Configuración de Filtros y Buscador Interactivos en el Cliente (Vanilla JS)
+    const filterButtons = document.querySelectorAll('#category-filters button');
+    const searchInput = document.getElementById('blog-search') as HTMLInputElement | null;
+    const blogCards = document.querySelectorAll('.blog-card');
+    const noResults = document.getElementById('no-results');
+
+    let currentFilter = 'all';
+    let searchQuery = '';
+
+    // Manejar Query Param de Categoría (e.g. ?categoria=wedding-planner)
+    const urlParams = new URLSearchParams(window.location.search);
+    const initialCategory = urlParams.get('categoria');
+    if (initialCategory && ['wedding-planner', 'interiorismo'].includes(initialCategory)) {
+      currentFilter = initialCategory;
+      // Actualizar estilo visual del botón activo
+      filterButtons.forEach(btn => {
+        const filter = btn.getAttribute('data-filter');
+        if (filter === initialCategory) {
+          btn.classList.remove('bg-brand-neutral', 'text-brand-navy');
+          btn.classList.add('bg-brand-navy', 'text-white', 'shadow-md', 'active-filter');
+        } else {
+          btn.classList.remove('bg-brand-navy', 'text-white', 'shadow-md', 'active-filter');
+          btn.classList.add('bg-brand-neutral', 'text-brand-navy');
+        }
+      });
+      // Filtrar inicialmente
+      applyFilters();
+    }
+
+    // Event Listeners de Filtros
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Estilo de botones
+        filterButtons.forEach(btn => {
+          btn.classList.remove('bg-brand-navy', 'text-white', 'shadow-md', 'active-filter');
+          btn.classList.add('bg-brand-neutral', 'text-brand-navy');
+        });
+        button.classList.remove('bg-brand-neutral', 'text-brand-navy');
+        button.classList.add('bg-brand-navy', 'text-white', 'shadow-md', 'active-filter');
+
+        currentFilter = button.getAttribute('data-filter') || 'all';
+        applyFilters();
+      });
+    });
+
+    // Event Listener del Buscador
+    searchInput?.addEventListener('input', (e) => {
+      searchQuery = (e.target as HTMLInputElement).value.toLowerCase().trim();
+      applyFilters();
+    });
+
+    // Función que aplica tanto Filtro como Búsqueda
+    function applyFilters() {
+      let visibleCount = 0;
+
+      blogCards.forEach(card => {
+        const category = card.getAttribute('data-category');
+        const title = card.getAttribute('data-title') || '';
+        const excerpt = card.getAttribute('data-excerpt') || '';
+
+        const matchesCategory = currentFilter === 'all' || category === currentFilter;
+        const matchesSearch = searchQuery === '' || title.includes(searchQuery) || excerpt.includes(searchQuery);
+
+        if (matchesCategory && matchesSearch) {
+          (card as HTMLElement).style.display = 'flex';
+          visibleCount++;
+        } else {
+          (card as HTMLElement).style.display = 'none';
+        }
+      });
+
+      // Mostrar mensaje de no resultados si corresponde
+      if (noResults) {
+        if (visibleCount === 0) {
+          noResults.classList.remove('hidden');
+        } else {
+          noResults.classList.add('hidden');
+        }
+      }
+    }
+  </script>
+
+  <Footer />
+</Layout>

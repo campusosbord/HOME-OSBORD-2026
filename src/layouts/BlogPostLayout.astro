@@ -1,0 +1,294 @@
+---
+import Layout from './Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { Image } from 'astro:assets';
+import TableOfContents from '../components/TableOfContents.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  image: ImageMetadata;
+  category: 'wedding-planner' | 'interiorismo';
+  publishDate: Date;
+  readingTime: number;
+  author: string;
+  slug: string;
+  headings: { depth: number; slug: string; text: string; }[];
+}
+
+const { title, description, image, category, publishDate, readingTime, author, slug, headings } = Astro.props;
+
+const siteUrl = 'https://osbord.com';
+
+const categoryLabel = category === 'wedding-planner' ? 'Wedding Planning' : 'Interiorismo';
+const categoryUrl = `/blog/${category}`;
+const articleUrl = `${siteUrl}/blog/${category}/${slug}`;
+
+const formattedDate = new Intl.DateTimeFormat('es-ES', {
+  day: 'numeric', month: 'long', year: 'numeric'
+}).format(publishDate);
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": `${siteUrl}/` },
+    { "@type": "ListItem", "position": 2, "name": "Blog", "item": `${siteUrl}/blog/` },
+    { "@type": "ListItem", "position": 3, "name": categoryLabel, "item": `${siteUrl}${categoryUrl}/` },
+    { "@type": "ListItem", "position": 4, "name": title, "item": articleUrl }
+  ]
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": title,
+  "description": description,
+  "datePublished": publishDate.toISOString(),
+  "author": {
+    "@type": "Organization",
+    "name": author,
+    "url": siteUrl
+  },
+  "publisher": {
+    "@type": "EducationalOrganization",
+    "name": "Instituto Online Osbord",
+    "url": siteUrl
+  },
+  "url": articleUrl,
+  "mainEntityOfPage": { "@type": "WebPage", "@id": articleUrl }
+};
+---
+
+<Layout title={title} description={description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  </Fragment>
+
+  <Header />
+  <main>
+    <!-- Hero del artículo -->
+    <div class="relative h-[45vh] min-h-[320px] max-h-[460px] overflow-hidden">
+      <Image
+        src={image}
+        alt={title}
+        width={1200}
+        height={600}
+        class="w-full h-full object-cover"
+        loading="eager"
+      />
+      <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/85 via-brand-navy/30 to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 p-8 md:p-12 max-w-4xl mx-auto">
+        <!-- Category badge -->
+        <span class={`inline-block text-[10px] font-extrabold uppercase tracking-[0.2em] px-3 py-1.5 rounded-full mb-3 ${category === 'wedding-planner' ? 'bg-rose-500/20 text-rose-300 border border-rose-400/30' : 'bg-amber-500/20 text-amber-300 border border-amber-400/30'}`}>
+          {categoryLabel}
+        </span>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">{title}</h1>
+      </div>
+    </div>
+
+    <!-- Breadcrumbs and Meta bar (below image) -->
+    <div class="bg-brand-neutral border-b border-gray-200">
+      <div class="max-w-4xl mx-auto px-6 py-5 space-y-4">
+        <!-- Breadcrumbs -->
+        <nav aria-label="Breadcrumb">
+          <ol class="flex items-center gap-2 text-xs text-gray-500 flex-wrap">
+            <li><a href="/" class="hover:text-brand-gold transition-colors font-medium">Inicio</a></li>
+            <li class="opacity-40">/</li>
+            <li><a href="/blog/" class="hover:text-brand-gold transition-colors font-medium">Blog</a></li>
+            <li class="opacity-40">/</li>
+            <li><a href={categoryUrl} class="hover:text-brand-gold transition-colors font-medium">{categoryLabel}</a></li>
+            <li class="opacity-40">/</li>
+            <li class="text-gray-800 font-semibold truncate max-w-[200px]">{title}</li>
+          </ol>
+        </nav>
+
+        <div class="flex items-center justify-between gap-4 flex-wrap pt-2 border-t border-gray-200/50">
+          <div class="flex items-center gap-5 text-sm text-gray-500">
+            <span class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/>
+              </svg>
+              {readingTime} min de lectura
+            </span>
+            <span class="hidden sm:flex items-center gap-2">
+              <svg class="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0zM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
+              </svg>
+              {author}
+            </span>
+          </div>
+          <a
+            href={`https://wa.me/13072923715?text=${encodeURIComponent(`Hola, leí el artículo "${title}" en el blog del Instituto Osbord y quiero más información sobre sus programas.`)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white text-xs font-bold px-4 py-2 rounded-full transition-colors"
+          >
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.414 0 0 5.415 0 12.05c0 2.12.554 4.189 1.605 6.01L0 24l6.135-1.61a11.902 11.902 0 0 0 5.915 1.56h.005c6.637 0 12.05-5.415 12.05-12.05a11.815 11.815 0 0 0-3.542-8.513"/></svg>
+            Consultar programa
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Article body -->
+    <div class="max-w-4xl mx-auto px-6 py-16">
+      <div class="grid lg:grid-cols-[1fr_280px] gap-16">
+        <!-- Content -->
+        <div>
+          <div class="blog-content">
+            <!-- Autogenerated Table of Contents -->
+            <TableOfContents headings={headings} />
+            
+            <slot />
+          </div>
+
+          <!-- CTA al final del artículo — diseño premium -->
+          <div class="mt-14 space-y-5">
+
+            <!-- Bloque principal: ir al Máster -->
+            <div style="background: linear-gradient(135deg, #1B263B 0%, #243352 100%); border-radius: 20px; padding: 2.5rem; position: relative; overflow: hidden;">
+              <!-- Detalles decorativos -->
+              <div style="position:absolute; top:-40px; right:-40px; width:160px; height:160px; background: radial-gradient(circle, rgba(197,160,89,0.15) 0%, transparent 70%); border-radius:50%;"></div>
+              <div style="position:absolute; bottom:-60px; left:-20px; width:120px; height:120px; background: radial-gradient(circle, rgba(197,160,89,0.08) 0%, transparent 70%); border-radius:50%;"></div>
+              
+              <div style="position:relative; z-index:1;">
+                <!-- Etiqueta superior -->
+                <div style="display:flex; align-items:center; gap:8px; margin-bottom:1rem;">
+                  <div style="width:24px; height:2px; background:#C5A059; border-radius:2px;"></div>
+                  <span style="font-size:0.65rem; font-weight:800; letter-spacing:0.2em; text-transform:uppercase; color:#C5A059;">
+                    {category === 'wedding-planner' ? 'Formación en Wedding Planning' : 'Formación en Interiorismo & 3D'}
+                  </span>
+                </div>
+
+                <h3 style="font-family:'Montserrat',sans-serif; font-size:1.4rem; font-weight:800; color:white; margin:0 0 0.75rem 0; line-height:1.25;">
+                  {category === 'wedding-planner'
+                    ? '¿Quieres lanzar tu carrera como Wedding Planner profesional?'
+                    : '¿Quieres trabajar como Diseñadora de Interiores desde cualquier lugar?'}
+                </h3>
+
+                <p style="color:#94a3b8; font-size:0.9rem; margin:0 0 1.75rem 0; line-height:1.7;">
+                  {category === 'wedding-planner'
+                    ? 'En el Instituto Osbord te formamos con proyectos reales, mentoría directa y las herramientas que usan las agencias de eventos top.'
+                    : 'Aprende interiorismo, decoración y render 3D en el programa online más completo en español, con proyectos reales desde el primer módulo.'}
+                </p>
+
+                <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
+                  <a
+                    href={category === 'wedding-planner' ? '/latam/masters/wedding-planner' : '/latam/masters/interiorismo'}
+                    style="display:inline-flex; align-items:center; gap:8px; background:#C5A059; color:white; font-weight:700; font-size:0.85rem; padding:0.875rem 1.5rem; border-radius:12px; text-decoration:none; transition:background 0.2s;"
+                    onmouseover="this.style.background='#b08e4d'"
+                    onmouseout="this.style.background='#C5A059'"
+                  >
+                    Ver programa completo
+                    <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                  </a>
+                  <a
+                    href={`https://wa.me/13072923715?text=${encodeURIComponent(`Hola, leí "${title}" en el blog de Osbord y quiero información sobre el máster de ${categoryLabel}.`)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style="display:inline-flex; align-items:center; gap:8px; background:#25D366; color:white; font-weight:700; font-size:0.85rem; padding:0.875rem 1.5rem; border-radius:12px; text-decoration:none; transition:background 0.2s;"
+                    onmouseover="this.style.background='#1ebe5d'"
+                    onmouseout="this.style.background='#25D366'"
+                  >
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+                    Consultar por WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bloque secundario: seguir leyendo -->
+            <div style="border:1px solid #e5e7eb; border-radius:16px; padding:1.5rem;">
+              <p style="font-size:0.7rem; font-weight:800; letter-spacing:0.15em; text-transform:uppercase; color:#9ca3af; margin:0 0 1rem 0;">Seguir leyendo</p>
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+                <a
+                  href={`/blog/${category}/`}
+                  style="display:flex; align-items:center; gap:10px; padding:1rem 1.25rem; background:#F8F9FA; border-radius:12px; text-decoration:none; transition:background 0.2s; border:1px solid transparent;"
+                  onmouseover="this.style.background='#f0f2f5'; this.style.borderColor='#e5e7eb'"
+                  onmouseout="this.style.background='#F8F9FA'; this.style.borderColor='transparent'"
+                >
+                  <span style={`width:8px; height:8px; border-radius:50%; flex-shrink:0; background:${category === 'wedding-planner' ? '#fb7185' : '#fbbf24'};`}></span>
+                  <span style="font-size:0.8rem; font-weight:600; color:#1B263B; line-height:1.3;">
+                    Más artículos de<br/><strong>{categoryLabel}</strong>
+                  </span>
+                </a>
+                <a
+                  href="/blog/"
+                  style="display:flex; align-items:center; gap:10px; padding:1rem 1.25rem; background:#F8F9FA; border-radius:12px; text-decoration:none; transition:background 0.2s; border:1px solid transparent;"
+                  onmouseover="this.style.background='#f0f2f5'; this.style.borderColor='#e5e7eb'"
+                  onmouseout="this.style.background='#F8F9FA'; this.style.borderColor='transparent'"
+                >
+                  <span style="width:8px; height:8px; border-radius:50%; background:#C5A059; flex-shrink:0;"></span>
+                  <span style="font-size:0.8rem; font-weight:600; color:#1B263B; line-height:1.3;">
+                    Ver todos los<br/><strong>artículos del blog</strong>
+                  </span>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="space-y-6 lg:sticky lg:top-36 lg:self-start">
+          <!-- CTA WhatsApp -->
+          <div class="bg-brand-navy rounded-brand-xl p-6 text-white space-y-4 relative overflow-hidden">
+            <div class="absolute -top-12 -right-12 w-24 h-24 bg-brand-gold/10 rounded-full blur-2xl"></div>
+            <div class="relative z-10 space-y-4">
+              <div class="w-12 h-12 bg-brand-gold/10 rounded-full flex items-center justify-center">
+                <svg class="w-6 h-6 text-brand-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+              </div>
+              <h3 class="font-extrabold text-lg">¿Te interesa esta área?</h3>
+              <p class="text-gray-400 text-sm">Consulta con un asesor académico sobre nuestro programa de máster.</p>
+              <a
+                href={`https://wa.me/13072923715?text=${encodeURIComponent(`Hola, me interesa el área de ${categoryLabel} y quiero información sobre el máster del Instituto Osbord.`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold py-3 rounded-brand transition-colors text-sm animate-pulse"
+              >
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+                Consultar por WhatsApp
+              </a>
+              <a
+                href={category === 'wedding-planner' ? '/latam/masters/wedding-planner' : '/latam/masters/interiorismo'}
+                class="flex items-center justify-center gap-2 w-full bg-transparent hover:bg-white/10 text-white border border-white/20 font-bold py-2.5 rounded-brand transition-colors text-xs"
+              >
+                Ver Información del Máster →
+              </a>
+              <div class="flex items-center justify-center gap-2">
+                <span class="relative flex h-1.5 w-1.5">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
+                </span>
+                <p class="text-[10px] text-gray-400 uppercase tracking-[0.2em] font-bold">Respuesta inmediata</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ver más del blog -->
+          <div class="bg-brand-neutral rounded-brand-xl p-6 space-y-3 border border-gray-100">
+            <h3 class="font-extrabold text-brand-navy text-sm uppercase tracking-widest">Explorar el blog</h3>
+            <div class="space-y-2">
+              <a href="/blog/" class="flex items-center gap-2 text-sm text-gray-600 hover:text-brand-gold transition-colors">
+                <span class="w-1.5 h-1.5 bg-brand-gold rounded-full"></span>
+                Todos los artículos
+              </a>
+              <a href="/blog/wedding-planner" class="flex items-center gap-2 text-sm text-gray-600 hover:text-brand-gold transition-colors">
+                <span class="w-1.5 h-1.5 bg-rose-400 rounded-full"></span>
+                Wedding Planning
+              </a>
+              <a href="/blog/interiorismo" class="flex items-center gap-2 text-sm text-gray-600 hover:text-brand-gold transition-colors">
+                <span class="w-1.5 h-1.5 bg-amber-400 rounded-full"></span>
+                Interiorismo
+              </a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

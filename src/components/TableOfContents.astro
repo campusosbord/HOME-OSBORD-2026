@@ -1,0 +1,42 @@
+---
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  headings: Heading[];
+}
+
+const { headings } = Astro.props;
+
+// Filtramos solo H2 (depth = 2) y H3 (depth = 3) para la tabla de contenidos
+const filteredHeadings = headings.filter(h => h.depth === 2 || h.depth === 3);
+---
+
+{filteredHeadings.length > 0 && (
+  <div class="bg-brand-neutral border border-gray-200/60 rounded-brand-xl p-6 my-8 max-w-xl">
+    <h2 class="text-sm font-extrabold uppercase tracking-wider text-brand-navy mb-4 flex items-center gap-2">
+      <svg class="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" />
+      </svg>
+      Tabla de Contenidos
+    </h2>
+    <nav>
+      <ul class="space-y-2.5">
+        {filteredHeadings.map(h => (
+          <li class={h.depth === 3 ? "pl-4 text-xs" : "text-sm font-medium"}>
+            <a 
+              href={`#${h.slug}`} 
+              class="text-gray-600 hover:text-brand-gold transition-colors duration-200 flex items-baseline gap-1"
+            >
+              {h.depth === 3 && <span class="text-brand-gold/60 mr-1">▸</span>}
+              <span>{h.text}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+)}

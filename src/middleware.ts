@@ -24,7 +24,9 @@ export const onRequest = defineMiddleware(async (context, next) => {
       pathname === '/debug-geo' ||
       cleanPath === '/legal' ||
       cleanPath === '/privacidad' ||
-      cleanPath === '/cookies'
+      cleanPath === '/cookies' ||
+      pathname === '/blog' ||
+      pathname.startsWith('/blog/')
     ) {
       return next();
     }

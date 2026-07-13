@@ -1,0 +1,30 @@
+---
+import { getCollection, render } from 'astro:content';
+import BlogPostLayout from '../../../layouts/BlogPostLayout.astro';
+
+// SSR: no prerender, serve dynamically
+const { category, slug } = Astro.params;
+
+const posts = await getCollection('blog');
+const post = posts.find(p => p.data.category === category && p.id === slug);
+
+if (!post) {
+  return Astro.redirect('/blog/');
+}
+
+const { Content, headings } = await render(post);
+---
+
+<BlogPostLayout 
+  title={post.data.title}
+  description={post.data.excerpt}
+  image={post.data.image}
+  category={post.data.category}
+  publishDate={post.data.publishDate}
+  readingTime={post.data.readingTime}
+  author={post.data.author}
+  slug={post.id}
+  headings={headings}
+>
+  <Content />
+</BlogPostLayout>
