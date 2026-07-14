@@ -27,7 +27,7 @@ const heroImage = category === 'wedding-planner' ? defaultWeddingHero : defaultI
 const siteUrl = 'https://osbord.com';
 
 const categoryLabel = category === 'wedding-planner' ? 'Wedding Planning' : 'Interiorismo';
-const categoryUrl = `/blog/${category}`;
+const categoryUrl = `/blog/?categoria=${category}`;
 const articleUrl = `${siteUrl}/blog/${category}/${slug}`;
 
 const formattedDate = new Intl.DateTimeFormat('es-ES', {
