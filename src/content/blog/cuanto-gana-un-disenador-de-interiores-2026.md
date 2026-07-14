@@ -3,7 +3,7 @@ title: "Cuánto Gana un Diseñador de Interiores Freelance en 2026 (Guía por Pa
 category: "interiorismo"
 publishDate: 2026-07-13
 excerpt: "Cifras reales de cuánto gana un diseñador de interiores freelance en Colombia, Venezuela, México, España y Argentina en 2026, explicadas por un director académico del sector."
-image: "../../assets/blog/diseño-e-interiorismo.webp"
+image: "../../assets/blog/diseno-e-interiorismo.webp"
 author: "Instituto Osbord"
 readingTime: 9
 featured: false
@@ -86,7 +86,7 @@ En zonas como Marbella o Ibiza, donde hay muchas segundas viviendas de extranjer
 
 España tiene algo que no siempre existe en Latinoamérica: contratos formales y facturación clara. Eso también sube la percepción de valor del servicio, y con ella, la tarifa.
 
-![interiorismo. y diseño](../../assets/blog/interiorismo-y-diseño.webp)
+![Interiorismo y diseño de interiores](../../assets/blog/interiorismo-y-diseno.webp)
 
 ## Cuánto gana un diseñador de interiores en Argentina
 
@@ -149,7 +149,7 @@ La tarifa no sube sola. Sube cuando tu propuesta de valor es más clara que la d
 
 Sí, con cartera de clientes constante. La mayoría empieza combinándolo con otro trabajo los primeros 1-2 años, mientras construye referencias y portafolio.
 
-![diseño e interiorismo](../../assets/blog/diseño-e-interiorismo.webp)
+![Diseño e interiorismo de interiores](../../assets/blog/diseno-e-interiorismo.webp)
 
 **¿Necesito título universitario para cobrar bien?**
 
