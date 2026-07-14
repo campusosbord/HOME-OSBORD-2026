@@ -3,7 +3,7 @@ title: "Cuánto Gana un Wedding Planner en 2026 (Guía por País)"
 category: "wedding-planner"
 publishDate: 2026-07-12
 excerpt: "Cifras reales de cuánto gana un wedding planner en Colombia, Venezuela, México, España y Argentina en 2026, explicadas por un director académico del sector."
-image: "../../assets/blog/wp-guia-completa.jpg"
+image: "../../assets/blog/cuanto-gana-wedding-planner-2026.webp"
 author: "Instituto Osbord"
 readingTime: 9
 featured: false
@@ -24,6 +24,14 @@ Llevo años formando wedding planners en Latinoamérica y España. Y hay algo qu
 No existe.
 
 Lo que sí existe son **rangos reales** según el país, el tipo de cliente y cómo cobras. Vamos con eso.
+
+| País | Coordinación del día | Planeación completa | Moneda |
+|---|---|---|---|
+| Colombia | $800.000 - $2'000.000 | $1'500.000 - $6'000.000 | COP |
+| Venezuela | $150 - $500 | $300 - $1,500 | USD |
+| México | $8.000 - $25.000 | $15.000 - $80.000 | MXN |
+| España | €500 - €1.500 | €1.500 - €6.000 | EUR |
+| Argentina | $200 - $800 | $500 - $2.500 | USD |
 
 ## Cuánto gana un wedding planner en Colombia
 
@@ -63,7 +71,7 @@ En zonas turísticas de bodas destino, como Riviera Maya o Los Cabos, las cifras
 
 Ese nicho de bodas destino es, para mí, el más rentable de todo el mercado hispano. Y es el que menos wedding planners saben atender bien, porque exige logística internacional.
 
-<a href="/latam/masters/wedding-planner" class="articulo-recomendado">
+<a href="/masters/wedding-planner" class="articulo-recomendado">
   <span class="articulo-recomendado-tag">Siguiente paso</span>
   <span class="articulo-recomendado-title">Máster Profesional en Wedding Planning & Organización de Eventos <span>→</span></span>
 </a>
@@ -77,6 +85,8 @@ Una wedding planner en Madrid o Barcelona cobra entre **1,500 y 6,000 euros por 
 En zonas como la Costa del Sol o Mallorca, donde hay muchas bodas de extranjeros (ingleses, alemanes, escandinavos), los honorarios suben hasta **8,000 o 12,000 euros**.
 
 España tiene algo que no siempre existe en Latinoamérica: contratos formales y facturación clara. Eso también sube la percepción de valor del servicio, y con ella, la tarifa.
+
+![Wedding planner supervisando el evento](../../assets/blog/cuanto-gana-wedding-planner-2026.webp)
 
 ## Cuánto gana un wedding planner en Argentina
 
@@ -120,11 +130,6 @@ Aquí hay una decisión que casi nadie te explica bien: ¿trabajar para una agen
 
 Después de uno o dos años, ya con casos propios, el salto a freelance rinde mucho más.
 
-<a href="/blog/wedding-planner/guia-completa-wedding-planner" class="articulo-recomendado">
-  <span class="articulo-recomendado-tag">Lectura recomendada</span>
-  <span class="articulo-recomendado-title">Cómo convertirse en Wedding Planner profesional paso a paso <span>→</span></span>
-</a>
-
 ## Cómo subir tus tarifas sin espantar clientes
 
 Subir precios da miedo. Lo entiendo, lo he visto en cientos de alumnas.
@@ -144,6 +149,8 @@ La tarifa no sube sola. Sube cuando tu propuesta de valor es más clara que la d
 
 Sí, con cartera de clientes constante. La mayoría empieza combinándolo con otro trabajo los primeros 1-2 años, mientras construye referencias y portafolio.
 
+![Cuánto Gana un Wedding Planner en 2026](../../assets/blog/cuanto-gana-wedding-planner-2026-2.webp)
+
 **¿Necesito título universitario para cobrar bien?**
 
 No. Lo que sube tu tarifa es tu portafolio y casos reales, no un diploma. Una certificación seria ayuda a generar confianza inicial con el cliente.
@@ -152,8 +159,7 @@ No. Lo que sube tu tarifa es tu portafolio y casos reales, no un diploma. Una ce
 
 Depende del ticket promedio. Con tarifas de gama media, entre 12 y 20 bodas al año suelen sostener un ingreso estable en la mayoría de países de la región.
 
----
-
-Si estás en la etapa de armar tu portafolio desde cero, te va a servir más un plan concreto que otro artículo con teoría.
-
-Tenemos un checklist gratuito de organización de bodas, paso a paso, que puedes descargar y usar en tu próximo evento (real o de práctica) para empezar a construir ese portafolio que sube tarifas.
+<a href="/masters/wedding-planner" class="articulo-recomendado">
+  <span class="articulo-recomendado-tag">Si querés convertirte en wedding planner y aprender a cobrar lo que vale tu trabajo, mirá nuestro</span>
+  <span class="articulo-recomendado-title">Máster Profesional en Wedding Planning & Organización de Eventos <span>→</span></span>
+</a>

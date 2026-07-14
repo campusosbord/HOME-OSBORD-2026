@@ -5,6 +5,9 @@ import Footer from '../components/Footer.astro';
 import { Image } from 'astro:assets';
 import TableOfContents from '../components/TableOfContents.astro';
 
+import defaultWeddingHero from '../assets/blog/eventos-y-wedding-planner-osbord.webp';
+import defaultInteriorHero from '../assets/blog/interiorismo-y-diseño-osbord.webp';
+
 interface Props {
   title: string;
   description: string;
@@ -18,6 +21,8 @@ interface Props {
 }
 
 const { title, description, image, category, publishDate, readingTime, author, slug, headings } = Astro.props;
+
+const heroImage = category === 'wedding-planner' ? defaultWeddingHero : defaultInteriorHero;
 
 const siteUrl = 'https://osbord.com';
 
@@ -72,7 +77,7 @@ const articleSchema = {
     <!-- Hero del artículo -->
     <div class="relative h-[45vh] min-h-[320px] max-h-[460px] overflow-hidden">
       <Image
-        src={image}
+        src={heroImage}
         alt={title}
         width={1200}
         height={600}
@@ -177,7 +182,7 @@ const articleSchema = {
 
                 <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center;">
                   <a
-                    href={category === 'wedding-planner' ? '/latam/masters/wedding-planner' : '/latam/masters/interiorismo'}
+                    href={category === 'wedding-planner' ? '/masters/wedding-planner' : '/masters/interiorismo'}
                     style="display:inline-flex; align-items:center; gap:8px; background:#C5A059; color:white; font-weight:700; font-size:0.85rem; padding:0.875rem 1.5rem; border-radius:12px; text-decoration:none; transition:background 0.2s;"
                     onmouseover="this.style.background='#b08e4d'"
                     onmouseout="this.style.background='#C5A059'"
@@ -193,7 +198,7 @@ const articleSchema = {
                     onmouseover="this.style.background='#1ebe5d'"
                     onmouseout="this.style.background='#25D366'"
                   >
-                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
                     Consultar por WhatsApp
                   </a>
                 </div>
@@ -232,60 +237,72 @@ const articleSchema = {
           </div>
         </div>
 
-        <!-- Sidebar -->
-        <aside class="space-y-6 lg:sticky lg:top-36 lg:self-start">
-          <!-- CTA WhatsApp -->
-          <div class="bg-brand-navy rounded-brand-xl p-6 text-white space-y-4 relative overflow-hidden">
-            <div class="absolute -top-12 -right-12 w-24 h-24 bg-brand-gold/10 rounded-full blur-2xl"></div>
-            <div class="relative z-10 space-y-4">
-              <div class="w-12 h-12 bg-brand-gold/10 rounded-full flex items-center justify-center">
-                <svg class="w-6 h-6 text-brand-gold" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+        <!-- Sidebar — solo visible en desktop -->
+        <aside class="hidden lg:block space-y-4 lg:sticky lg:top-36 lg:self-start">
+
+          <!-- CTA WhatsApp compacto -->
+          <div class="bg-brand-navy rounded-xl p-5 text-white relative overflow-hidden">
+            <div class="absolute -top-8 -right-8 w-20 h-20 bg-brand-gold/10 rounded-full blur-2xl"></div>
+            <div class="relative z-10">
+              <!-- Categoría -->
+              <div class="flex items-center gap-2 mb-1.5">
+                <div class="w-5 h-0.5 bg-brand-gold rounded-full"></div>
+                <span class="text-[10px] font-extrabold uppercase tracking-[0.2em] text-brand-gold">
+                  {categoryLabel}
+                </span>
               </div>
-              <h3 class="font-extrabold text-lg">¿Te interesa esta área?</h3>
-              <p class="text-gray-400 text-sm">Consulta con un asesor académico sobre nuestro programa de máster.</p>
+
+              <h3 class="font-extrabold text-base leading-snug mb-1">¿Te interesa esta área?</h3>
+              <p class="text-gray-400 text-xs leading-relaxed mb-4">Consulta con un asesor académico. Respuesta en menos de 24h.</p>
+
+              <!-- Botón WhatsApp -->
               <a
                 href={`https://wa.me/13072923715?text=${encodeURIComponent(`Hola, me interesa el área de ${categoryLabel} y quiero información sobre el máster del Instituto Osbord.`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold py-3 rounded-brand transition-colors text-sm animate-pulse"
+                class="flex items-center justify-center gap-2 w-full bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold py-2.5 rounded-lg transition-colors text-xs mb-2"
               >
-                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+                <!-- Icono WhatsApp -->
+                <svg class="w-3.5 h-3.5 fill-current flex-shrink-0" viewBox="0 0 448 512"><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
                 Consultar por WhatsApp
               </a>
+
+              <!-- Link al Máster -->
               <a
-                href={category === 'wedding-planner' ? '/latam/masters/wedding-planner' : '/latam/masters/interiorismo'}
-                class="flex items-center justify-center gap-2 w-full bg-transparent hover:bg-white/10 text-white border border-white/20 font-bold py-2.5 rounded-brand transition-colors text-xs"
+                href={category === 'wedding-planner' ? '/masters/wedding-planner' : '/masters/interiorismo'}
+                class="flex items-center justify-center gap-1.5 w-full bg-white/5 hover:bg-white/10 text-white border border-white/15 font-semibold py-2 rounded-lg transition-colors text-xs"
               >
-                Ver Información del Máster →
+                Ver el programa completo →
               </a>
-              <div class="flex items-center justify-center gap-2">
+
+              <!-- Indicador online -->
+              <div class="flex items-center justify-center gap-1.5 mt-3">
                 <span class="relative flex h-1.5 w-1.5">
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                   <span class="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
                 </span>
-                <p class="text-[10px] text-gray-400 uppercase tracking-[0.2em] font-bold">Respuesta inmediata</p>
+                <p class="text-[9px] text-gray-500 uppercase tracking-[0.2em] font-bold">Respuesta inmediata</p>
               </div>
             </div>
           </div>
 
-          <!-- Ver más del blog -->
-          <div class="bg-brand-neutral rounded-brand-xl p-6 space-y-3 border border-gray-100">
-            <h3 class="font-extrabold text-brand-navy text-sm uppercase tracking-widest">Explorar el blog</h3>
-            <div class="space-y-2">
-              <a href="/blog/" class="flex items-center gap-2 text-sm text-gray-600 hover:text-brand-gold transition-colors">
-                <span class="w-1.5 h-1.5 bg-brand-gold rounded-full"></span>
-                Todos los artículos
-              </a>
-              <a href="/blog/wedding-planner" class="flex items-center gap-2 text-sm text-gray-600 hover:text-brand-gold transition-colors">
-                <span class="w-1.5 h-1.5 bg-rose-400 rounded-full"></span>
-                Wedding Planning
-              </a>
-              <a href="/blog/interiorismo" class="flex items-center gap-2 text-sm text-gray-600 hover:text-brand-gold transition-colors">
-                <span class="w-1.5 h-1.5 bg-amber-400 rounded-full"></span>
-                Interiorismo
-              </a>
-            </div>
+          <!-- Explorar el blog -->
+          <div class="bg-brand-neutral rounded-xl p-4 space-y-2 border border-gray-100">
+            <h3 class="font-extrabold text-brand-navy text-xs uppercase tracking-widest mb-3">Explorar el blog</h3>
+            <a href="/blog/" class="flex items-center gap-2 text-xs text-gray-600 hover:text-brand-gold transition-colors py-0.5">
+              <span class="w-1.5 h-1.5 bg-brand-gold rounded-full flex-shrink-0"></span>
+              Todos los artículos
+            </a>
+            <a href="/blog/wedding-planner" class="flex items-center gap-2 text-xs text-gray-600 hover:text-brand-gold transition-colors py-0.5">
+              <span class="w-1.5 h-1.5 bg-rose-400 rounded-full flex-shrink-0"></span>
+              Wedding Planning
+            </a>
+            <a href="/blog/interiorismo" class="flex items-center gap-2 text-xs text-gray-600 hover:text-brand-gold transition-colors py-0.5">
+              <span class="w-1.5 h-1.5 bg-amber-400 rounded-full flex-shrink-0"></span>
+              Interiorismo
+            </a>
           </div>
+
         </aside>
       </div>
     </div>

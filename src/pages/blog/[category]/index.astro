@@ -1,0 +1,10 @@
+---
+// SSR: no prerender, redirect to the blog with the category selected
+const { category } = Astro.params;
+
+if (!['wedding-planner', 'interiorismo'].includes(category || '')) {
+  return Astro.redirect('/blog/');
+}
+
+return Astro.redirect(`/blog/?categoria=${category}`);
+---
