@@ -1,5 +1,7 @@
 ---
-// SSR: no prerender, redirect to the blog with the category selected
+// SSR: serve dynamically, do not prerender
+export const prerender = false;
+
 const { category } = Astro.params;
 
 if (!['wedding-planner', 'interiorismo'].includes(category || '')) {
