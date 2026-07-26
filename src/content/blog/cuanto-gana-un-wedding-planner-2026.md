@@ -132,7 +132,7 @@ Después de uno o dos años, ya con casos propios, el salto a freelance rinde mu
 
 ## Cómo subir tus tarifas sin espantar clientes
 
-Subir precios da miedo. Lo entiendo, lo he visto en cientos de alumnas.
+Subir precios da miedo. Lo entiendo, lo he visto en cientos de alumnos.
 
 Pero hay una forma de hacerlo sin perder clientes en el camino:
 

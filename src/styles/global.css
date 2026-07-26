@@ -222,6 +222,16 @@
   line-height: 1.85;
 }
 
+.blog-content h1 {
+  font-family: var(--font-montserrat);
+  font-size: 1.85rem;
+  font-weight: 850;
+  color: var(--color-brand-navy);
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
 .blog-content h2 {
   font-family: var(--font-montserrat);
   font-size: 1.5rem;
