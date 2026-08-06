@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import healthImg from '../assets/school_health.png';
 import designImg from '../assets/school_design.png';
+import paisajeImg from '../assets/school_paisajismo.png';
 import eventsImg from '../assets/school_events.png';
 
 const pathname = Astro.url.pathname;
@@ -23,6 +24,14 @@ const offerings = [
     image: designImg,
     accent: "from-amber-500/20",
     link: `${prefix}/masters/interiorismo`
+  },
+  {
+    school: "Escuela de Arquitectura y Diseño",
+    program: "Máster en Diseño de Exteriores, Paisajismo y Render 3D",
+    description: "Domina el diseño de jardines y espacios exteriores de lujo con AutoCAD, Vectorworks Landmark, SketchUp y Lumion. Outdoor living de alto nivel.",
+    image: paisajeImg,
+    accent: "from-green-500/20",
+    link: `${prefix}/masters/paisajismo`
   },
   {
     school: "Escuela de Negocios y Protocolo",
@@ -47,7 +56,7 @@ const offerings = [
     </div>
 
     <!-- Cards Grid -->
-    <div class="grid md:grid-cols-3 gap-8">
+    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
       {offerings.map((item, index) => (
         <a 
           href={item.link}
