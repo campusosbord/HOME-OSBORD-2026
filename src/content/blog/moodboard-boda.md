@@ -41,7 +41,7 @@ Aquí es donde entra Pinterest. Crea un tablero privado para el proyecto y guard
 
 No guardes imágenes solo porque son bonitas. Cada una debe aportar algo concreto: una idea de decoración de mesa, un tipo de arreglo floral, un estilo de iluminación, algo que puedas señalar y explicar si el cliente pregunta por qué la incluiste.
 
-![Tablero de Pinterest con referencias visuales organizadas para el moodboard de una boda](../../assets/blog/moodboard-boda.webps)
+![Tablero de Pinterest con referencias visuales organizadas para el moodboard de una boda](../../assets/blog/moodboard-boda.webp)
 
 **Paso 4: Selecciona materiales y texturas**
 
@@ -64,7 +64,7 @@ Estos son los errores que más se repiten entre quienes arman su primer moodboar
 
 - **Saltarse la entrevista inicial.** Empezar directo en Pinterest sin entender el estilo de la pareja produce un moodboard bonito pero desconectado de lo que realmente quieren, y eso se nota en la primera reunión de revisión.
 - **Demasiadas referencias sin filtrar.** Un moodboard con 40 imágenes sin criterio confunde más de lo que ayuda. Menos imágenes, mejor seleccionadas, comunican más claro que un collage saturado.
-- **Ignorar las tendencias del año.** Si ya viste [las tendencias de bodas para 2026](/blog/wedding-planner/tendencias-bodas-2026), sabes que un moodboard actualizado ayuda a que la propuesta se sienta fresca, no repetida de temporadas anteriores.
+- **Ignorar las tendencias del año.** Si ya viste [las tendencias de bodas actualmente](/blog/wedding-planner/tendencias-bodas), sabes que un moodboard actualizado ayuda a que la propuesta se sienta fresca, no repetida de temporadas anteriores.
 - **No mostrar materiales reales.** Un moodboard solo de fotos de Pinterest, sin muestras de textura o material, deja a los proveedores adivinando detalles importantes que después se traducen en mal entendidos costosos.
 
 ## Cómo presentar el moodboard al cliente
@@ -75,7 +75,7 @@ La forma en que presentas el moodboard importa casi tanto como el contenido.
 - **Deja espacio para ajustes.** Presenta el moodboard como punto de partida, no como decisión cerrada, para que el cliente se sienta parte del proceso.
 - **Usa el moodboard en todas tus reuniones con proveedores.** Así todos trabajan sobre la misma referencia visual, sin interpretaciones distintas de lo que la pareja quiere.
 
-![Wedding planner presentando un moodboard terminado a una pareja de clientes](../../assets/blog/moodboard-boda-1.webpp)
+![Wedding planner presentando un moodboard terminado a una pareja de clientes](../../assets/blog/moodboard-boda-1.webp)
 
 ## Preguntas frecuentes
 

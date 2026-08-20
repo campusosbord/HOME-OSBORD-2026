@@ -1,15 +1,15 @@
 ---
-title: "Cómo Cobrar tus Primeros Proyectos de Decoración: Guía de Tarifas 2026"
+title: "Cómo Cobrar tus Primeros Proyectos de Decoración: Guía de Tarifas"
 category: "interiorismo"
 publishDate: 2026-07-15
-excerpt: "Cómo calcular cuánto cobrar por decorar una casa en 2026, paso a paso: modelos de tarifa, qué incluir en el precio y cómo comunicarlo al cliente sin sonar inseguro."
+excerpt: "Cómo calcular cuánto cobrar por decorar una casa, paso a paso: modelos de tarifa, qué incluir en el precio y cómo comunicarlo al cliente sin sonar inseguro."
 image: "../../assets/blog/como-cobrar-proyectos-decoracion.webp"
 author: "Instituto Osbord"
 readingTime: 6
 featured: false
 ---
 
-# Cómo Cobrar tus Primeros Proyectos de Decoración: Guía de Tarifas 2026
+# Cómo Cobrar tus Primeros Proyectos de Decoración: Guía de Tarifas
 
 Para tu primer proyecto, cobra entre **10% y 15% del presupuesto de decoración**, o una tarifa fija de **$300 a $1,500 dólares**, según el tamaño del espacio.
 
@@ -88,7 +88,7 @@ Aquí es donde más alumnos nuevos pierden dinero: cobran por "decorar la casa" 
 
 Ponerlo por escrito en tu cotización te evita el problema más común del sector: el cliente que pide "una cosita más" gratis, cinco veces seguidas.
 
-Si quieres ver cómo se ven estos números aplicados a una carrera completa, ya cubrimos [cuánto gana un diseñador de interiores en cada país](/blog/interiorismo/cuanto-gana-un-disenador-de-interiores-2026) en detalle.
+Si quieres ver cómo se ven estos números aplicados a una carrera completa, ya cubrimos [cuánto gana un diseñador de interiores en cada país](/blog/interiorismo/cuanto-gana-un-disenador-de-interiores) en detalle.
 
 ## Errores comunes al poner precio a tu primer proyecto
 

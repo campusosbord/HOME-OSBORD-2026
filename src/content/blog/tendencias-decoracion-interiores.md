@@ -1,17 +1,17 @@
 ---
-title: "Tendencias de Decoración de Interiores para 2026"
+title: "Tendencias de Decoración de Interiores"
 category: "interiorismo"
 publishDate: 2026-07-25
-excerpt: "Las tendencias de decoración de interiores que dominan 2026: colores profundos, artesanía, diseño biofílico y minimalismo cálido, explicadas para aplicarlas en proyectos reales."
+excerpt: "Las tendencias de decoración de interiores que dominan el interiorismo actual: colores profundos, artesanía, diseño biofílico y minimalismo cálido, explicadas para aplicarlas en proyectos reales."
 image: "../../assets/blog/tendencias-decoracion-interiores-2026.webp"
 author: "Instituto Osbord"
 readingTime: 7
 featured: false
 ---
 
-# Tendencias de Decoración de Interiores para 2026
+# Tendencias de Decoración de Interiores
 
-El neutro plano ya no manda. 2026 se mueve hacia **colores profundos, materiales con historia y espacios que se sienten habitados, no de catálogo**.
+El neutro plano ya no manda. El mercado se mueve hacia **colores profundos, materiales con historia y espacios que se sienten habitados, no de catálogo**.
 
 Te explico las tendencias que realmente están marcando este año, no una lista genérica repetida de temporadas anteriores.
 
@@ -29,7 +29,7 @@ No es solo estética. Es una respuesta a espacios que se sentían impersonales. 
 
 ## Diseño biofílico, más allá de las plantas
 
-El diseño biofílico dejó de significar "pon unas plantas en el salón". En 2026 se trata de integrar luz natural optimizada con espejos y superficies reflectantes, formas orgánicas en curvas suaves de sofás y mesas, y materiales vivos (piedra natural, ratán, mimbre, madera) en toda la estructura del espacio, no solo como decoración superficial.
+El diseño biofílico dejó de significar "pon unas plantas en el salón". Se trata de integrar luz natural optimizada con espejos y superficies reflectantes, formas orgánicas en curvas suaves de sofás y mesas, y materiales vivos (piedra natural, ratán, mimbre, madera) en toda la estructura del espacio, no solo como decoración superficial.
 
 La meta es que el espacio completo transmita bienestar físico y mental, difuminando el límite entre interior, terraza y jardín cuando el proyecto lo permite. Ya no se trata de un detalle decorativo aislado, sino de una filosofía que atraviesa toda la casa.
 
@@ -50,11 +50,11 @@ Esta evolución conecta con el interés por el "quiet luxury": lujo discreto, ma
 
 Otra tendencia fuerte: mezclar materiales naturales (madera cruda, piedra, lino) con acabados contemporáneos (metal, vidrio, superficies lisas) en el mismo ambiente. El gres porcelánico se consolida como material protagonista este año, precisamente porque interpreta otros materiales con un realismo cada vez más sorprendente, en vez de limitarse a imitarlos.
 
-El resultado busca contraste con armonía: espacios con más carácter, sin caer en la sobrecarga visual. Si ya viste [las diferencias entre diseño de interiores y decoración](/blog/interiorismo/diseno-interiores-vs-decoracion-2026), esta tendencia es un buen ejemplo de por qué conviene manejar los dos frentes juntos: la mezcla de materiales es decisión técnica y estética a la vez.
+El resultado busca contraste con armonía: espacios con más carácter, sin caer en la sobrecarga visual. Si ya viste [las diferencias entre diseño de interiores y decoración](/blog/interiorismo/diseno-interiores-vs-decoracion), esta tendencia es un buen ejemplo de por qué conviene manejar los dos frentes juntos: la mezcla de materiales es decisión técnica y estética a la vez.
 
 ## El baño como refugio, no solo espacio funcional
 
-El baño dejó de sentirse frío y puramente práctico. En 2026 se trabaja como un pequeño refugio: piedra, mármoles con veta marcada, microcemento y maderas tratadas, combinadas con pinturas minerales y revestimientos de cal que aportan textura.
+El baño dejó de sentirse frío y puramente práctico. Se trabaja como un pequeño refugio: piedra, mármoles con veta marcada, microcemento y maderas tratadas, combinadas con pinturas minerales y revestimientos de cal que aportan textura.
 
 Es de los cambios más notorios frente a años anteriores, donde el baño era casi siempre el último espacio en recibir atención de diseño, tratado más como instalación técnica que como parte real de la experiencia del hogar.
 

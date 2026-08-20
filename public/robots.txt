@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://osbord.edu/sitemap-index.xml
+# No indexar páginas que no aportan valor SEO
+Disallow: /debug-geo
+Disallow: /debug-geo/
+
+Sitemap: https://osbord.com/sitemap.xml

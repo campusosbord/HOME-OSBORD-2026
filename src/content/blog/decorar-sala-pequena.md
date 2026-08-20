@@ -96,7 +96,7 @@ No. Lo que importa es dónde reflejan luz o profundidad, no el tamaño. Un espej
 
 Sí, si quieres evitar errores costosos de proporción o color. Un espacio chico perdona menos los errores de decoración que uno grande, donde un mueble mal escalado se nota mucho menos.
 
-Si te gustó pensar en estos detalles de proporción, luz y color, quizás te interese ver [las diferencias entre diseño de interiores y decoración](/blog/interiorismo/diseno-interiores-vs-decoracion-2026) y por qué formarte en los dos te da más herramientas para resolver espacios como este.
+Si te gustó pensar en estos detalles de proporción, luz y color, quizás te interese ver [las diferencias entre diseño de interiores y decoración](/blog/interiorismo/diseno-interiores-vs-decoracion) y por qué formarte en los dos te da más herramientas para resolver espacios como este.
 
 <a href="/masters/interiorismo" class="articulo-recomendado">
   <span class="articulo-recomendado-tag">Si quieres aprender a resolver espacios como este de forma profesional, conoce nuestro</span>

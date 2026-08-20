@@ -60,7 +60,7 @@ Aquí es donde muchas se quedan atascadas: pasan de "evento gratis por experienc
 - Usa tu portafolio de los pasos anteriores como prueba, no tu currículum
 - Ofrece un paquete claro y simple para tu primer cliente pagado, no el más completo que tengas
 
-Cuando llegues a este punto, te sirve tener claro [cómo calcular qué cobrarle a ese primer cliente](/blog/wedding-planner/cuanto-cobrar-por-organizar-un-evento-2026) antes de sentarte a cotizar.
+Cuando llegues a este punto, te sirve tener claro [cómo calcular qué cobrarle a ese primer cliente](/blog/wedding-planner/cuanto-cobrar-por-organizar-un-evento) antes de sentarte a cotizar.
 
 ![Wedding planner joven mostrando su portafolio de bodas en una tablet a una pareja de clientes](../../assets/blog/como-ser-wedding-planner-sin-titulo-2026-osbord.webp)
 

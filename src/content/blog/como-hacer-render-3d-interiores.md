@@ -21,7 +21,7 @@ Te explico el proceso completo, sin asumir que ya sabes nada de software.
 
 Antes del paso a paso, deja claro esto: un render no reemplaza el modelado. Es el último paso de un proceso, no un atajo para saltarte los anteriores.
 
-Si ya viste [qué software dominar como interiorista](/blog/interiorismo/software-diseno-3d-interiores-2026), sabes que necesitas mínimo dos herramientas: **SketchUp** para el modelo 3D, y **Enscape** o **V-Ray** como motor de render sobre ese modelo.
+Si ya viste [qué software dominar como interiorista](/blog/interiorismo/software-diseno-3d-interiores), sabes que necesitas mínimo dos herramientas: **SketchUp** para el modelo 3D, y **Enscape** o **V-Ray** como motor de render sobre ese modelo.
 
 Sin un modelo bien hecho, ningún motor de render arregla el resultado final, sin importar cuánto tiempo le dediques a la iluminación después.
 

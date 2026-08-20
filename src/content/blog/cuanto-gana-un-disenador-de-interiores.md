@@ -1,15 +1,15 @@
 ---
-title: "Cuánto Gana un Diseñador de Interiores Freelance en 2026 (Guía por País)"
+title: "Cuánto Gana un Diseñador de Interiores Freelance (Guía por País)"
 category: "interiorismo"
 publishDate: 2026-07-13
-excerpt: "Cifras reales de cuánto gana un diseñador de interiores freelance en Colombia, Venezuela, México, España y Argentina en 2026, explicadas por un director académico del sector."
+excerpt: "Cifras reales de cuánto gana un diseñador de interiores freelance en Colombia, Venezuela, México, España y Argentina, explicadas por un director académico del sector."
 image: "../../assets/blog/diseno-e-interiorismo.webp"
 author: "Instituto Osbord"
 readingTime: 9
 featured: false
 ---
 
-# Cuánto Gana un Diseñador de Interiores Freelance en 2026 (Guía por País)
+# Cuánto Gana un Diseñador de Interiores Freelance (Guía por País)
 
 Un diseñador de interiores freelance gana entre **$300 y $4,000 dólares por proyecto**, dependiendo del país y del tamaño del espacio.
 

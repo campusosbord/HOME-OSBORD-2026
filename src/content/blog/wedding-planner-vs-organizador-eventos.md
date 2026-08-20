@@ -64,7 +64,7 @@ En la práctica, la base técnica es la misma en los dos casos: presupuestos, cr
 
 Por eso el máster de wedding planning en el instituto no se llama solo "wedding planning": se llama **Wedding Planning & Organización de Eventos**, precisamente porque separar ambos mundos en programas distintos no refleja cómo se mueve el mercado real.
 
-Quien solo se forma en bodas pierde acceso a contratos corporativos recurrentes. Quien solo se forma en eventos corporativos pierde el nicho de bodas, que suele pagar mejor por evento individual. Si ya viste [cuánto gana un wedding planner por país](/blog/wedding-planner/cuanto-gana-un-wedding-planner-2026), notarás que ambos mercados se complementan en vez de competir entre sí.
+Quien solo se forma en bodas pierde acceso a contratos corporativos recurrentes. Quien solo se forma en eventos corporativos pierde el nicho de bodas, que suele pagar mejor por evento individual. Si ya viste [cuánto gana un wedding planner por país](/blog/wedding-planner/cuanto-gana-un-wedding-planner), notarás que ambos mercados se complementan en vez de competir entre sí.
 
 ## Un caso real: los dos frentes, en la misma carrera
 

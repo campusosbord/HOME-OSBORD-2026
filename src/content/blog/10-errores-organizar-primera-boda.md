@@ -95,7 +95,7 @@ Sí, especialmente si trabajas tiempo completo o es tu primera boda. Un profesio
 
 Invitar antes de confirmar el lugar. Cambiar fecha o locación después de enviar invitaciones genera confusión entre los invitados y cuesta más, en tiempo y dinero, que hacerlo bien desde el principio.
 
-Si después de leer esto sientes que se te da bien esto de organizar, coordinar y resolver sobre la marcha, quizás tengas más madera de wedding planner de la que crees. Ya cubrimos [cómo empezar en esta carrera sin título universitario](/blog/wedding-planner/como-ser-wedding-planner-sin-titulo-2026), por si te interesa ver el otro lado de esta historia.
+Si después de leer esto sientes que se te da bien esto de organizar, coordinar y resolver sobre la marcha, quizás tengas más madera de wedding planner de la que crees. Ya cubrimos [cómo empezar en esta carrera sin título universitario](/blog/wedding-planner/como-ser-wedding-planner-sin-titulo), por si te interesa ver el otro lado de esta historia.
 
 <a href="/masters/wedding-planner" class="articulo-recomendado">
   <span class="articulo-recomendado-tag">Siguiente paso</span>

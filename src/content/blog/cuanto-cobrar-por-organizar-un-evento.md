@@ -1,15 +1,15 @@
 ---
-title: "Cuánto Cobrar por Organizar un Evento: Guía Paso a Paso (Tarifas 2026)"
+title: "Cuánto Cobrar por Organizar un Evento: Guía Paso a Paso"
 category: "wedding-planner"
 publishDate: 2026-07-14
-excerpt: "Cómo calcular cuánto cobrar por tu primer evento en 2026, paso a paso: modelos de tarifa, qué incluir en el precio y cómo comunicarlo al cliente sin sonar inseguro."
+excerpt: "Cómo calcular cuánto cobrar por tu primer evento, paso a paso: modelos de tarifa, qué incluir en el precio y cómo comunicarlo al cliente sin sonar inseguro."
 image: "../../assets/blog/cuanto-cobrar-organizar-evento-2026.webp"
 author: "Instituto Osbord"
 readingTime: 6
 featured: false
 ---
 
-# Cuánto Cobrar por Organizar un Evento: Guía Paso a Paso (Tarifas 2026)
+# Cuánto Cobrar por Organizar un Evento: Guía Paso a Paso
 
 Para tu primer evento, cobra entre **10% y 15% del presupuesto total**, o una tarifa fija de **$300 a $1,500 dólares**, según el tamaño.
 
@@ -88,7 +88,7 @@ Aquí es donde más alumnos nuevos pierden dinero: cobran por "organizar el even
 
 Ponerlo por escrito en tu cotización te evita el problema más común del sector: el cliente que pide "una cosita más" gratis, cinco veces seguidas.
 
-Si quieres ver cómo se ven estos números aplicados a una carrera completa, ya cubrimos [cuánto gana un wedding planner en cada país](/blog/wedding-planner/cuanto-gana-un-wedding-planner-2026) en detalle.
+Si quieres ver cómo se ven estos números aplicados a una carrera completa, ya cubrimos [cuánto gana un wedding planner en cada país](/blog/wedding-planner/cuanto-gana-un-wedding-planner) en detalle.
 
 ## Errores comunes al poner precio a tu primer evento
 

@@ -1,15 +1,15 @@
 ---
-title: "Software de Diseño 3D que Todo Interiorista Debe Dominar en 2026"
+title: "Software de Diseño 3D que Todo Interiorista Debe Dominar"
 category: "interiorismo"
 publishDate: 2026-07-21
-excerpt: "AutoCAD, Revit y SketchUp: los tres programas que realmente necesitas dominar como interiorista en 2026, y cómo Enscape y V-Ray suman el nivel de render final."
+excerpt: "AutoCAD, Revit y SketchUp: los tres programas que realmente necesitas dominar como interiorista, y cómo Enscape y V-Ray suman el nivel de render final."
 image: "../../assets/blog/software-diseno-3d-interiores-2026.webp"
 author: "Instituto Osbord"
 readingTime: 7
 featured: false
 ---
 
-# Software de Diseño 3D que Todo Interiorista Debe Dominar en 2026
+# Software de Diseño 3D que Todo Interiorista Debe Dominar
 
 Tres programas cubren el 90% de lo que vas a necesitar: **AutoCAD** para planos técnicos, **SketchUp** para modelado 3D rápido y **Revit** para proyectos técnicos de mayor escala.
 
@@ -33,7 +33,7 @@ Si coordinas con consultores externos que trabajan en formato DWG (el formato na
 
 SketchUp es, por lejos, el software más fácil de aprender de los tres, y el más usado para presentar ideas rápido: conceptos, distribución de espacios y primeras propuestas visuales para el cliente.
 
-Si ya cubriste [las diferencias entre diseño de interiores y decoración](/blog/interiorismo/diseno-interiores-vs-decoracion-2026), esta es exactamente la herramienta donde se conectan los dos frentes: aquí defines la estructura técnica del espacio, y sobre esa base después trabajas color, mobiliario y estilo.
+Si ya cubriste [las diferencias entre diseño de interiores y decoración](/blog/interiorismo/diseno-interiores-vs-decoracion), esta es exactamente la herramienta donde se conectan los dos frentes: aquí defines la estructura técnica del espacio, y sobre esa base después trabajas color, mobiliario y estilo.
 
 Es también el punto de entrada más lógico si recién estás empezando, porque no exige el mismo nivel de curva de aprendizaje que Revit.
 

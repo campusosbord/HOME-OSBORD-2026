@@ -64,7 +64,7 @@ En cifras generales, un proyecto integral de diseño de interiores paga más por
 
 La decoración compensa con **volumen**: puedes tomar más proyectos al mes porque cada uno toma menos tiempo.
 
-Si ya quieres ver las cifras reales por país, ya cubrimos [cuánto gana un diseñador de interiores freelance](/blog/interiorismo/cuanto-gana-un-disenador-de-interiores-2026) en detalle.
+Si ya quieres ver las cifras reales por país, ya cubrimos [cuánto gana un diseñador de interiores freelance](/blog/interiorismo/cuanto-gana-un-disenador-de-interiores) en detalle.
 
 Lo importante: no tienes que elegir entre un ingreso u otro. Cuando manejas ambos frentes, puedes tomar proyectos rápidos de decoración para flujo constante, y proyectos integrales de diseño para los tickets más altos, sin depender de un solo tipo de cliente.
 

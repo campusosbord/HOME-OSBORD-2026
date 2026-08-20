@@ -60,7 +60,7 @@ Aquí es donde muchos se quedan atascados: pasan de "proyecto gratis por experie
 - Usa tu portafolio de los pasos anteriores como prueba, no tu currículum
 - Ofrece un paquete claro y simple para tu primer cliente pagado, no el más completo que tengas
 
-Cuando llegues a este punto, te sirve tener claro [cómo calcular qué cobrarle a ese primer cliente](/blog/interiorismo/como-cobrar-primeros-proyectos-decoracion-2026) antes de sentarte a cotizar.
+Cuando llegues a este punto, te sirve tener claro [cómo calcular qué cobrarle a ese primer cliente](/blog/interiorismo/como-cobrar-primeros-proyectos-decoracion) antes de sentarte a cotizar.
 
 ![Decorador de interiores joven mostrando su portafolio de proyectos en una tablet a un cliente](../../assets/blog/decorador-interiores-sin-titulo-2026-osbord.webp)
 
@@ -82,7 +82,7 @@ Llevo años acompañando a alumnos en esta transición. Estos son los tres error
 - **No definir una especialidad.** "Hago cualquier estilo" comunica menos que "me especializo en minimalismo" o "en vivienda de lujo".
 - **Esperar el cliente "perfecto" para empezar a cobrar.** Ese cliente no existe. El primero pagado casi nunca es el ideal, y está bien que así sea.
 
-Un alumno nuestro en Barranquilla, el mismo que ya mencionamos al hablar de [cuánto gana un diseñador de interiores](/blog/interiorismo/cuanto-gana-un-disenador-de-interiores-2026), arrancó exactamente así: con un proyecto gratis a cambio de fotos, antes de conseguir su primer cliente pagado.
+Un alumno nuestro en Barranquilla, el mismo que ya mencionamos al hablar de [cuánto gana un diseñador de interiores](/blog/interiorismo/cuanto-gana-un-disenador-de-interiores), arrancó exactamente así: con un proyecto gratis a cambio de fotos, antes de conseguir su primer cliente pagado.
 
 No fue el diploma. Fue el portafolio.
 

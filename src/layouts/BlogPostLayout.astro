@@ -34,6 +34,28 @@ const formattedDate = new Intl.DateTimeFormat('es-ES', {
   day: 'numeric', month: 'long', year: 'numeric'
 }).format(publishDate);
 
+// --- FAQ Schema: extraído dinámicamente de los headings del artículo ---
+// Recogemos las preguntas (depth=3 bajo "Preguntas frecuentes") para FAQPage schema
+const faqStartIdx = headings.findIndex(h => h.text.toLowerCase().includes('preguntas frecuentes'));
+const faqHeadings = faqStartIdx >= 0
+  ? headings.slice(faqStartIdx + 1).filter(h => h.depth === 3 || h.depth === 2)
+  : [];
+
+// Construimos FAQPage solo si hay preguntas detectadas en los headings
+// (las respuestas no son accesibles desde headings, así que usamos description como fallback)
+const faqSchema = faqHeadings.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqHeadings.map(h => ({
+    "@type": "Question",
+    "name": h.text,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": description
+    }
+  }))
+} : null;
+
 const breadcrumbSchema = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -51,6 +73,8 @@ const articleSchema = {
   "headline": title,
   "description": description,
   "datePublished": publishDate.toISOString(),
+  "dateModified": publishDate.toISOString(),
+  "image": `${siteUrl}${heroImage.src}`,
   "author": {
     "@type": "Organization",
     "name": author,
@@ -59,17 +83,34 @@ const articleSchema = {
   "publisher": {
     "@type": "EducationalOrganization",
     "name": "Instituto Online Osbord",
-    "url": siteUrl
+    "url": siteUrl,
+    "logo": { "@type": "ImageObject", "url": `${siteUrl}/logo.png` }
   },
   "url": articleUrl,
-  "mainEntityOfPage": { "@type": "WebPage", "@id": articleUrl }
+  "mainEntityOfPage": { "@type": "WebPage", "@id": articleUrl },
+  "inLanguage": "es"
 };
 ---
 
-<Layout title={title} description={description}>
+<Layout title={title} description={description} canonicalUrl={articleUrl}>
   <Fragment slot="head">
+    {/* Canonical URL para evitar duplicados */}
+    <link rel="canonical" href={articleUrl} />
+
+    {/* Open Graph específico para artículos */}
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content={articleUrl} />
+    <meta property="article:published_time" content={publishDate.toISOString()} />
+    <meta property="article:author" content={author} />
+    <meta property="article:section" content={categoryLabel} />
+
+    {/* Preload imagen hero — mejora LCP (Core Web Vitals) */}
+    <link rel="preload" as="image" href={heroImage.src} fetchpriority="high" />
+
+    {/* Schema.org: Article + BreadcrumbList + FAQPage */}
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+    {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
   </Fragment>
 
   <Header />

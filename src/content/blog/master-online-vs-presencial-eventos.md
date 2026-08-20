@@ -58,7 +58,7 @@ Más allá de online o presencial, hay preguntas que aplican igual a los dos for
 - **¿Hay mentoría directa con alguien activo en el sector?** La modalidad no reemplaza esto. Sin mentoría real, cualquier formato se queda corto, sin importar cuán bien producidas estén las clases.
 - **¿Qué entregas al terminar?** Un portafolio, un caso completo o solo un certificado genérico. Esa respuesta importa más que si las clases fueron por Zoom o en un salón físico.
 
-Ya cubrimos con más detalle [qué debe tener cualquier certificación seria](/blog/wedding-planner/certificaciones-wedding-planner-2026), independiente de si es online o presencial.
+Ya cubrimos con más detalle [qué debe tener cualquier certificación seria](/blog/wedding-planner/certificaciones-wedding-planner), independiente de si es online o presencial.
 
 ## Cuándo tiene más sentido cada modalidad
 

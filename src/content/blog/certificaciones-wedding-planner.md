@@ -2,7 +2,7 @@
 title: "Las Mejores Certificaciones para Wedding Planners en el Mundo Hispano"
 category: "wedding-planner"
 publishDate: 2026-07-18
-excerpt: "Cómo identificar una certificación seria de wedding planner en 2026: qué debe incluir, cuánto deberías pagar y las señales de alerta que casi nadie te explica."
+excerpt: "Cómo identificar una certificación seria de wedding planner: qué debe incluir, cuánto deberías pagar y las señales de alerta que casi nadie te explica."
 image: "../../assets/blog/certificacion-wedding-planner-2026-osbord.webp"
 author: "Instituto Osbord"
 readingTime: 7
@@ -72,7 +72,7 @@ Un programa superficial de un fin de semana no debería costarte lo mismo que un
 
 Lo que sí puedo decirte: **el precio más bajo casi nunca es la opción más barata a largo plazo.** Una certificación floja te obliga a aprender por prueba y error con clientes reales, y ese error sale más caro que la diferencia de precio entre programas.
 
-Si ya tienes claro que quieres dar el salto, en [nuestra guía de cómo empezar sin título](/blog/wedding-planner/como-ser-wedding-planner-sin-titulo-2026) vimos justamente por qué la certificación es el primer paso, no el único.
+Si ya tienes claro que quieres dar el salto, en [nuestra guía de cómo empezar sin título](/blog/wedding-planner/como-ser-wedding-planner-sin-titulo) vimos justamente por qué la certificación es el primer paso, no el único.
 
 ## 3 preguntas para hacerle a cualquier programa antes de pagar
 

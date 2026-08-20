@@ -63,7 +63,7 @@ Tan importante como saber qué priorizar es saber qué evitar cuando el presupue
 
 - **Muebles baratos de baja calidad.** Suelen verse bien las primeras semanas y deteriorarse rápido, generando un gasto doble a mediano plazo cuando hay que reemplazarlos otra vez.
 - **Cambios estructurales sin presupuesto real para hacerlos bien.** Mover un muro a medias, sin terminar el acabado, se nota más que no haberlo tocado, y suele costar más corregirlo después que hacerlo bien desde el inicio.
-- **Comprar antes de definir un plan.** Si ya viste [nuestras ideas para decorar salas pequeñas](/blog/interiorismo/decorar-sala-pequena-2026), sabes que comprar sin plan termina en piezas que no dialogan entre sí, sin importar cuánto costaron individualmente.
+- **Comprar antes de definir un plan.** Si ya viste [nuestras ideas para decorar salas pequeñas](/blog/interiorismo/decorar-sala-pequena), sabes que comprar sin plan termina en piezas que no dialogan entre sí, sin importar cuánto costaron individualmente.
 
 ## Cómo documentar el antes y después para tu portafolio
 

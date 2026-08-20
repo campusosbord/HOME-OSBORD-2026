@@ -1,15 +1,15 @@
 ---
-title: "Cuánto Gana un Wedding Planner en 2026 (Guía por País)"
+title: "Cuánto Gana un Wedding Planner (Guía por País)"
 category: "wedding-planner"
 publishDate: 2026-07-12
-excerpt: "Cifras reales de cuánto gana un wedding planner en Colombia, Venezuela, México, España y Argentina en 2026, explicadas por un director académico del sector."
+excerpt: "Cifras reales de cuánto gana un wedding planner en Colombia, Venezuela, México, España y Argentina, explicadas por un director académico del sector."
 image: "../../assets/blog/cuanto-gana-wedding-planner-2026.webp"
 author: "Instituto Osbord"
 readingTime: 9
 featured: false
 ---
 
-# Cuánto Gana un Wedding Planner en 2026 (Guía por País)
+# Cuánto Gana un Wedding Planner (Guía por País)
 
 Un wedding planner independiente gana entre **$400 y $3,500 dólares por evento**, dependiendo del país y del tipo de boda.
 

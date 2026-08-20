@@ -70,7 +70,7 @@ Deja por escrito qué incluye tu propuesta, qué no, y qué pasa si hay cambios 
 
 Un mueble que se ve bien en un catálogo puede quedar completamente desproporcionado en un espacio real, ya sea muy grande o muy pequeño para el ambiente.
 
-Si ya viste [nuestras ideas para decorar salas pequeñas](/blog/interiorismo/decorar-sala-pequena-2026), sabes que la proporción, más que el gusto individual por una pieza, es lo que define si un espacio se siente equilibrado.
+Si ya viste [nuestras ideas para decorar salas pequeñas](/blog/interiorismo/decorar-sala-pequena), sabes que la proporción, más que el gusto individual por una pieza, es lo que define si un espacio se siente equilibrado.
 
 ![Diseñador de interiores midiendo un espacio con cinta métrica antes de proponer mobiliario](../../assets/blog/errores-decorar-primer-proyecto-1.webp)
 

@@ -23,7 +23,7 @@ Ese punto de partida genera una duda constante: ¿esto se puede convertir en una
 
 ## Los primeros meses: formación y primeros eventos
 
-La etapa siguiente es la que definimos con más detalle en [nuestra guía de cómo empezar sin título universitario](/blog/wedding-planner/como-ser-wedding-planner-sin-titulo-2026): certificación seria, y primeros eventos reales, aunque sea con tarifa reducida a cambio de fotos y testimonio, para empezar a construir prueba tangible del trabajo.
+La etapa siguiente es la que definimos con más detalle en [nuestra guía de cómo empezar sin título universitario](/blog/wedding-planner/como-ser-wedding-planner-sin-titulo): certificación seria, y primeros eventos reales, aunque sea con tarifa reducida a cambio de fotos y testimonio, para empezar a construir prueba tangible del trabajo.
 
 Esta etapa suele tomar entre 3 y 6 meses, dependiendo de cuánto tiempo se pueda dedicar mientras se mantiene otro ingreso en paralelo. Nadie llega a su primer cliente pagado sin pasar por aquí, aunque muchas veces se busca saltarse este paso con la esperanza de acelerar el proceso, algo que casi siempre termina costando más tiempo del que se pretendía ahorrar.
 
