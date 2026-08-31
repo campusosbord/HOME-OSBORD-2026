@@ -4,18 +4,20 @@ import healthImg from '../assets/school_health.png';
 import designImg from '../assets/school_design.png';
 import paisajeImg from '../assets/school_paisajismo.png';
 import eventsImg from '../assets/school_events.png';
+import dobleTitulacionImg from '../assets/DOBLETITULACION.webp';
 
 const pathname = Astro.url.pathname;
 const prefix = pathname.startsWith('/us') ? '/us' : '/latam';
 
 const offerings = [
   {
-    school: "Escuela de Ciencias de la Salud",
-    program: "Curso Profesional Superior: Auxiliar de Enfermería Clínica",
-    description: "Formación técnica avanzada en asistencia sanitaria, cuidados clínicos y gestión hospitalaria con estándares internacionales.",
-    image: healthImg,
-    accent: "from-blue-500/20",
-    link: `${prefix}/masters/enfermeria`
+    school: "Escuela de Arquitectura y Diseño",
+    badge: "Doble Titulación",
+    program: "Doble Titulación: Interiorismo 3D + Paisajismo 3D",
+    description: "El perfil más completo del sector: domina el diseño de interiores y exteriores de lujo en un único programa con doble certificación internacional.",
+    image: dobleTitulacionImg,
+    accent: "from-brand-gold/30",
+    link: `${prefix}/masters/doble-titulacion-diseno`
   },
   {
     school: "Escuela de Arquitectura y Diseño",
@@ -40,80 +42,135 @@ const offerings = [
     image: eventsImg,
     accent: "from-rose-500/20",
     link: `${prefix}/masters/wedding-planner`
+  },
+  {
+    school: "Escuela de Ciencias de la Salud",
+    program: "Curso Profesional Superior: Auxiliar de Enfermería Clínica",
+    description: "Formación técnica avanzada en asistencia sanitaria, cuidados clínicos y gestión hospitalaria con estándares internacionales.",
+    image: healthImg,
+    accent: "from-blue-500/20",
+    link: `${prefix}/masters/enfermeria`
   }
 ];
 ---
 
-<section id="oferta" class="py-16 bg-brand-neutral/50">
-  <div class="max-w-7xl mx-auto px-6">
+<section id="oferta" class="py-16 md:py-24 bg-brand-neutral/50 relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
     <!-- Section Header -->
-    <div class="text-center mb-16 space-y-4">
+    <div class="text-center mb-12 md:mb-16 space-y-4">
       <p class="section-label">Formaciones de Élite</p>
-      <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight text-brand-navy">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-brand-navy">
         Nuestra Oferta <span class="text-brand-gold italic">Académica</span>
       </h2>
       <div class="gold-divider mx-auto"></div>
     </div>
 
-    <!-- Cards Grid -->
-    <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-8">
-      {offerings.map((item, index) => (
-        <a 
-          href={item.link}
-          class={`group bg-white rounded-brand-xl overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-500 border border-gray-100 flex flex-col animate-fade-in-up delay-${(index + 1) * 100} cursor-pointer`}
-        >
-          <!-- Image -->
-          <div class="relative h-64 overflow-hidden">
-            <Image
-              src={item.image}
-              alt={item.program}
-              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
-              width={600}
-              height={400}
-            />
-            <div class={`absolute inset-0 bg-gradient-to-t ${item.accent} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
-            
-            <!-- School Tag -->
-            <div class="absolute top-4 left-4">
-              <span class="inline-flex items-center gap-2 px-3 py-1.5 bg-brand-navy/95 backdrop-blur-md rounded-full border border-white/10 text-[9px] text-white font-bold uppercase tracking-widest shadow-xl">
-                <span class="w-1 h-1 rounded-full bg-brand-gold"></span>
-                {item.school}
-              </span>
-            </div>
-          </div>
+    <!-- Carousel Wrapper with Floating Side Arrows -->
+    <div class="relative max-w-full">
+      
+      <!-- Side Button: Left / Prev -->
+      <button
+        id="carousel-prev"
+        aria-label="Anterior formación"
+        class="absolute left-0 sm:-left-4 md:-left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/95 backdrop-blur-md text-brand-navy border border-gray-200 shadow-xl flex items-center justify-center hover:bg-brand-navy hover:text-white hover:border-brand-navy transition-all duration-300 active:scale-90 focus:outline-none"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
+        </svg>
+      </button>
 
-          <!-- Content Area -->
-          <div class="p-8 flex flex-col flex-grow">
-            <div class="space-y-4 mb-8">
-              <h3 class="text-xl font-extrabold text-brand-navy group-hover:text-brand-gold transition-colors duration-300 leading-[1.2]">
-                {item.program}
-              </h3>
-              <p class="text-gray-500 text-sm leading-relaxed line-clamp-3">
-                {item.description}
-              </p>
-            </div>
+      <!-- Side Button: Right / Next -->
+      <button
+        id="carousel-next"
+        aria-label="Siguiente formación"
+        class="absolute right-0 sm:-right-4 md:-right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/95 backdrop-blur-md text-brand-navy border border-gray-200 shadow-xl flex items-center justify-center hover:bg-brand-navy hover:text-white hover:border-brand-navy transition-all duration-300 active:scale-90 focus:outline-none"
+      >
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+        </svg>
+      </button>
 
-            <!-- CTA - RIGHT and Underscored -->
-            <div class="mt-auto flex justify-end">
-              <div class="inline-flex items-center gap-3 group/link">
-                <span class="relative text-brand-navy font-black text-xs uppercase tracking-[0.2em] group-hover:text-brand-gold transition-colors">
-                  Ver Programa
-                  <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-brand-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-                </span>
-                <div class="w-10 h-10 rounded-full bg-brand-gold/10 flex items-center justify-center group-hover:bg-brand-gold transition-all duration-500">
-                  <svg class="w-5 h-5 text-brand-gold group-hover:text-brand-navy transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
-                  </svg>
+      <!-- Carousel Track -->
+      <div
+        id="offerings-track"
+        class="flex gap-4 sm:gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory py-4 px-2 sm:px-4 no-scrollbar touch-pan-x cursor-grab active:cursor-grabbing"
+      >
+        {offerings.map((item) => (
+          <div class="w-[82vw] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] flex-shrink-0 snap-center sm:snap-start flex flex-col">
+            <a 
+              href={item.link}
+              class="group bg-white rounded-brand-xl overflow-hidden shadow-soft hover:shadow-elevated transition-all duration-500 border border-gray-100 flex flex-col flex-1 cursor-pointer h-full relative"
+            >
+              <!-- Image Container -->
+              <div class="relative h-56 sm:h-60 overflow-hidden bg-brand-navy">
+                <Image
+                  src={item.image}
+                  alt={item.program}
+                  class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110"
+                  width={600}
+                  height={400}
+                />
+                
+                <div class={`absolute inset-0 bg-gradient-to-t ${item.accent} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}></div>
+                
+                <!-- Tags -->
+                <div class="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none gap-2">
+                  <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-brand-navy/95 backdrop-blur-md rounded-full border border-white/10 text-[9px] text-white font-bold uppercase tracking-widest shadow-xl">
+                    <span class="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
+                    {item.school}
+                  </span>
+                  {item.badge && (
+                    <span class="inline-flex items-center px-2.5 py-1 bg-brand-gold text-brand-navy font-black text-[9px] uppercase tracking-widest rounded-full shadow-lg">
+                      {item.badge}
+                    </span>
+                  )}
                 </div>
               </div>
-            </div>
+
+              <!-- Content Area -->
+              <div class="p-6 sm:p-7 flex flex-col flex-grow justify-between bg-white">
+                <div class="space-y-3 mb-6">
+                  <h3 class="text-base sm:text-lg font-extrabold text-brand-navy group-hover:text-brand-gold transition-colors duration-300 leading-snug">
+                    {item.program}
+                  </h3>
+                  <p class="text-gray-500 text-xs sm:text-sm leading-relaxed line-clamp-3">
+                    {item.description}
+                  </p>
+                </div>
+
+                <!-- CTA Link -->
+                <div class="pt-4 border-t border-gray-50 flex items-center justify-between">
+                  <span class="text-brand-gold font-extrabold text-xs uppercase tracking-widest">
+                    Ver Programa Completo
+                  </span>
+                  <div class="w-8 h-8 rounded-full bg-brand-gold/10 flex items-center justify-center group-hover:bg-brand-gold transition-all duration-300">
+                    <svg class="w-4 h-4 text-brand-gold group-hover:text-brand-navy transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </a>
           </div>
-        </a>
-      ))}
+        ))}
+      </div>
+
+      <!-- Indicators Dots -->
+      <div id="carousel-dots" class="flex justify-center items-center gap-2 mt-8">
+        {offerings.map((_, i) => (
+          <button
+            class="carousel-dot h-2 rounded-full transition-all duration-300 bg-gray-300 hover:bg-brand-gold cursor-pointer"
+            style={i === 0 ? "width: 24px; background-color: #C5A059;" : "width: 8px;"}
+            data-index={i}
+            aria-label={`Ir al programa ${i + 1}`}
+          />
+        ))}
+      </div>
     </div>
 
     <!-- Central CTA -->
-    <div class="mt-20 text-center animate-fade-in delay-500">
+    <div class="mt-16 text-center animate-fade-in delay-300">
       <div class="flex justify-center">
         {prefix === '/us' ? (
           <button class="trigger-admission-modal cta-button px-10 py-5 text-sm tracking-[0.1em] shadow-xl hover:scale-105 transition-all">
@@ -131,3 +188,122 @@ const offerings = [
     </div>
   </div>
 </section>
+
+<style>
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
+
+<script>
+  function setupOfferingsCarousel() {
+    const track = document.getElementById('offerings-track');
+    const prevBtn = document.getElementById('carousel-prev');
+    const nextBtn = document.getElementById('carousel-next');
+    const dots = document.querySelectorAll('.carousel-dot');
+
+    if (!track) return;
+
+    function getCardWidth() {
+      const firstCard = track?.firstElementChild as HTMLElement | null;
+      if (!firstCard) return 320;
+      const isMobile = window.innerWidth < 640;
+      const gap = isMobile ? 16 : 24;
+      return firstCard.offsetWidth + gap;
+    }
+
+    function updateDots() {
+      if (!track) return;
+      const cardWidth = getCardWidth();
+      const activeIndex = Math.min(
+        Math.max(0, Math.round(track.scrollLeft / cardWidth)),
+        dots.length - 1
+      );
+      
+      dots.forEach((dot, idx) => {
+        const dotEl = dot as HTMLElement;
+        if (idx === activeIndex) {
+          dotEl.style.width = '24px';
+          dotEl.style.backgroundColor = '#C5A059';
+        } else {
+          dotEl.style.width = '8px';
+          dotEl.style.backgroundColor = '#D1D5DB';
+        }
+      });
+    }
+
+    function scrollNext() {
+      if (!track) return;
+      const cardWidth = getCardWidth();
+      const maxScroll = track.scrollWidth - track.clientWidth;
+      if (track.scrollLeft >= maxScroll - 15) {
+        track.scrollTo({ left: 0, behavior: 'smooth' });
+      } else {
+        track.scrollBy({ left: cardWidth, behavior: 'smooth' });
+      }
+    }
+
+    function scrollPrev() {
+      if (!track) return;
+      const cardWidth = getCardWidth();
+      if (track.scrollLeft <= 15) {
+        track.scrollTo({ left: track.scrollWidth, behavior: 'smooth' });
+      } else {
+        track.scrollBy({ left: -cardWidth, behavior: 'smooth' });
+      }
+    }
+
+    nextBtn?.addEventListener('click', () => {
+      scrollNext();
+      resetAutoplay();
+    });
+
+    prevBtn?.addEventListener('click', () => {
+      scrollPrev();
+      resetAutoplay();
+    });
+
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const index = parseInt(dot.getAttribute('data-index') || '0', 10);
+        const cardWidth = getCardWidth();
+        track?.scrollTo({ left: index * cardWidth, behavior: 'smooth' });
+        resetAutoplay();
+      });
+    });
+
+    track.addEventListener('scroll', updateDots, { passive: true });
+
+    // Autoplay logic (every 4.5 seconds)
+    let autoplayInterval: ReturnType<typeof setInterval> | undefined;
+
+    function startAutoplay() {
+      clearInterval(autoplayInterval);
+      autoplayInterval = setInterval(scrollNext, 4500);
+    }
+
+    function resetAutoplay() {
+      startAutoplay();
+    }
+
+    startAutoplay();
+
+    // Pause on hover or touch interaction
+    track.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
+    track.addEventListener('mouseleave', () => startAutoplay());
+    track.addEventListener('touchstart', () => clearInterval(autoplayInterval), { passive: true });
+    track.addEventListener('touchend', () => startAutoplay(), { passive: true });
+
+    prevBtn?.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
+    prevBtn?.addEventListener('mouseleave', () => startAutoplay());
+    nextBtn?.addEventListener('mouseenter', () => clearInterval(autoplayInterval));
+    nextBtn?.addEventListener('mouseleave', () => startAutoplay());
+  }
+
+  setupOfferingsCarousel();
+  document.addEventListener('astro:page-load', setupOfferingsCarousel);
+</script>

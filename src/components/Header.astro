@@ -17,6 +17,7 @@ const programMap: Record<string, string> = {
   'interiorismo': 'Máster en Interiorismo, Diseño y Decoración de Interiores 3D',
   'paisajismo': 'Máster en Diseño de Exteriores, Paisajismo y Render 3D',
   'wedding-planner': 'Máster Ejecutivo en Organización de Eventos & Wedding Planner',
+  'doble-titulacion-diseno': 'Doble Titulación: Máster en Interiorismo, Diseño y Decoración de Interiores 3D + Máster en Diseño de Exteriores, Paisajismo y Render 3D',
 };
 const masterMatch = pathname.match(/\/masters\/([^/]+)/);
 const currentProgram = masterMatch ? (programMap[masterMatch[1]] ?? undefined) : undefined;
@@ -137,6 +138,12 @@ const whatsappUrl = currentProgram
                     <a href={`${prefix}/masters/paisajismo`} class="text-brand-navy hover:text-brand-gold font-medium text-sm transition-colors flex items-center group/link">
                       <span class="w-0 group-hover/link:w-3 h-px bg-brand-gold mr-0 group-hover/link:mr-2 transition-all duration-200"></span>
                       Máster en Diseño de Exteriores, Paisajismo y Render 3D
+                    </a>
+                  </li>
+                  <li>
+                    <a href={`${prefix}/masters/doble-titulacion-diseno`} class="text-brand-navy hover:text-brand-gold font-medium text-sm transition-colors flex items-center group/link">
+                      <span class="w-0 group-hover/link:w-3 h-px bg-brand-gold mr-0 group-hover/link:mr-2 transition-all duration-200"></span>
+                      Doble Titulación: Máster en Interiorismo, Diseño y Decoración de Interiores 3D + Máster en Diseño de Exteriores, Paisajismo y Render 3D
                     </a>
                   </li>
                 </ul>
@@ -279,6 +286,9 @@ const whatsappUrl = currentProgram
           </li>
           <li>
             <a href={`${prefix}/masters/paisajismo`} class="block text-white/80 hover:text-brand-gold text-base font-medium transition-colors pr-4 border-r-2 border-white/10 hover:border-brand-gold mt-2">Máster en Diseño de Exteriores, Paisajismo y Render 3D</a>
+          </li>
+          <li>
+            <a href={`${prefix}/masters/doble-titulacion-diseno`} class="block text-white/80 hover:text-brand-gold text-base font-medium transition-colors pr-4 border-r-2 border-white/10 hover:border-brand-gold mt-2">Doble Titulación: Máster en Interiorismo, Diseño y Decoración de Interiores 3D + Máster en Diseño de Exteriores, Paisajismo y Render 3D</a>
           </li>
           <li>
             <span class="block text-white/40 text-xs uppercase tracking-widest font-bold mb-2 mt-4">Escuela de Gestión de Eventos</span>

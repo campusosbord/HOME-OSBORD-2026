@@ -15,6 +15,7 @@ const accordionProgramMap: Record<string, string> = {
   'interiorismo': 'Máster en Interiorismo, Diseño y Decoración de Interiores 3D',
   'paisajismo': 'Máster en Diseño de Exteriores, Paisajismo y Render 3D',
   'wedding-planner': 'Máster Ejecutivo en Organización de Eventos & Wedding Planner',
+  'doble-titulacion-diseno': 'Doble Titulación: Máster en Interiorismo, Diseño y Decoración de Interiores 3D + Máster en Diseño de Exteriores, Paisajismo y Render 3D',
 };
 const accordionMasterMatch = accordionPathname.match(/\/masters\/([^/]+)/);
 const accordionCurrentProgram = accordionMasterMatch ? (accordionProgramMap[accordionMasterMatch[1]] ?? undefined) : undefined;

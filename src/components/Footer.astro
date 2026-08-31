@@ -15,6 +15,7 @@ const programMap: Record<string, string> = {
   'interiorismo': 'Máster en Interiorismo, Diseño y Decoración de Interiores 3D',
   'paisajismo': 'Máster en Diseño de Exteriores, Paisajismo y Render 3D',
   'wedding-planner': 'Máster Ejecutivo en Organización de Eventos & Wedding Planner',
+  'doble-titulacion-diseno': 'Doble Titulación: Máster en Interiorismo, Diseño y Decoración de Interiores 3D + Máster en Diseño de Exteriores, Paisajismo y Render 3D',
 };
 const masterMatch = pathname.match(/\/masters\/([^/]+)/);
 const currentProgram = masterMatch ? (programMap[masterMatch[1]] ?? undefined) : undefined;
@@ -78,6 +79,7 @@ const whatsappUrl = currentProgram
           <li><a href={`${prefix}/masters/enfermeria`} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Curso Profesional Superior: Auxiliar de Enfermería Clínica</a></li>
           <li><a href={`${prefix}/masters/interiorismo`} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Máster en Interiorismo, Diseño y Decoración de Interiores 3D</a></li>
           <li><a href={`${prefix}/masters/paisajismo`} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Máster en Diseño de Exteriores, Paisajismo y Render 3D</a></li>
+          <li><a href={`${prefix}/masters/doble-titulacion-diseno`} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Doble Titulación: Máster en Interiorismo, Diseño y Decoración de Interiores 3D + Máster en Diseño de Exteriores, Paisajismo y Render 3D</a></li>
           <li><a href={`${prefix}/masters/wedding-planner`} class="text-sm text-gray-400 hover:text-white transition-colors duration-200">Máster Ejecutivo en Organización de Eventos & Wedding Planner</a></li>
         </ul>
       </div>

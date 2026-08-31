@@ -1,0 +1,327 @@
+---
+import Layout from '../../../layouts/Layout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import CourseAccordion from '../../../components/CourseAccordion.astro';
+import Testimonials from '../../../components/Testimonials.astro';
+import FAQ from '../../../components/FAQ.astro';
+import CTASection from '../../../components/CTASection.astro';
+import TeachersSection from '../../../components/TeachersSection.astro';
+import AccreditationBadge from '../../../components/AccreditationBadge.astro';
+import { Image } from 'astro:assets';
+import designImg from '../../../assets/school_design.png';
+import paisajeImg from '../../../assets/school_paisajismo.png';
+import WhatsAppBox from '../../../components/WhatsAppBox.astro';
+import BenefitsSection from '../../../components/BenefitsSection.astro';
+import DiplomaSection from '../../../components/DiplomaSection.astro';
+
+const isUS = true;
+const programName = "Doble Titulación Interiorismo y Paisajismo 3D";
+const formationFullName = "Doble Titulación: Máster en Interiorismo, Diseño y Decoración de Interiores 3D + Máster en Diseño de Exteriores, Paisajismo y Render 3D";
+
+const benefits = [
+  {
+    title: "Dos Títulos, Máxima Empleabilidad",
+    description: "Obtienes dos certificaciones internacionales al finalizar: una en Interiorismo 3D y otra en Paisajismo 3D. El perfil profesional más completo del mercado.",
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"/></svg>',
+    tag: "2 Certificaciones"
+  },
+  {
+    title: "Dominio Total del Espacio",
+    description: "Diseña desde el salón hasta el jardín. Dominas interiores con SketchUp y V-Ray, y exteriores con Vectorworks Landmark y Lumion. Una habilidad única en el mercado.",
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>',
+    tag: "Portafolio Completo"
+  },
+  {
+    title: "Demanda Global Doble",
+    description: "El interiorismo de lujo y el paisajismo de alta gama son dos de los nichos más rentables a nivel internacional. Con este programa accedes a ambos simultáneamente.",
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>',
+    tag: "Alta Demanda"
+  },
+  {
+    title: "Stack Técnico Completo",
+    description: "AutoCAD, Revit, SketchUp, V-Ray, Vectorworks Landmark, Lumion, Midjourney, Photoshop. El toolkit profesional más amplio del sector, todo en un solo programa.",
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"/></svg>',
+    tag: "Tech-Elite"
+  },
+  {
+    title: "IA Aplicada a Ambas Disciplinas",
+    description: "Integra inteligencia artificial en proyectos de interior y exterior: conceptualización con Midjourney, renders instantáneos con Veras AI y presentación asistida a clientes.",
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>',
+    tag: "IA + Diseño"
+  },
+  {
+    title: "Red de Contactos Ampliada",
+    description: "Accede a la red combinada de arquitectos, interioristas, paisajistas, desarrolladores de Real Estate y marcas de mobiliario interior y exterior.",
+    icon: '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>',
+    tag: "Networking"
+  }
+];
+
+const syllabus = [
+  {
+    title: "MÓDULO 1: FUNDAMENTOS Y BOTÁNICA APLICADA AL DISEÑO",
+    content: [
+      "Historia y principios del paisajismo; diferencias con el interiorismo",
+      "Análisis de terreno: topografía, orientación solar, clima y suelo",
+      "Clasificación de especies vegetales por función, porte y clima",
+      "Selección de plantas según zona climática (LATAM, España y EE.UU.)",
+      "Paletas vegetales, xerojardinería y mantenimiento de especies",
+      "Examen Módulo 1"
+    ]
+  },
+  {
+    title: "MÓDULO 2: COMPOSICIÓN Y DISTRIBUCIÓN DE ESPACIOS EXTERIORES",
+    content: [
+      "Zonificación funcional: social, privada y de servicio",
+      "Circulación, senderos y puntos focales",
+      "Estilos de jardín: mediterráneo, tropical, zen y contemporáneo",
+      "Casos de estudio de proyectos residenciales y comerciales",
+      "Examen Módulo 2"
+    ]
+  },
+  {
+    title: "MÓDULO 3: HARDSCAPING Y OUTDOOR LIVING",
+    content: [
+      "Terrazas, patios, pérgolas, piscinas y muros de contención",
+      "Materiales: piedra natural, madera, concreto y deck",
+      "Iluminación exterior técnica y decorativa",
+      "Cocinas exteriores, áreas de fogata y mobiliario de exterior",
+      "Tendencias: diseño biofílico, jardines comestibles, low-maintenance",
+      "Examen Módulo 3"
+    ]
+  },
+  {
+    title: "MÓDULO 4: PLANIMETRÍA TÉCNICA — AUTOCAD Y VECTORWORKS LANDMARK",
+    content: [
+      "Interfaz y Configuración Pro en AutoCAD.",
+      "Demostración Técnica: AutoCAD (Parte I)",
+      "Demostración Técnica: AutoCAD (Parte II)",
+      "Demostración Técnica: AutoCAD (Parte III)",
+      "Dibujo Técnico: Muros, Vanos y Estructuras.",
+      "Gestión de Capas (Layers) y Bloques Dinámicos.",
+      "Maquetación, Escalas e Impresión Profesional.",
+      "Planos de plantación con medidas y especificaciones técnicas",
+      "De AutoCAD a SketchUp: Topografía",
+      "Diseño de sistemas de riego y manejo de drenaje",
+      "Introducción a Vectorworks Landmark y librerías botánicas",
+      "Demostración Técnica: Vectorworks Landmark (Parte I)",
+      "Demostración Técnica: Vectorworks Landmark (Parte II)",
+      "Examen Módulo 4"
+    ]
+  },
+  {
+    title: "MÓDULO 5: MODELADO 3D Y RENDER — SKETCHUP Y LUMION",
+    content: [
+      "Demostración Técnica: SketchUp (Parte I)",
+      "Demostración Técnica: SketchUp (Parte II)",
+      "Fundamentos de modelado 3D en SketchUp para paisajismo",
+      "Plugins de vegetación y mobiliario exterior",
+      "Modelado Ágil y Arquitectónico en SketchUp Pro.",
+      "Organización Avanzada: Grupos, Componentes y Etiquetas.",
+      "Modelado de terreno y curvas de nivel",
+      "Demostración Técnica: Lumion (Parte I)",
+      "Demostración Técnica: Lumion (Parte II)",
+      "Demostración Técnica: Lumion (Parte III)",
+      "Demostración Técnica: Lumion (Parte IV)",
+      "Render fotorrealista en Lumion: iluminación, atmósferas y materiales.",
+      "Examen Módulo 5"
+    ]
+  },
+  {
+    title: "MÓDULO 6: GESTIÓN DE PROYECTOS, PRESUPUESTOS Y EMPRENDIMIENTO",
+    content: [
+      "Costeo de materiales y mano de obra; gestión de proveedores.",
+      "Contratos, cronogramas y aspectos legales.",
+      "Pricing de servicios y presentación de propuestas a clientes.",
+      "Marketing digital para paisajistas y diseñadores de exteriores.",
+      "Examen Módulo 6."
+    ]
+  },
+  {
+    title: "MÓDULO 7: DISEÑO DE EXTERIORES Y PAISAJISMO CON IA",
+    content: [
+      "Generación de conceptos e ideación con IA (Midjourney, DALL-E u otras) para propuestas preliminares antes del modelado.",
+      "IA aplicada a selección vegetal y diagnóstico: identificación de especies, plagas y sugerencias de paletas por clima.",
+      "IA para presentación y comunicación con cliente: mejora de renders, variaciones de propuesta y redacción asistida de propuestas comerciales.",
+      "Examen Módulo 7."
+    ]
+  },
+  {
+    title: "MÓDULO 8: PROYECTO FINAL INTEGRADOR",
+    content: [
+      "Diseño completo de un proyecto real o simulado.",
+      "Entregables: planimetría técnica, render 3D, presupuesto y presentación."
+    ]
+  }
+];
+
+const courseSchema = {
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Doble Titulación: Máster en Interiorismo 3D + Máster en Paisajismo 3D",
+  "description": "Doble titulación internacional que combina el Máster en Interiorismo, Diseño y Decoración de Interiores 3D con el Máster en Diseño de Exteriores, Paisajismo y Render 3D. 8 lecciones especializadas, 48 temas, 7 exámenes con diploma apostillado.",
+  "provider": {
+    "@type": "EducationalOrganization",
+    "name": "Instituto Online Osbord",
+    "url": "https://osbord.edu"
+  },
+  "educationalLevel": "Máster",
+  "numberOfCredits": 60,
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "Online",
+    "courseWorkload": "PT600H"
+  }
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://osbord.edu" },
+    { "@type": "ListItem", "position": 2, "name": "Escuela de Arquitectura y Diseño", "item": "https://osbord.edu/us/escuela/design" },
+    { "@type": "ListItem", "position": 3, "name": "Doble Titulación Interiorismo + Paisajismo 3D", "item": "https://osbord.edu/us/masters/doble-titulacion-diseno" }
+  ]
+};
+---
+
+<Layout
+  title="Doble Titulación: Máster en Interiorismo 3D + Máster en Paisajismo 3D"
+  description="Obtén dos certificaciones internacionales en un solo programa: Máster en Interiorismo, Diseño 3D y Máster en Paisajismo y Render 3D. El perfil más completo del sector, con diploma apostillado."
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(courseSchema)} />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+  <Header />
+  <main>
+    <!-- Course Hero -->
+    <section class="bg-brand-navy py-24 lg:py-32 text-white relative overflow-hidden">
+      <div class="absolute inset-0">
+        <div class="absolute inset-0 w-1/2 overflow-hidden opacity-35">
+          <Image src={designImg} alt="Interiorismo 3D" class="w-full h-full object-cover" width={960} height={1080} loading="eager" />
+        </div>
+        <div class="absolute inset-0 left-1/2 w-1/2 overflow-hidden opacity-35">
+          <Image src={paisajeImg} alt="Paisajismo 3D" class="w-full h-full object-cover object-center" width={960} height={1080} loading="eager" />
+        </div>
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-r from-brand-navy via-brand-navy/75 to-brand-navy/85"></div>
+
+      <div class="relative max-w-7xl mx-auto px-6">
+        <nav class="mb-12" aria-label="Breadcrumb">
+          <ol class="flex items-center gap-2 text-xs text-gray-400">
+            <li><a href="/us/" class="hover:text-brand-gold transition-colors">Inicio</a></li>
+            <li><span class="mx-1">/</span></li>
+            <li><a href="/us/escuela/design" class="hover:text-brand-gold transition-colors">Arquitectura y Diseño</a></li>
+            <li><span class="mx-1">/</span></li>
+            <li class="text-brand-gold font-semibold text-[10px] tracking-widest">Doble Titulación</li>
+          </ol>
+        </nav>
+
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="space-y-8 animate-fade-in-up">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-gold/15 border border-brand-gold/30">
+              <svg class="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-1.043 3.296A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"/>
+              </svg>
+              <span class="text-brand-gold font-extrabold text-xs uppercase tracking-widest">Doble Titulación Internacional</span>
+            </div>
+
+            <span class="section-label block">Escuela de Arquitectura y Diseño</span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-[1.05] tracking-tight uppercase">
+              MÁSTER EN <span class="text-brand-gold">INTERIORISMO 3D</span>
+              <span class="block text-3xl sm:text-4xl lg:text-5xl text-white/70 mt-2">+</span>
+              <span class="block text-3xl sm:text-4xl lg:text-5xl">MÁSTER EN <span class="text-brand-gold">PAISAJISMO 3D</span></span>
+            </h1>
+            <p class="text-lg text-gray-200 max-w-lg leading-relaxed">
+              La formación más completa del sector: domina el diseño de interiores y exteriores de lujo en un único programa con doble certificación internacional.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-8 pt-4">
+              <div class="flex flex-col">
+                <p class="text-brand-gold font-extrabold text-3xl">8</p>
+                <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold">Módulos</p>
+              </div>
+              <div class="w-px h-10 bg-white/20"></div>
+              <div class="flex flex-col">
+                <p class="text-brand-gold font-extrabold text-3xl">6 Meses</p>
+                <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold">Duración</p>
+              </div>
+              <div class="w-px h-10 bg-white/20"></div>
+              <div class="flex flex-col">
+                <p class="text-brand-gold font-extrabold text-3xl">2 Títulos</p>
+                <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold">Certificaciones</p>
+              </div>
+              <div class="w-px h-10 bg-white/20"></div>
+              <div class="flex flex-col">
+                <p class="text-brand-gold font-extrabold text-3xl">Online</p>
+                <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold">Modalidad</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative animate-fade-in-up delay-300">
+            <div class="absolute -top-10 -right-6 z-20">
+              <AccreditationBadge className="scale-75 md:scale-90" />
+            </div>
+            <WhatsAppBox programName={programName} />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Plan de Estudios Section -->
+    <section class="section-padding bg-white">
+      <div class="grid lg:grid-cols-3 gap-16 max-w-7xl mx-auto px-6">
+        <div class="lg:col-span-1 space-y-6">
+          <p class="section-label">Plan de Estudios</p>
+          <h2 class="text-3xl font-extrabold tracking-tight">Programa Académico</h2>
+          <div class="gold-divider"></div>
+          <p class="text-gray-500 leading-relaxed">
+            Formación integral que combina botánica aplicada, diseño de espacios exteriores y el dominio técnico de las herramientas 3D más demandadas del sector.
+          </p>
+
+          <div class="p-6 bg-brand-neutral rounded-brand-lg border border-gray-100 space-y-4">
+            <h4 class="font-extrabold text-sm uppercase tracking-wider">¿Qué incluye?</h4>
+            <ul class="space-y-3">
+              {[
+                "8 Lecciones y 48 Temas especializados.",
+                "7 Evaluaciones y Proyecto Final.",
+                "Acceso al campus virtual 24/7.",
+                "Biblioteca de assets y librerías botánicas.",
+                "2 Certificaciones internacionales con diploma apostillado.",
+                "Comunidad privada de alumnos."
+              ].map(item => (
+                <li class="flex items-center gap-3 text-sm text-gray-600">
+                  <span class="w-5 h-5 rounded-full bg-brand-gold/10 flex items-center justify-center flex-shrink-0">
+                    <span class="w-1.5 h-1.5 bg-brand-gold rounded-full"></span>
+                  </span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div class="lg:col-span-2">
+          <CourseAccordion syllabus={syllabus} />
+        </div>
+      </div>
+    </section>
+
+    <BenefitsSection formationName={programName} benefits={benefits} />
+
+    <TeachersSection limitTo={["Prof. Alejandro Vivas"]} />
+    <DiplomaSection programName={formationFullName} />
+    <Testimonials />
+
+    <CTASection
+      variant="dark"
+      headline="El perfil más completo del sector, en un solo programa"
+      subtext="Domina el diseño de interiores y exteriores de lujo con doble certificación internacional. Únete a la próxima cohorte y transforma tu carrera creativa."
+      buttonText="SOLICITAR ADMISIÓN"
+      programName={formationFullName}
+    />
+  </main>
+  <Footer />
+</Layout>

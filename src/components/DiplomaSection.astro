@@ -4,9 +4,10 @@ import diplomaImg from '../assets/diploma-v2.png';
 
 interface Props {
   className?: string;
+  programName?: string;
 }
 
-const { className = "" } = Astro.props;
+const { className = "", programName } = Astro.props;
 
 const diplomaPathname = Astro.url.pathname;
 const isUS = diplomaPathname.includes('/us');
@@ -16,10 +17,11 @@ const diplomaProgramMap: Record<string, string> = {
   'interiorismo': 'Máster en Interiorismo, Diseño y Decoración de Interiores 3D',
   'paisajismo': 'Máster en Diseño de Exteriores, Paisajismo y Render 3D',
   'wedding-planner': 'Máster Ejecutivo en Organización de Eventos & Wedding Planner',
+  'doble-titulacion-diseno': 'Doble Titulación: Máster en Interiorismo, Diseño y Decoración de Interiores 3D + Máster en Diseño de Exteriores, Paisajismo y Render 3D',
 };
 
 const diplomaMasterMatch = diplomaPathname.match(/\/masters\/([^/]+)/);
-const diplomaCurrentProgram = diplomaMasterMatch ? (diplomaProgramMap[diplomaMasterMatch[1]] ?? 'un máster o curso') : 'un máster o curso';
+const diplomaCurrentProgram = programName ?? (diplomaMasterMatch ? (diplomaProgramMap[diplomaMasterMatch[1]] ?? 'un máster o curso') : 'un máster o curso');
 const diplomaWhatsappUrl = `https://wa.me/13072923715?text=${encodeURIComponent(`Hola, vengo de la página del Instituto Osbord y estoy interesado en información sobre el ${diplomaCurrentProgram}.`)}`;
 ---
 

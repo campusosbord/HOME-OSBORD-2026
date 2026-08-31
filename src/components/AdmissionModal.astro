@@ -12,6 +12,7 @@ const origin = Astro.url.href;
 const programs = [
   "Máster en Interiorismo, Diseño y Decoración de Interiores 3D",
   "Máster en Diseño de Exteriores, Paisajismo y Render 3D",
+  "Doble Titulación: Máster en Interiorismo, Diseño y Decoración de Interiores 3D + Máster en Diseño de Exteriores, Paisajismo y Render 3D",
   "Máster Ejecutivo en Organización de Eventos & Wedding Planner",
   "Curso Profesional Superior: Auxiliar de Enfermería Clínica"
 ];
@@ -235,8 +236,11 @@ const whatsappUrl = `https://wa.me/13072923715?text=${encodeURIComponent(text)}`
     document.body.style.overflow = '';
   }
 
-  triggers.forEach(trigger => {
-    trigger.addEventListener('click', openModal);
+  document.addEventListener('click', (e) => {
+    const trigger = (e.target as HTMLElement | null)?.closest('.trigger-admission-modal');
+    if (trigger) {
+      openModal(e);
+    }
   });
 
   closeBtn?.addEventListener('click', closeModal);
