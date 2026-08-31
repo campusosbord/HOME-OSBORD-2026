@@ -8,15 +8,60 @@ const siteUrl = 'https://osbord.com';
 const posts = await getCollection('blog');
 
 const staticPages = [
+  // Portadas principales
   { url: '/', priority: '1.0', changefreq: 'weekly' },
+  { url: '/latam/', priority: '1.0', changefreq: 'weekly' },
+  { url: '/us/', priority: '1.0', changefreq: 'weekly' },
+  
+  // Blog
   { url: '/blog/', priority: '0.9', changefreq: 'daily' },
-  { url: '/masters/wedding-planner', priority: '0.9', changefreq: 'monthly' },
-  { url: '/masters/interiorismo', priority: '0.9', changefreq: 'monthly' },
-  { url: '/masters/paisajismo', priority: '0.8', changefreq: 'monthly' },
-  { url: '/masters/enfermeria', priority: '0.8', changefreq: 'monthly' },
-  { url: '/legal', priority: '0.2', changefreq: 'yearly' },
-  { url: '/privacidad', priority: '0.2', changefreq: 'yearly' },
-  { url: '/cookies', priority: '0.2', changefreq: 'yearly' },
+
+  // Programas LATAM
+  { url: '/latam/masters/doble-titulacion-diseno', priority: '0.95', changefreq: 'weekly' },
+  { url: '/latam/masters/interiorismo', priority: '0.9', changefreq: 'weekly' },
+  { url: '/latam/masters/paisajismo', priority: '0.9', changefreq: 'weekly' },
+  { url: '/latam/masters/wedding-planner', priority: '0.9', changefreq: 'weekly' },
+  { url: '/latam/masters/enfermeria', priority: '0.85', changefreq: 'weekly' },
+
+  // Programas US
+  { url: '/us/masters/doble-titulacion-diseno', priority: '0.95', changefreq: 'weekly' },
+  { url: '/us/masters/interiorismo', priority: '0.9', changefreq: 'weekly' },
+  { url: '/us/masters/paisajismo', priority: '0.9', changefreq: 'weekly' },
+  { url: '/us/masters/wedding-planner', priority: '0.9', changefreq: 'weekly' },
+  { url: '/us/masters/enfermeria', priority: '0.85', changefreq: 'weekly' },
+
+  // Escuelas LATAM
+  { url: '/latam/escuela/diseno', priority: '0.8', changefreq: 'monthly' },
+  { url: '/latam/escuela/eventos', priority: '0.8', changefreq: 'monthly' },
+  { url: '/latam/escuela/salud', priority: '0.8', changefreq: 'monthly' },
+
+  // Escuelas US
+  { url: '/us/escuela/diseno', priority: '0.8', changefreq: 'monthly' },
+  { url: '/us/escuela/eventos', priority: '0.8', changefreq: 'monthly' },
+  { url: '/us/escuela/salud', priority: '0.8', changefreq: 'monthly' },
+
+  // Institucional LATAM
+  { url: '/latam/quienes-somos', priority: '0.7', changefreq: 'monthly' },
+  { url: '/latam/sede-usa', priority: '0.7', changefreq: 'monthly' },
+  { url: '/latam/metodologia', priority: '0.7', changefreq: 'monthly' },
+  { url: '/latam/admisiones', priority: '0.8', changefreq: 'monthly' },
+  { url: '/latam/contacto', priority: '0.8', changefreq: 'monthly' },
+  { url: '/latam/comunidad', priority: '0.6', changefreq: 'monthly' },
+  { url: '/latam/verificacion', priority: '0.6', changefreq: 'monthly' },
+
+  // Institucional US
+  { url: '/us/quienes-somos', priority: '0.7', changefreq: 'monthly' },
+  { url: '/us/sede-usa', priority: '0.7', changefreq: 'monthly' },
+  { url: '/us/metodologia', priority: '0.7', changefreq: 'monthly' },
+  { url: '/us/admisiones', priority: '0.8', changefreq: 'monthly' },
+  { url: '/us/contacto', priority: '0.8', changefreq: 'monthly' },
+  { url: '/us/comunidad', priority: '0.6', changefreq: 'monthly' },
+  { url: '/us/verificacion', priority: '0.6', changefreq: 'monthly' },
+
+  // Legal
+  { url: '/legal', priority: '0.3', changefreq: 'yearly' },
+  { url: '/privacidad', priority: '0.3', changefreq: 'yearly' },
+  { url: '/cookies', priority: '0.3', changefreq: 'yearly' },
 ];
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
