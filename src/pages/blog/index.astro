@@ -9,7 +9,24 @@ const allPosts = await getCollection('blog');
 const sortedPosts = allPosts.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
 
 // Visual categorization helpers
-const getCategoryLabel = (category: string) => category === 'wedding-planner' ? 'Wedding Planning' : 'Interiorismo';
+const getCategoryLabel = (category: string) => {
+  switch (category) {
+    case 'wedding-planner': return 'Wedding Planning';
+    case 'interiorismo': return 'Interiorismo';
+    case 'paisajismo': return 'Paisajismo';
+    case 'enfermeria': return 'Auxiliar de Enfermería';
+    default: return category;
+  }
+};
+const getCategoryBadgeClass = (category: string) => {
+  switch (category) {
+    case 'wedding-planner': return 'bg-rose-500/10 text-rose-600 border border-rose-400/20';
+    case 'interiorismo': return 'bg-amber-500/10 text-amber-600 border border-amber-400/20';
+    case 'paisajismo': return 'bg-emerald-500/10 text-emerald-600 border border-emerald-400/20';
+    case 'enfermeria': return 'bg-sky-500/10 text-sky-600 border border-sky-400/20';
+    default: return 'bg-amber-500/10 text-amber-600 border border-amber-400/20';
+  }
+};
 ---
 
 <Layout 
@@ -53,6 +70,18 @@ const getCategoryLabel = (category: string) => category === 'wedding-planner' ? 
           >
             Interiorismo
           </button>
+          <button 
+            data-filter="paisajismo" 
+            class="px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300 bg-brand-neutral text-brand-navy hover:bg-emerald-500/10 hover:text-emerald-600"
+          >
+            Paisajismo
+          </button>
+          <button 
+            data-filter="enfermeria" 
+            class="px-5 py-2.5 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-300 bg-brand-neutral text-brand-navy hover:bg-sky-500/10 hover:text-sky-600"
+          >
+            Enfermería
+          </button>
         </div>
 
         <!-- Buscador -->
@@ -72,7 +101,7 @@ const getCategoryLabel = (category: string) => category === 'wedding-planner' ? 
       <!-- Listado de Artículos -->
       <div id="blog-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {sortedPosts.map((post) => {
-          const categoryClass = post.data.category === 'wedding-planner' ? 'bg-rose-500/10 text-rose-600 border border-rose-400/20' : 'bg-amber-500/10 text-amber-600 border border-amber-400/20';
+          const categoryClass = getCategoryBadgeClass(post.data.category);
           return (
             <article 
               data-category={post.data.category} 
